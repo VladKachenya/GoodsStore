@@ -217,16 +217,6 @@
         "runtime": {
           "bin/placeholder/GoodsShop.Core.dll": {}
         }
-      },
-      "GoodsShop.Data/1.0.0": {
-        "type": "project",
-        "framework": "Unsupported,Version=v0.0",
-        "compile": {
-          "bin/placeholder/GoodsShop.Data.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/GoodsShop.Data.dll": {}
-        }
       }
     }
   },
@@ -705,17 +695,11 @@
       "type": "project",
       "path": "../../Libraries/GoodsShop.Core/GoodsShop.Core.csproj",
       "msbuildProject": "../../Libraries/GoodsShop.Core/GoodsShop.Core.csproj"
-    },
-    "GoodsShop.Data/1.0.0": {
-      "type": "project",
-      "path": "../../GoodsShop.Data/GoodsShop.Data.csproj",
-      "msbuildProject": "../../GoodsShop.Data/GoodsShop.Data.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
       "GoodsShop.Core >= 1.0.0",
-      "GoodsShop.Data >= 1.0.0",
       "Microsoft.NETCore.App >= 2.1.0"
     ]
   },
@@ -749,9 +733,6 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\VlAD\\Desktop\\EpamTasks\\GoodsStore\\src\\GoodsShop.Data\\GoodsShop.Data.csproj": {
-              "projectPath": "C:\\Users\\VlAD\\Desktop\\EpamTasks\\GoodsStore\\src\\GoodsShop.Data\\GoodsShop.Data.csproj"
-            },
             "C:\\Users\\VlAD\\Desktop\\EpamTasks\\GoodsStore\\src\\Libraries\\GoodsShop.Core\\GoodsShop.Core.csproj": {
               "projectPath": "C:\\Users\\VlAD\\Desktop\\EpamTasks\\GoodsStore\\src\\Libraries\\GoodsShop.Core\\GoodsShop.Core.csproj"
             }
@@ -781,16 +762,5 @@
         "warn": true
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1201",
-      "level": "Error",
-      "message": "Project GoodsShop.Data is not compatible with netcoreapp2.1 (.NETCoreApp,Version=v2.1). Project GoodsShop.Data supports: netcoreapp2.2 (.NETCoreApp,Version=v2.2)",
-      "libraryId": "GoodsShop.Data",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v2.1"
-      ]
-    }
-  ]
+  }
 }
