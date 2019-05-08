@@ -208,14 +208,27 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "GoodsShop.Core/1.0.0": {
+      "GoodsStore.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "compile": {
-          "bin/placeholder/GoodsShop.Core.dll": {}
+          "bin/placeholder/GoodsStore.Core.dll": {}
         },
         "runtime": {
-          "bin/placeholder/GoodsShop.Core.dll": {}
+          "bin/placeholder/GoodsStore.Core.dll": {}
+        }
+      },
+      "GoodsStore.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "GoodsStore.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GoodsStore.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GoodsStore.Infrastructure.dll": {}
         }
       }
     }
@@ -691,15 +704,21 @@
         "netstandard.library.nuspec"
       ]
     },
-    "GoodsShop.Core/1.0.0": {
+    "GoodsStore.Core/1.0.0": {
       "type": "project",
-      "path": "../../Libraries/GoodsShop.Core/GoodsShop.Core.csproj",
-      "msbuildProject": "../../Libraries/GoodsShop.Core/GoodsShop.Core.csproj"
+      "path": "../../Libraries/GoodsStore.Core/GoodsStore.Core.csproj",
+      "msbuildProject": "../../Libraries/GoodsStore.Core/GoodsStore.Core.csproj"
+    },
+    "GoodsStore.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../../Libraries/GoodsStore.Infrastructure/GoodsStore.Infrastructure.csproj",
+      "msbuildProject": "../../Libraries/GoodsStore.Infrastructure/GoodsStore.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "GoodsShop.Core >= 1.0.0",
+      "GoodsStore.Core >= 1.0.0",
+      "GoodsStore.Infrastructure >= 1.0.0",
       "Microsoft.NETCore.App >= 2.1.0"
     ]
   },
@@ -733,8 +752,11 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\VlAD\\Desktop\\EpamTasks\\GoodsStore\\src\\Libraries\\GoodsShop.Core\\GoodsShop.Core.csproj": {
-              "projectPath": "C:\\Users\\VlAD\\Desktop\\EpamTasks\\GoodsStore\\src\\Libraries\\GoodsShop.Core\\GoodsShop.Core.csproj"
+            "C:\\Users\\VlAD\\Desktop\\EpamTasks\\GoodsStore\\src\\Libraries\\GoodsStore.Core\\GoodsStore.Core.csproj": {
+              "projectPath": "C:\\Users\\VlAD\\Desktop\\EpamTasks\\GoodsStore\\src\\Libraries\\GoodsStore.Core\\GoodsStore.Core.csproj"
+            },
+            "C:\\Users\\VlAD\\Desktop\\EpamTasks\\GoodsStore\\src\\Libraries\\GoodsStore.Infrastructure\\GoodsStore.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\VlAD\\Desktop\\EpamTasks\\GoodsStore\\src\\Libraries\\GoodsStore.Infrastructure\\GoodsStore.Infrastructure.csproj"
             }
           }
         }

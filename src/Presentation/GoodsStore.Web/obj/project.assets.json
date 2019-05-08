@@ -4334,21 +4334,35 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
-      "GoodsShop.Core/1.0.0": {
+      "GoodsStore.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "compile": {
-          "bin/placeholder/GoodsShop.Core.dll": {}
+          "bin/placeholder/GoodsStore.Core.dll": {}
         },
         "runtime": {
-          "bin/placeholder/GoodsShop.Core.dll": {}
+          "bin/placeholder/GoodsStore.Core.dll": {}
+        }
+      },
+      "GoodsStore.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "GoodsStore.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GoodsStore.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GoodsStore.Infrastructure.dll": {}
         }
       },
       "GoodsStore.Web.Framework/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
-          "GoodsShop.Core": "1.0.0"
+          "GoodsStore.Core": "1.0.0",
+          "GoodsStore.Infrastructure": "1.0.0"
         },
         "compile": {
           "bin/placeholder/GoodsStore.Web.Framework.dll": {}
@@ -11809,10 +11823,15 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
-    "GoodsShop.Core/1.0.0": {
+    "GoodsStore.Core/1.0.0": {
       "type": "project",
-      "path": "../../Libraries/GoodsShop.Core/GoodsShop.Core.csproj",
-      "msbuildProject": "../../Libraries/GoodsShop.Core/GoodsShop.Core.csproj"
+      "path": "../../Libraries/GoodsStore.Core/GoodsStore.Core.csproj",
+      "msbuildProject": "../../Libraries/GoodsStore.Core/GoodsStore.Core.csproj"
+    },
+    "GoodsStore.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../../Libraries/GoodsStore.Infrastructure/GoodsStore.Infrastructure.csproj",
+      "msbuildProject": "../../Libraries/GoodsStore.Infrastructure/GoodsStore.Infrastructure.csproj"
     },
     "GoodsStore.Web.Framework/1.0.0": {
       "type": "project",
@@ -11822,7 +11841,6 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "GoodsShop.Core >= 1.0.0",
       "GoodsStore.Web.Framework >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
@@ -11859,9 +11877,6 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\VlAD\\Desktop\\EpamTasks\\GoodsStore\\src\\Libraries\\GoodsShop.Core\\GoodsShop.Core.csproj": {
-              "projectPath": "C:\\Users\\VlAD\\Desktop\\EpamTasks\\GoodsStore\\src\\Libraries\\GoodsShop.Core\\GoodsShop.Core.csproj"
-            },
             "C:\\Users\\VlAD\\Desktop\\EpamTasks\\GoodsStore\\src\\Presentation\\GoodsStore.Web.Framework\\GoodsStore.Web.Framework.csproj": {
               "projectPath": "C:\\Users\\VlAD\\Desktop\\EpamTasks\\GoodsStore\\src\\Presentation\\GoodsStore.Web.Framework\\GoodsStore.Web.Framework.csproj"
             }
