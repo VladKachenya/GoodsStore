@@ -2,7 +2,7 @@
 
 namespace GoodsStore.Core.Interfaces.Specifications
 {
-    public interface ICatalogItemFilterSpecification : ISpecification<CatalogItemBase>
+    public interface ICatalogItemFilterSpecification : ISpecification<CatalogItem>
     {
         
     }

@@ -9,7 +9,7 @@ namespace GoodsStore.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public HomeController(Func<ISpecification<CatalogItemBase>> refrigerator)
+        public HomeController(Func<ISpecification<CatalogItem>> refrigerator)
         {
 
         }

@@ -15,7 +15,7 @@ namespace GoodsStore.Core.AppInfrastructure
         private IServiceProvider _serviceProvider { get; set; }
         #endregion
 
-        #region Implementation of I AppConfigurator
+        #region Implementation of IAppConfigurator
 
         public IServiceProvider ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
@@ -34,7 +34,8 @@ namespace GoodsStore.Core.AppInfrastructure
             }
 
             //register dependencies
-            RegisterDependencies(services, typeFinder);
+            _serviceProvider = RegisterDependencies(services, typeFinder);
+            StaticTypeResolver.SetServiseProvaider(_serviceProvider);
             return _serviceProvider;
         }
 
@@ -85,9 +86,9 @@ namespace GoodsStore.Core.AppInfrastructure
             }
 
             //create service provider
-            _serviceProvider = new AutofacServiceProvider(containerBuilder.Build());
+            var serviceProvider = new AutofacServiceProvider(containerBuilder.Build());
 
-            return _serviceProvider;
+            return serviceProvider;
         }
 
         #endregion

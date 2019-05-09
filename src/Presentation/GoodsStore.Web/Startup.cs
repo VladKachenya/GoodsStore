@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using GoodsStore.Infrastructure.Data;
 using GoodsStore.Web.Framework.AppInfrastructure.Extentions;
+using Microsoft.EntityFrameworkCore;
 
 namespace GoodsStore.Web
 {
@@ -29,26 +31,6 @@ namespace GoodsStore.Web
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.ConfigureRequestPipeline(env);
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-                app.UseHsts();
-            }
-
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
-            app.UseCookiePolicy();
-
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
         }
     }
 }

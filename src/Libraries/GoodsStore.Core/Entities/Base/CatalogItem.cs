@@ -1,6 +1,6 @@
 ﻿namespace GoodsStore.Core.Entities.Base
 {
-    public abstract class CatalogItemBase
+    public  class CatalogItem : BaseEntity
     {
         public string Name { get; set; }
         public string Description { get; set; }

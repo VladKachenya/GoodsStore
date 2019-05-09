@@ -13,4 +13,8 @@
     <ProjectReference Include="..\GoodsStore.Web.Framework\GoodsStore.Web.Framework.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ModelFactories\" />
+  </ItemGroup>
+
 </Project>

@@ -1,5 +1,8 @@
 ﻿using GoodsStore.Core.Interfaces.AppInfrastructure;
+using GoodsStore.Infrastructure.Data;
+using GoodsStore.Web.Framework.AppInfrastructure.Extentions;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -14,18 +17,13 @@ namespace GoodsStore.Web.Framework.AppInfrastructure
             application.UseStaticFiles();
             application.UseCookiePolicy();
 
-            application.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            application.UseGoodsStoreMvc();
         }
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
+            services.AddDbContext<CatalogDbContext>();
             services.AddMvc();
-
         }
     }
 }

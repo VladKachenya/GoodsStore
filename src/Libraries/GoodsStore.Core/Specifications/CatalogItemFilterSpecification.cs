@@ -5,7 +5,7 @@ using GoodsStore.Core.Interfaces.Specifications;
 
 namespace GoodsStore.Core.Specifications
 {
-    public class CatalogItemFilterSpecification : BaseSpecification<CatalogItemBase>, ICatalogItemFilterSpecification
+    public class CatalogItemFilterSpecification : BaseSpecification<CatalogItem>, ICatalogItemFilterSpecification
     {
         public CatalogItemFilterSpecification(IEnumerable<int> brandIds, IEnumerable<int> typeIds, int skip, int take)
             : this(brandIds, typeIds)

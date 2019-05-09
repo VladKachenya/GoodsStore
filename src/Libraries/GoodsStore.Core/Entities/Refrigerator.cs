@@ -2,7 +2,7 @@
 
 namespace GoodsStore.Core.Entities
 {
-    public class Refrigerator : CatalogItemBase
+    public class Refrigerator : CatalogItem
     {
         public double Width { get; set; }
         public double Height { get; set; }
