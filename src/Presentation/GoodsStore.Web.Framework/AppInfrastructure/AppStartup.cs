@@ -22,7 +22,7 @@ namespace GoodsStore.Web.Framework.AppInfrastructure
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<CatalogDbContext>();
+            services.AddDbContext<GoodsStoreDbContext>();
             services.AddMvc();
         }
     }

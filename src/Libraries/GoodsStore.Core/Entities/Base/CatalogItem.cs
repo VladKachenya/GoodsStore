@@ -8,6 +8,6 @@
         public int ItemTypeId { get; set; }
         public ItemType ItemType { get; set; }
         public int ItemBrandId { get; set; }
-        public ItemBrand ItemBrand { get; set; }
+        public Brand Brand { get; set; }
     }
 }

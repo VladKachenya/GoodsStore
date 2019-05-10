@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GoodsStore.Core.AppInfrastructure
+namespace GoodsStore.Core.Helpers
 {
     public static class StaticTypeResolver
     {

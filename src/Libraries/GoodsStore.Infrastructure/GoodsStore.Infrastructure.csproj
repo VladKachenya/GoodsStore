@@ -7,6 +7,11 @@
   <ItemGroup>
     <Compile Remove="Data\Migrations\20190509140718_InitialMigration.cs" />
     <Compile Remove="Data\Migrations\20190509143502_InitialMigration.cs" />
+    <Compile Remove="Data\Migrations\20190509144940_InitialMigration.cs" />
+    <Compile Remove="Data\Migrations\20190509145403_AddedRefrigerators.cs" />
+    <Compile Remove="Data\Migrations\20190510192425_Initial.cs" />
+    <Compile Remove="Data\Migrations\20190510192552_Initial.cs" />
+    <Compile Remove="Data\Migrations\20190510192731_Initial1.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,6 +24,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GoodsStore.Core\GoodsStore.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
   </ItemGroup>
 
 </Project>

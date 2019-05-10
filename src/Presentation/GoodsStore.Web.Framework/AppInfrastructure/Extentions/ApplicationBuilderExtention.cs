@@ -1,4 +1,5 @@
 ﻿using GoodsStore.Core.AppInfrastructure;
+using GoodsStore.Core.Helpers;
 using GoodsStore.Web.Framework.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
