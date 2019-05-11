@@ -1,4 +1,5 @@
-﻿using GoodsStore.Core.Entities.Base;
+﻿using GoodsStore.Core.Entities;
+using GoodsStore.Core.Entities.Base;
 
 namespace GoodsStore.Core.Interfaces.Specifications
 {

@@ -1,4 +1,6 @@
-﻿namespace GoodsStore.Core.Entities.Base
+﻿using GoodsStore.Core.Entities.Base;
+
+namespace GoodsStore.Core.Entities
 {
     public  class CatalogItem : BaseEntity
     {
@@ -7,7 +9,7 @@
         public decimal Price { get; set; }
         public int ItemTypeId { get; set; }
         public ItemType ItemType { get; set; }
-        public int ItemBrandId { get; set; }
+        public int BrandId { get; set; }
         public Brand Brand { get; set; }
     }
 }

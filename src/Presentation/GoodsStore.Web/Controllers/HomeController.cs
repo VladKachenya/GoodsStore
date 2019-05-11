@@ -1,8 +1,8 @@
-﻿using System;
-using GoodsStore.Core.Entities.Base;
+﻿using GoodsStore.Core.Entities;
 using GoodsStore.Core.Interfaces.Specifications;
 using GoodsStore.Web.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Diagnostics;
 
 namespace GoodsStore.Web.Controllers

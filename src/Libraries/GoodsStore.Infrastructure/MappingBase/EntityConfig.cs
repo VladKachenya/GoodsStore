@@ -5,9 +5,9 @@ using GoodsStore.Core.Entities.Base;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace GoodsStore.Infrastructure.Mapping
+namespace GoodsStore.Infrastructure.MappingBase
 {
-    public abstract class GoodsStoreEntityTypeConfiguration<TEntity> : IMappingConfiguration, IEntityTypeConfiguration<TEntity> where TEntity : BaseEntity
+    public abstract class EntityConfig<TEntity> : IMappingConfiguration, IEntityTypeConfiguration<TEntity> where TEntity : BaseEntity
     {
         public abstract void Configure(EntityTypeBuilder<TEntity> builder);
 

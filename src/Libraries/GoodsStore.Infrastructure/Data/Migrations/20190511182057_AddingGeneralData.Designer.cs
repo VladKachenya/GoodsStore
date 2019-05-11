@@ -3,14 +3,16 @@ using GoodsStore.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GoodsStore.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(GoodsStoreDbContext))]
-    partial class GoodsStoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190511182057_AddingGeneralData")]
+    partial class AddingGeneralData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -214,62 +216,6 @@ namespace GoodsStore.Infrastructure.Data.Migrations
                     b.HasIndex("CatalogItemId");
 
                     b.ToTable("Refrigerators");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CatalogItemId = 1,
-                            FreezerCameraVolume = 25.0,
-                            Height = 10.0,
-                            RefrigeratorCameraVolume = 20.0,
-                            Width = 5.0
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CatalogItemId = 2,
-                            FreezerCameraVolume = 12.0,
-                            Height = 10.0,
-                            RefrigeratorCameraVolume = 25.0,
-                            Width = 6.0
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CatalogItemId = 3,
-                            FreezerCameraVolume = 20.0,
-                            Height = 12.0,
-                            RefrigeratorCameraVolume = 22.0,
-                            Width = 7.0
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CatalogItemId = 4,
-                            FreezerCameraVolume = 30.0,
-                            Height = 15.0,
-                            RefrigeratorCameraVolume = 29.0,
-                            Width = 4.0
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CatalogItemId = 5,
-                            FreezerCameraVolume = 25.0,
-                            Height = 8.0,
-                            RefrigeratorCameraVolume = 20.0,
-                            Width = 8.0
-                        },
-                        new
-                        {
-                            Id = 6,
-                            CatalogItemId = 6,
-                            FreezerCameraVolume = 25.0,
-                            Height = 15.0,
-                            RefrigeratorCameraVolume = 33.0,
-                            Width = 5.0
-                        });
                 });
 
             modelBuilder.Entity("GoodsStore.Core.Entities.Goods.Telephony.MobilePhone", b =>
@@ -285,23 +231,6 @@ namespace GoodsStore.Infrastructure.Data.Migrations
                     b.HasIndex("CatalogItemId");
 
                     b.ToTable("MobilePhones");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CatalogItemId = 7
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CatalogItemId = 7
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CatalogItemId = 7
-                        });
                 });
 
             modelBuilder.Entity("GoodsStore.Core.Entities.ItemType", b =>

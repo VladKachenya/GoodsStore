@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace GoodsStore.Infrastructure.Mapping
+namespace GoodsStore.Infrastructure.MappingBase
 {
     public interface IMappingConfiguration
     {

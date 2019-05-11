@@ -19,6 +19,9 @@
     <Compile Remove="Data\Migrations\20190511080203_Initial.cs" />
     <Compile Remove="Data\Migrations\20190511080358_Initial.cs" />
     <Compile Remove="Data\Migrations\20190511113023_Initial3.cs" />
+    <Compile Remove="Data\Migrations\20190511115254_Initial3.cs" />
+    <Compile Remove="Data\Migrations\20190511165259_InitialMigration.cs" />
+    <Compile Remove="Data\Migrations\20190511170720_OnAddCategoryMigration.cs" />
   </ItemGroup>
 
   <ItemGroup>

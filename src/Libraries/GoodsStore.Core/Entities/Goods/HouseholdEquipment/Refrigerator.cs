@@ -1,8 +1,9 @@
-﻿using GoodsStore.Core.Entities.Base;
+﻿using GoodsStore.Core.Entities;
+using GoodsStore.Core.Entities.Base;
 
-namespace GoodsStore.Core.Entities
+namespace GoodsStore.Core.Entities.Goods.HouseholdEquipment
 {
-    public class Refrigerator : CatalogItem
+    public class Refrigerator : ProductBaseEntity
     {
         public double Width { get; set; }
         public double Height { get; set; }
