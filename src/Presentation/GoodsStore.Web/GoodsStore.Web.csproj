@@ -10,11 +10,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GoodsStore.Web.Framework\GoodsStore.Web.Framework.csproj" />
+    <Folder Include="ModelFactories\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ModelFactories\" />
+    <ProjectReference Include="..\GoodsStore.Web.Framework\GoodsStore.Web.Framework.csproj" />
   </ItemGroup>
 
 </Project>

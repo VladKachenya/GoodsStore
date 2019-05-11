@@ -7,6 +7,7 @@ namespace GoodsStore.Infrastructure.EntityMapping
 {
     public class ItemBrandMap : GoodsStoreEntityTypeConfiguration<Brand>
     {
+
         public override void Configure(EntityTypeBuilder<Brand> builder)
         {
             builder.ToTable("Brands");

@@ -5,10 +5,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Migrations\20190511075828_Initial.cs" />
+    <Compile Remove="Data\Migrations\20190511080630_Initial.cs" />
+    <Compile Remove="Data\Migrations\20190511092443_Initial.cs" />
+    <Compile Remove="Data\Migrations\20190511100105_Initial.cs" />
+    <Compile Remove="Data\Migrations\20190511100651_Initial2.cs" />
+    <Compile Remove="Data\Migrations\20190511101104_Initial3.cs" />
+    <Compile Remove="Data\Migrations\20190511115506_Initial3.cs" />
+    <Compile Remove="Data\Migrations\20190511115858_Initial3.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Data\" />
-    <Folder Include="Entities\" />
     <Folder Include="AppInfrastructure\" />
+    <Folder Include="Data\Migrations\" />
   </ItemGroup>
 
   <ItemGroup>
