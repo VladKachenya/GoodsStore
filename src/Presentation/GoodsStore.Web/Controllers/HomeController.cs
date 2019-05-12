@@ -4,18 +4,26 @@ using GoodsStore.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+using GoodsStore.Core.Interfaces.Repositories;
 
 namespace GoodsStore.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public HomeController(Func<ISpecification<CatalogItem>> refrigerator)
-        {
+        private readonly IAsyncRepository<Category> _categoryRepository;
 
-        }
-        public IActionResult Index()
+
+        public HomeController(IAsyncRepository<Category> categoryRepository)
         {
-            return View();
+            _categoryRepository = categoryRepository;
+        }
+        public async Task<IActionResult> Index()
+        {
+            var categories = await _categoryRepository.ListAllAsync();
+            var categoryNames = categories.Select(c => c.CategoryName).ToList();
+            return View(categoryNames);
         }
 
         public IActionResult About()

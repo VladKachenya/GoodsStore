@@ -4,10 +4,13 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Reflection;
+using GoodsStore.Core.Entities.Base;
+using GoodsStore.Core.Interfaces;
+using GoodsStore.Core.Interfaces.Data;
 
 namespace GoodsStore.Infrastructure.Data
 {
-    public class GoodsStoreDbContext : DbContext
+    public class GoodsStoreDbContext : DbContext, IDbContext
     {
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -32,5 +35,15 @@ namespace GoodsStore.Infrastructure.Data
 
             base.OnModelCreating(modelBuilder);
         }
+
+
+        #region Implementation of IDbContext
+
+        public DbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
+        {
+            return base.Set<TEntity>();
+        }
+        #endregion
+
     }
 }

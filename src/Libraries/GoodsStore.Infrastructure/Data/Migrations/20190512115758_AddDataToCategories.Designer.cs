@@ -3,14 +3,16 @@ using GoodsStore.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GoodsStore.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(GoodsStoreDbContext))]
-    partial class GoodsStoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190512115758_AddDataToCategories")]
+    partial class AddDataToCategories
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

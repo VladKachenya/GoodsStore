@@ -1,5 +1,7 @@
 ﻿using GoodsStore.Core.Interfaces.AppInfrastructure;
+using GoodsStore.Core.Interfaces.Repositories;
 using GoodsStore.Infrastructure.Data;
+using GoodsStore.Infrastructure.Repositories;
 using GoodsStore.Web.Framework.AppInfrastructure.Extentions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +24,7 @@ namespace GoodsStore.Web.Framework.AppInfrastructure
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
+            //services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
             services.AddDbContext<GoodsStoreDbContext>();
             services.AddMvc();
         }

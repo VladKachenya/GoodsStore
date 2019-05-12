@@ -1,12 +1,13 @@
-﻿using GoodsStore.Core.Entities.Base;
-using System.Linq;
+﻿using System.Linq;
+using GoodsStore.Core.Entities.Base;
+using GoodsStore.Core.Interfaces.Data;
 using GoodsStore.Core.Interfaces.Specifications;
 
-namespace GoodsStore.Infrastructure.Data
+namespace GoodsStore.Infrastructure.Helpers
 {
-    public class SpecificationEvaluator<T> where T : BaseEntity
+    public class SpecificationEvaluator<TEntity> : ISpecificationEvaluator<TEntity> where TEntity : BaseEntity
     {
-        public IQueryable<T> GetQuery(IQueryable<T> inputQuery, ISpecification<T> specification)
+        public IQueryable<TEntity> GetQuery(IQueryable<TEntity> inputQuery, ISpecification<TEntity> specification)
         {
             var query = inputQuery;
 

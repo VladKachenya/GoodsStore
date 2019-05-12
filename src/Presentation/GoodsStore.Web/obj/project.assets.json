@@ -1728,11 +1728,11 @@
       "Microsoft.EntityFrameworkCore.Analyzers/2.2.4": {
         "type": "package"
       },
-      "Microsoft.EntityFrameworkCore.Design/2.2.4": {
+      "Microsoft.EntityFrameworkCore.Design/2.2.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.5.0",
-          "Microsoft.EntityFrameworkCore.Relational": "2.2.4"
+          "Microsoft.EntityFrameworkCore.Relational": "2.2.0"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.dll": {}
@@ -4465,7 +4465,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
-          "Autofac.Extensions.DependencyInjection": "4.4.0"
+          "Autofac.Extensions.DependencyInjection": "4.4.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
         },
         "compile": {
           "bin/placeholder/GoodsStore.Core.dll": {}
@@ -4478,9 +4479,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
-          "GoodsStore.Core": "1.0.0",
-          "Microsoft.EntityFrameworkCore.Design": "2.2.4",
-          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
+          "GoodsStore.Core": "1.0.0"
         },
         "compile": {
           "bin/placeholder/GoodsStore.Infrastructure.dll": {}
@@ -6028,10 +6027,10 @@
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Design/2.2.4": {
-      "sha512": "4SfnD7wYxr+OzcPOZYlzPtKtL1cdXk+a8g4bKc8QcgaGhpvVOTK5ROTZaOe10tmvFXFEJVZSGtXpFAbgiDFtjg==",
+    "Microsoft.EntityFrameworkCore.Design/2.2.0": {
+      "sha512": "cl26EJJogpPN8/Fd1L4hXfiiVgJoWw0XZ+e/723SjSDDZLnd8gRY7zzhCb2OA7XbURUxkwidozJ97qH8+36XUQ==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.design/2.2.4",
+      "path": "microsoft.entityframeworkcore.design/2.2.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6041,7 +6040,7 @@
         "lib/net461/Microsoft.EntityFrameworkCore.Design.xml",
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.dll",
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.xml",
-        "microsoft.entityframeworkcore.design.2.2.4.nupkg.sha512",
+        "microsoft.entityframeworkcore.design.2.2.0.nupkg.sha512",
         "microsoft.entityframeworkcore.design.nuspec"
       ]
     },

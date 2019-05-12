@@ -16,6 +16,12 @@ namespace GoodsStore.Infrastructure.EntityMapping
             {
                 new Category(){Id = 1, CategoryName = "Household equipment"},
                 new Category(){Id = 2, CategoryName = "Telephony"},
+                new Category(){Id = 3, CategoryName = "Chancellery"},
+                new Category(){Id = 4, CategoryName = "Сhildren's world"},
+                new Category(){Id = 5, CategoryName = "Computers"},
+                new Category(){Id = 6, CategoryName = "Health and beauty"},
+                new Category(){Id = 7, CategoryName = "Furniture and interior"},
+                new Category(){Id = 8, CategoryName = "Sport and tourism"}
             });
         }
     }
