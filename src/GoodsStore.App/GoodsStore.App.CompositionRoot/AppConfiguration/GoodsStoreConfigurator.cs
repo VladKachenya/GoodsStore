@@ -71,6 +71,7 @@ namespace GoodsStore.App.CompositionRoot.AppConfiguration
         protected virtual void RegisterDomainTypes(ContainerBuilder containerBuilder)
         {
             containerBuilder.RegisterType<CatalogItemFilterSpecification>().As<ISpecification<CatalogItem>>();
+
             //containerBuilder.RegisterType<RoutePublisher>().As<IRoutePublisher>().SingleInstance();
         }
 

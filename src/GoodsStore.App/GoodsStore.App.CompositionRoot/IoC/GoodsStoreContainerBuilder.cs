@@ -12,18 +12,18 @@ namespace GoodsStore.App.CompositionRoot.IoC
         {
             _containerBuilder = containerBuilder;
         }
-        public void RegisterType(Type t, bool isSingleton = false)
+        public void RegisterType(Type tTo, bool isSingleton = false)
         {
-            var res = _containerBuilder.RegisterType(t).AsSelf();
+            var res = _containerBuilder.RegisterType(tTo).AsSelf();
             if (isSingleton) res.SingleInstance();
         }
-        public void RegisterGeneric(Type tFrom, Type tTo)
+        public void RegisterGeneric(Type tTo, Type tFrom)
         {
-            _containerBuilder.RegisterGeneric(tFrom).As(tTo);
+            _containerBuilder.RegisterGeneric(tTo).As(tFrom);
         }
 
 
-        public void RegisterType<TFrom, TTo>(bool isSingleton = false) where TTo : TFrom
+        public void RegisterType<TTo, TFrom>(bool isSingleton = false) where TTo : TFrom
         {
             var res = _containerBuilder.RegisterType<TTo>().As<TFrom>();
             if (isSingleton) res.SingleInstance();
@@ -34,7 +34,7 @@ namespace GoodsStore.App.CompositionRoot.IoC
             RegisterType(typeof(T), isSingleton);
         }
 
-        public void RegisterType<TFrom, TTo>(string key, bool isSingleton = false) where TTo : TFrom
+        public void RegisterType<TTo, TFrom>(string key, bool isSingleton = false) where TTo : TFrom
         {
             var res = _containerBuilder.RegisterType<TTo>().As<TFrom>().Keyed<string>(key);
             if (isSingleton) res.SingleInstance();

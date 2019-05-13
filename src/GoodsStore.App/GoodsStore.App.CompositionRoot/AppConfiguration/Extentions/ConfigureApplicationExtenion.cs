@@ -12,7 +12,6 @@ namespace GoodsStore.App.CompositionRoot.AppConfiguration.Extentions
         public static IServiceProvider ConfigureApplicationServices(this IServiceCollection services,
             IConfiguration configuration, IHostingEnvironment hostingEnvironment)
         {
-            services.AddDbContext<GoodsStoreDbContext>();
             return AppConfiguratorContext.Current.ConfigureServices(services, configuration);
         }
 

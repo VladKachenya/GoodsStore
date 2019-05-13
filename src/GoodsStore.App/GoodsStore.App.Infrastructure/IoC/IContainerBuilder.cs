@@ -4,12 +4,12 @@ namespace GoodsStore.App.Infrastructure.IoC
 {
     public interface IContainerBuilder
     {
-        void RegisterType(Type t, bool isSingleton = false);
-        void RegisterType<TFrom, TTo>(bool isSingleton = false) where TTo : TFrom;
-        void RegisterType<T>(bool isSingleton = false);
+        void RegisterType(Type tTo, bool isSingleton = false);
+        void RegisterGeneric(Type tTo, Type tFrom);
 
-        void RegisterType<TFrom, TTo>(string key, bool isSingleton = false) where TTo : TFrom;
+        void RegisterType<TTo, TFrom>(bool isSingleton = false) where TTo : TFrom;
+        void RegisterType<TTo>(bool isSingleton = false);
 
-        void RegisterGeneric(Type tFrom, Type tTo);
+        void RegisterType<TTo, TFrom>(string key, bool isSingleton = false) where TTo : TFrom;
     }
 }

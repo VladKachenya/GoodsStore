@@ -9,9 +9,9 @@ namespace GoodsStore.Data.DataAccess.App
     {
         public void Register(IContainerBuilder containerBuilder)
         {
-            containerBuilder.RegisterType<IDbContext, GoodsStoreDbContext>();
-            //containerBuilder.RegisterGeneric(typeof(IAsyncRepository<>), typeof(EfRepository<>));
-            //containerBuilder.RegisterGeneric(typeof(ISpecificationEvaluator<>), typeof(SpecificationEvaluator<>));
+            containerBuilder.RegisterType<GoodsStoreDbContext, IDbContext>();
+            containerBuilder.RegisterGeneric(typeof(EfRepository<>), typeof(IAsyncRepository<>));
+            containerBuilder.RegisterGeneric(typeof(SpecificationEvaluator<>), typeof(ISpecificationEvaluator<>));
         }
     }
 }

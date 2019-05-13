@@ -6,12 +6,12 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.4.0" />
-    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\GoodsStore.Data\GoodsStore.Data.DataAccess\GoodsStore.Data.DataAccess.csproj" />
     <ProjectReference Include="..\..\GoodsStore.Data\GoodsStore.Data.Infrastructure\GoodsStore.Data.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\GoodsStore.Web.Infrastructure\GoodsStore.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\GoodsStore.App.Infrastructure\GoodsStore.App.Infrastructure.csproj" />
   </ItemGroup>
 

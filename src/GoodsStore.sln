@@ -7,23 +7,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F974371D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsStrore.Infrastructure.Tests", "Tests\GoodsStrore.Infrastructure.Tests\GoodsStrore.Infrastructure.Tests.csproj", "{EAE54A67-4E2C-445F-B60D-23C09CB672BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodsStore.Core", "Core\GoodsStore.Core\GoodsStore.Core.csproj", "{15D3892D-D2A3-41CC-8C19-5FEA645C7EB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsStore.Core", "Core\GoodsStore.Core\GoodsStore.Core.csproj", "{15D3892D-D2A3-41CC-8C19-5FEA645C7EB2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GoodsStore.Data", "GoodsStore.Data", "{D3B850C0-B9F3-4E10-84A6-054259E76F2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodsStore.Data.Infrastructure", "GoodsStore.Data\GoodsStore.Data.Infrastructure\GoodsStore.Data.Infrastructure.csproj", "{BE47E1E1-6F1E-490D-A5B8-EC3F9589E0D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsStore.Data.Infrastructure", "GoodsStore.Data\GoodsStore.Data.Infrastructure\GoodsStore.Data.Infrastructure.csproj", "{BE47E1E1-6F1E-490D-A5B8-EC3F9589E0D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodsStore.Data.DataAccess", "GoodsStore.Data\GoodsStore.Data.DataAccess\GoodsStore.Data.DataAccess.csproj", "{088F78C5-06C1-454F-8D67-BD446F2AC3D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsStore.Data.DataAccess", "GoodsStore.Data\GoodsStore.Data.DataAccess\GoodsStore.Data.DataAccess.csproj", "{088F78C5-06C1-454F-8D67-BD446F2AC3D4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GoodsStore.App", "GoodsStore.App", "{B2C59F62-BC47-4776-B818-2F9C561293CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodsStore.App.Infrastructure", "GoodsStore.App\GoodsStore.App.Infrastructure\GoodsStore.App.Infrastructure.csproj", "{A0DECB32-EEEF-4063-B98A-82DC67D3763D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsStore.App.Infrastructure", "GoodsStore.App\GoodsStore.App.Infrastructure\GoodsStore.App.Infrastructure.csproj", "{A0DECB32-EEEF-4063-B98A-82DC67D3763D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodsStore.App.CompositionRoot", "GoodsStore.App\GoodsStore.App.CompositionRoot\GoodsStore.App.CompositionRoot.csproj", "{E05234CA-A5A0-4EAE-92BF-C84225985CA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsStore.App.CompositionRoot", "GoodsStore.App\GoodsStore.App.CompositionRoot\GoodsStore.App.CompositionRoot.csproj", "{E05234CA-A5A0-4EAE-92BF-C84225985CA1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GoodsStore.Web", "GoodsStore.Web", "{83989FC4-F6F2-498C-AEAE-4FF50E83515A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodsStore.Web.Presentation", "GoodsStore.Web\GoodsStore.Web.Presentation\GoodsStore.Web.Presentation.csproj", "{CE2D8314-9AEC-4016-ACD5-149CCB35A890}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsStore.Web.Presentation", "GoodsStore.Web\GoodsStore.Web.Presentation\GoodsStore.Web.Presentation.csproj", "{CE2D8314-9AEC-4016-ACD5-149CCB35A890}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodsStore.Web.Framework", "GoodsStore.Web.Framework\GoodsStore.Web.Framework.csproj", "{DC542D76-A7D3-4186-8C46-9FBFEE39D515}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodsStore.Web.Infrastructure", "GoodsStore.Web.Infrastructure\GoodsStore.Web.Infrastructure.csproj", "{C18A5276-EF57-405D-A8C3-936C012BBC29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +63,14 @@ Global
 		{CE2D8314-9AEC-4016-ACD5-149CCB35A890}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE2D8314-9AEC-4016-ACD5-149CCB35A890}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE2D8314-9AEC-4016-ACD5-149CCB35A890}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC542D76-A7D3-4186-8C46-9FBFEE39D515}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC542D76-A7D3-4186-8C46-9FBFEE39D515}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC542D76-A7D3-4186-8C46-9FBFEE39D515}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC542D76-A7D3-4186-8C46-9FBFEE39D515}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C18A5276-EF57-405D-A8C3-936C012BBC29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C18A5276-EF57-405D-A8C3-936C012BBC29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C18A5276-EF57-405D-A8C3-936C012BBC29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C18A5276-EF57-405D-A8C3-936C012BBC29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +82,8 @@ Global
 		{A0DECB32-EEEF-4063-B98A-82DC67D3763D} = {B2C59F62-BC47-4776-B818-2F9C561293CF}
 		{E05234CA-A5A0-4EAE-92BF-C84225985CA1} = {B2C59F62-BC47-4776-B818-2F9C561293CF}
 		{CE2D8314-9AEC-4016-ACD5-149CCB35A890} = {83989FC4-F6F2-498C-AEAE-4FF50E83515A}
+		{DC542D76-A7D3-4186-8C46-9FBFEE39D515} = {83989FC4-F6F2-498C-AEAE-4FF50E83515A}
+		{C18A5276-EF57-405D-A8C3-936C012BBC29} = {83989FC4-F6F2-498C-AEAE-4FF50E83515A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1DD9C286-9C3C-42DD-8A15-09340B4DB821}
