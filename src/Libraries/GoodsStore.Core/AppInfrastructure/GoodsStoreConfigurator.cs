@@ -3,6 +3,7 @@ using Autofac.Extensions.DependencyInjection;
 using GoodsStore.Core.Helpers;
 using GoodsStore.Core.Interfaces.AppInfrastructure;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -40,7 +41,7 @@ namespace GoodsStore.Core.AppInfrastructure
             return _serviceProvider;
         }
 
-        public void ConfigureRequestPipeline(IApplicationBuilder application)
+        public void ConfigureRequestPipeline(IApplicationBuilder application, IHostingEnvironment environment)
         {
             var typeFinder = _serviceProvider.GetService<ITypeFinder>();
             var startupConfigurations = typeFinder.FindClassesOfType<IAppStartup>();

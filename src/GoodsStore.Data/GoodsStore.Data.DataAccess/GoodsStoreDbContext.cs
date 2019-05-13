@@ -1,14 +1,13 @@
-﻿using GoodsStore.Core.Keys;
-using GoodsStore.Infrastructure.MappingBase;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Linq;
 using System.Reflection;
 using GoodsStore.Core.Entities.Base;
-using GoodsStore.Core.Interfaces;
-using GoodsStore.Core.Interfaces.Data;
+using GoodsStore.Core.Keys;
+using GoodsStore.Data.Infrastructure.Data;
+using GoodsStore.Data.Infrastructure.Mapping;
+using Microsoft.EntityFrameworkCore;
 
-namespace GoodsStore.Infrastructure.Data
+namespace GoodsStore.Data.DataAccess
 {
     public class GoodsStoreDbContext : DbContext, IDbContext
     {

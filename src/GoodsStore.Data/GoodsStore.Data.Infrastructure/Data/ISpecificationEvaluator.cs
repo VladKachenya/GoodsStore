@@ -2,7 +2,7 @@
 using GoodsStore.Core.Entities.Base;
 using GoodsStore.Core.Interfaces.Specifications;
 
-namespace GoodsStore.Core.Interfaces.Data
+namespace GoodsStore.Data.Infrastructure.Data
 {
     public interface ISpecificationEvaluator<T> where T : BaseEntity
     {
