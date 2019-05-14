@@ -9,7 +9,7 @@ namespace GoodsStore.Web.Infrastructure.WebApp
     {
         void ConfigureServices(IServiceCollection services, IConfiguration configuration);
 
-        void Configure(IApplicationBuilder application, IHostingEnvironment environment);
+        void Configure(IApplicationBuilder app, IHostingEnvironment environment);
 
         int Order { get; }
     }

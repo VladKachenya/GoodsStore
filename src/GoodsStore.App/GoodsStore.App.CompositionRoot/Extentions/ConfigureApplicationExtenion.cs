@@ -1,11 +1,10 @@
 ﻿using System;
-using GoodsStore.Data.DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace GoodsStore.App.CompositionRoot.AppConfiguration.Extentions
+namespace GoodsStore.App.CompositionRoot.Extentions
 {
     public static class ConfigureApplicationExtenion
     {

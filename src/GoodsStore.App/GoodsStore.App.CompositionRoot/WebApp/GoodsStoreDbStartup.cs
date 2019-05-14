@@ -17,7 +17,7 @@ namespace GoodsStore.App.CompositionRoot.WebApp
             services.AddEntityFrameworkSqlServer();
         }
 
-        public void Configure(IApplicationBuilder application, IHostingEnvironment environment)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment environment)
         {
 
         }
