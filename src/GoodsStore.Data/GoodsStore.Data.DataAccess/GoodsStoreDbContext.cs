@@ -11,10 +11,14 @@ namespace GoodsStore.Data.DataAccess
 {
     public class GoodsStoreDbContext : DbContext, IDbContext
     {
+        public GoodsStoreDbContext(DbContextOptions<GoodsStoreDbContext> options) : base(options)
+        {
+            
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(AppKeys.DbConnectionString);
+            //optionsBuilder.UseSqlServer(AppKeys.DbConnectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

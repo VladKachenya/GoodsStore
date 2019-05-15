@@ -16,8 +16,4 @@
     <ProjectReference Include="..\..\GoodsStore.App\GoodsStore.App.CompositionRoot\GoodsStore.App.CompositionRoot.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
-
 </Project>

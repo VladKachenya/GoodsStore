@@ -2,6 +2,7 @@
 using GoodsStore.Web.Infrastructure.WebApp;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,9 +13,11 @@ namespace GoodsStore.App.CompositionRoot.WebApp
     {
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<GoodsStoreDbContext>();
+            services.AddDbContext<GoodsStoreDbContext>(c =>
+                c.UseSqlServer(configuration.GetConnectionString("CatalogConnection")));
+            //services.AddDbContext<GoodsStoreDbContext>();
             //add EF services
-            services.AddEntityFrameworkSqlServer();
+            //services.AddEntityFrameworkSqlServer();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment environment)
