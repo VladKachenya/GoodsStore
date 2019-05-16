@@ -4,14 +4,36 @@
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
-<div class="container">
-    <div class="">
+<div class="row">
+    <div class="col-3 list-group">
+        <div class="list-group">
+            @foreach (var categoryModel in Model)
+            {
+                <button type="button" class="list-group-item list-group-item-action category-model" data-category-id="@categoryModel.Id">
+                    <h6>@categoryModel.CategoryName</h6>
+                </button>
+            }
+        </div>
+    </div>
+    <div class="col-3">
         @foreach (var categoryModel in Model)
         {
-            <div data-category-id="@categoryModel.Id">
-                <h5 class="card-title">@categoryModel.CategoryName</h5>
+            <div class="list-group m-1 category-model-types" data-category-id="@categoryModel.Id">
+                <span href="#" class="list-group-item list-group-item-action active">@categoryModel.CategoryName</span>
+                @foreach (var itemTypeModel in categoryModel.ItemTypeModels)
+                {
+                    <a href="#" class="list-group-item list-group-item-action">@itemTypeModel.ItemTypeName</a>
+                }
             </div>
         }
     </div>
+    <div class="col-6">
+
+    </div>
 </div>
+
+@section Scripts
+    {
+    <script src="js/Home/Index.js" asp-append-version="true"></script>
+}
 

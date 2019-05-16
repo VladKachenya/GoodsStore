@@ -1,4 +1,5 @@
-﻿using GoodsStore.Core.Entities;
+﻿using System.Linq;
+using GoodsStore.Core.Entities;
 using GoodsStore.Web.ViewModel.Interfaces.Factories;
 using GoodsStore.Web.ViewModel.Interfaces.Servicies;
 using GoodsStore.Web.ViewModel.Models;
@@ -20,9 +21,9 @@ namespace GoodsStore.Web.ViewModel.Factories
             {
                 Id = category.Id,
                 CategoryName = category.CategoryName,
-                IconName = _categoryModelService.GetCategoryIconName(category)
+                IconName = _categoryModelService.GetCategoryIconName(category),
+                ItemTypeModels = category.ItemTypes.Select(it => new ItemTypeModel(){Id = it.Id, ItemTypeName = it.TypeName})
             };
-
         }
     }
 }
