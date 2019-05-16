@@ -1,26 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Autofac;
+﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using GoodsStore.App.CompositionRoot.IoC;
 using GoodsStore.App.CompositionRoot.WebApp;
 using GoodsStore.App.Infrastructure.App;
-using GoodsStore.App.Infrastructure.IoC;
 using GoodsStore.Core.Entities;
-using GoodsStore.Core.Interfaces.Repositories;
 using GoodsStore.Core.Interfaces.Specifications;
 using GoodsStore.Core.Specifications;
-using GoodsStore.Data.DataAccess;
 using GoodsStore.Data.DataAccess.App;
-using GoodsStore.Data.Infrastructure.Data;
 using GoodsStore.Web.Framework.WebApp;
 using GoodsStore.Web.Infrastructure.WebApp;
+using GoodsStore.Web.ViewModel.App;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace GoodsStore.App.CompositionRoot.AppConfiguration
 {
@@ -43,7 +39,7 @@ namespace GoodsStore.App.CompositionRoot.AppConfiguration
             var containerBuilder = new ContainerBuilder();
             var goodsStoreContainerBuilder = new GoodsStoreContainerBuilder(containerBuilder);
 
-            foreach (var startup in _startups.OrderBy(s=> s.Order))
+            foreach (var startup in _startups.OrderBy(s => s.Order))
             {
                 startup.ConfigureServices(services, configuration);
             }
@@ -87,6 +83,7 @@ namespace GoodsStore.App.CompositionRoot.AppConfiguration
         protected IEnumerable<IDependenciesRegistrar> GetDependenciesRegistrators()
         {
             yield return new DataAccessDependenciesRegistrar();
+            yield return new WebViewModelDependenciesRegistrar();
         }
 
         protected IEnumerable<IGoodsStoreStartup> GetStartups()

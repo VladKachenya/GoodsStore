@@ -1,8 +1,17 @@
-﻿@model object
+﻿@model List<CategoryModel>
 
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
+<div class="container">
+    <div class="">
+        @foreach (var categoryModel in Model)
+        {
+            <div data-category-id="@categoryModel.Id">
+                <h5 class="card-title">@categoryModel.CategoryName</h5>
+            </div>
+        }
+    </div>
+</div>
 
-<h2>title</h2>

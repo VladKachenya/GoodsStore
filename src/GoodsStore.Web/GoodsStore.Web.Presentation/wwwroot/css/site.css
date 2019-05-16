@@ -1,4 +1,10 @@
 ﻿body {
     height: 100%;
+    margin: 1em;
+}
+
+.goodsStoreNavbar {
+    margin: 0;
+    padding: 0;
 }
 

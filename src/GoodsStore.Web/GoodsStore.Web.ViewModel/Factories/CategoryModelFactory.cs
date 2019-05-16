@@ -1,0 +1,28 @@
+﻿using GoodsStore.Core.Entities;
+using GoodsStore.Web.ViewModel.Interfaces.Factories;
+using GoodsStore.Web.ViewModel.Interfaces.Servicies;
+using GoodsStore.Web.ViewModel.Models;
+
+namespace GoodsStore.Web.ViewModel.Factories
+{
+    public class CategoryModelFactory : ICategoryModelFactory
+    {
+        private readonly ICategoryModelService _categoryModelService;
+
+        public CategoryModelFactory(ICategoryModelService categoryModelService)
+        {
+            _categoryModelService = categoryModelService;
+        }
+
+        public CategoryModel GetCategoryModel(Category category)
+        {
+            return new CategoryModel()
+            {
+                Id = category.Id,
+                CategoryName = category.CategoryName,
+                IconName = _categoryModelService.GetCategoryIconName(category)
+            };
+
+        }
+    }
+}
