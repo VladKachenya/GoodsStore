@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GoodsStore.Data.DataAccess.Migrations
 {
     [DbContext(typeof(GoodsStoreDbContext))]
-    [Migration("20190517120119_AddingAdditionalCatalogItems")]
-    partial class AddingAdditionalCatalogItems
+    [Migration("20190517155006_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -79,7 +79,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
 
                     b.Property<int>("ItemTypeId");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Model");
 
                     b.Property<string>("PictureUri");
 
@@ -100,7 +100,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             BrandId = 5,
                             Description = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
                             ItemTypeId = 1,
-                            Name = "XM 4208-000",
+                            Model = "XM 4208-000",
                             Price = 12.25m
                         },
                         new
@@ -109,7 +109,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             BrandId = 5,
                             Description = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
                             ItemTypeId = 1,
-                            Name = "XM 4215-000",
+                            Model = "XM 4215-000",
                             Price = 89.25m
                         },
                         new
@@ -118,7 +118,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             BrandId = 5,
                             Description = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
                             ItemTypeId = 1,
-                            Name = "XM 4307-001",
+                            Model = "XM 4307-001",
                             Price = 124.145m
                         },
                         new
@@ -127,7 +127,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             BrandId = 4,
                             Description = "But I must explain to you how all this mistaken idea of denouncing pleasure and praising",
                             ItemTypeId = 1,
-                            Name = "GA-B429SMQZ",
+                            Model = "GA-B429SMQZ",
                             Price = 142.125m
                         },
                         new
@@ -136,7 +136,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             BrandId = 4,
                             Description = "But I must explain to you how all this mistaken idea of denouncing pleasure and praising",
                             ItemTypeId = 1,
-                            Name = "GW-B499SMFZ",
+                            Model = "GW-B499SMFZ",
                             Price = 1110.25m
                         },
                         new
@@ -145,7 +145,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             BrandId = 4,
                             Description = "But I must explain to you how all this mistaken idea of denouncing pleasure and praising",
                             ItemTypeId = 1,
-                            Name = "GA-B499YMQZ",
+                            Model = "GA-B499YMQZ",
                             Price = 1210.2m
                         },
                         new
@@ -154,7 +154,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             BrandId = 4,
                             Description = "Li Europan lingues es membres del sam familie. Lor separat existentie es un myth.",
                             ItemTypeId = 3,
-                            Name = "V30S+ ThinQ Gray",
+                            Model = "V30S+ ThinQ Gray",
                             Price = 12.25m
                         },
                         new
@@ -163,7 +163,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             BrandId = 4,
                             Description = "Por scientie, musica, sport etc, litot Europa usa li sam vocabular.",
                             ItemTypeId = 3,
-                            Name = "G360",
+                            Model = "G360",
                             Price = 782.25m
                         },
                         new
@@ -172,7 +172,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             BrandId = 4,
                             Description = " Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules.",
                             ItemTypeId = 3,
-                            Name = "V40 ThinQ 64Gb Black",
+                            Model = "V40 ThinQ 64Gb Black",
                             Price = 152.25m
                         },
                         new
@@ -181,7 +181,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             BrandId = 1,
                             Description = "But I must explain to you how all this mistaken idea of denouncing pleasure and praising",
                             ItemTypeId = 1,
-                            Name = "RB33J3200SA",
+                            Model = "RB33J3200SA",
                             Price = 142m
                         },
                         new
@@ -190,7 +190,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             BrandId = 1,
                             Description = "So perhaps, you've generated some fancy text, and you're content that you can now copy and paste",
                             ItemTypeId = 1,
-                            Name = "RS55K50A02C",
+                            Model = "RS55K50A02C",
                             Price = 578m
                         },
                         new
@@ -199,7 +199,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             BrandId = 1,
                             Description = "Is it some sort of hack? Are you copying and pasting an actual font?",
                             ItemTypeId = 1,
-                            Name = "RT22HAR4DSA",
+                            Model = "RT22HAR4DSA",
                             Price = 74.25m
                         },
                         new
@@ -208,7 +208,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             BrandId = 1,
                             Description = "Sudden she seeing garret far regard. By hardly it direct if pretty up regret.",
                             ItemTypeId = 1,
-                            Name = "RB34N5061B1/WT",
+                            Model = "RB34N5061B1/WT",
                             Price = 125.12m
                         },
                         new
@@ -217,7 +217,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             BrandId = 1,
                             Description = "Ability thought enquire settled prudent you sir.",
                             ItemTypeId = 1,
-                            Name = "RB37J5441SA",
+                            Model = "RB37J5441SA",
                             Price = 111.1m
                         },
                         new
@@ -226,7 +226,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             BrandId = 1,
                             Description = "Or easy knew sold on well come year. Something consulted age extremely end procuring.",
                             ItemTypeId = 1,
-                            Name = "RS54N3003WW/WT",
+                            Model = "RS54N3003WW/WT",
                             Price = 794.2m
                         },
                         new
@@ -235,7 +235,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             BrandId = 1,
                             Description = "Collecting preference he inquietude projection me in by.",
                             ItemTypeId = 1,
-                            Name = "RB37J5000SA",
+                            Model = "RB37J5000SA",
                             Price = 541.1m
                         },
                         new
@@ -244,7 +244,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             BrandId = 1,
                             Description = "So do of sufficient projecting an thoroughly uncommonly prosperous conviction.",
                             ItemTypeId = 1,
-                            Name = "RB37J5240SS",
+                            Model = "RB37J5240SS",
                             Price = 999.99m
                         },
                         new
@@ -253,7 +253,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             BrandId = 6,
                             Description = "Betrayed cheerful declared end and.",
                             ItemTypeId = 1,
-                            Name = "KGN39XL2AR",
+                            Model = "KGN39XL2AR",
                             Price = 231.1m
                         },
                         new
@@ -262,7 +262,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             BrandId = 6,
                             Description = "Questions we additions is extremely incommode. Next half add call them eat face.",
                             ItemTypeId = 1,
-                            Name = "KGN39XW2AR",
+                            Model = "KGN39XW2AR",
                             Price = 452.1m
                         },
                         new
@@ -271,7 +271,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             BrandId = 6,
                             Description = "Age lived smile six defer bed their few. Had admitting concluded too behaviour him she.",
                             ItemTypeId = 1,
-                            Name = "KGN39AI31R",
+                            Model = "KGN39AI31R",
                             Price = 123.1m
                         },
                         new
@@ -280,7 +280,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             BrandId = 6,
                             Description = "Blind would equal while oh mr do style. Lain led and fact none. One preferred sportsmen resolving the happiness continued.",
                             ItemTypeId = 1,
-                            Name = "KGN39XW33R",
+                            Model = "KGN39XW33R",
                             Price = 542.4m
                         },
                         new
@@ -289,7 +289,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             BrandId = 6,
                             Description = "High at of in loud rich true. Oh conveying do immediate acuteness in he. Equally welcome her set nothing has gravity whether parties.",
                             ItemTypeId = 1,
-                            Name = "KGN39AI2AR",
+                            Model = "KGN39AI2AR",
                             Price = 98.5m
                         });
                 });
@@ -472,6 +472,8 @@ namespace GoodsStore.Data.DataAccess.Migrations
                         .IsRequired()
                         .HasMaxLength(30);
 
+                    b.Property<string>("UnitName");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
@@ -483,25 +485,36 @@ namespace GoodsStore.Data.DataAccess.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            TypeName = "Large appliances for kitchen"
+                            TypeName = "Refrigerators",
+                            UnitName = "Refrigerator"
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 1,
-                            TypeName = "Home appliances"
+                            TypeName = "TVs",
+                            UnitName = "TV"
                         },
                         new
                         {
                             Id = 3,
                             CategoryId = 2,
-                            TypeName = "Mobile phone"
+                            TypeName = "Mobile phones",
+                            UnitName = "Mobile phone"
                         },
                         new
                         {
                             Id = 4,
                             CategoryId = 2,
-                            TypeName = "Accessories"
+                            TypeName = "Phone cases",
+                            UnitName = "Case"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoryId = 1,
+                            TypeName = "Blenders",
+                            UnitName = "Blender"
                         });
                 });
 

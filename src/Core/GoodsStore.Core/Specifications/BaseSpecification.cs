@@ -11,6 +11,13 @@ namespace GoodsStore.Core.Specifications
             Criteria = criteria;
         }
 
+        public virtual void ConfigyreSpecificaton(Expression<Func<T, bool>> criteria, int skip, int take)
+        {
+            ConfigyreSpecificaton(criteria);
+            ApplyPaging(skip, take);
+        }
+
+
         public Expression<Func<T, bool>> Criteria { get; private set; }
         public int Take { get; private set; }
         public int Skip { get; private set; }

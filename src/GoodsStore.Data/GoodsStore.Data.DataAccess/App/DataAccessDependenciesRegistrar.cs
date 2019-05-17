@@ -12,7 +12,8 @@ namespace GoodsStore.Data.DataAccess.App
         {
             containerBuilder.RegisterType<GoodsStoreDbContext, IDbContext>();
 
-            containerBuilder.RegisterType<CatalogRepository, ICatalogRepository>();
+            containerBuilder.RegisterType<CategoryRepository, ICategoryRepository>();
+            containerBuilder.RegisterType<CatalogItemRepository, ICatalogItemRepository>();
 
             containerBuilder.RegisterGeneric(typeof(EfRepository<>), typeof(IAsyncRepository<>));
             containerBuilder.RegisterGeneric(typeof(SpecificationEvaluator<>), typeof(ISpecificationEvaluator<>));

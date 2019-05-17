@@ -8,12 +8,12 @@ namespace GoodsStore.Web.Presentation.Controllers
     public class HomeController : Controller
     {
         private readonly ICategoryModelFactory _categoryModelFactory;
-        private readonly ICatalogRepository _categoryRepository;
+        private readonly ICategoryRepository _categoryRepository;
 
         #region Ctor
         public HomeController(
             ICategoryModelFactory categoryModelFactory,
-            ICatalogRepository categoryRepository)
+            ICategoryRepository categoryRepository)
         {
             _categoryModelFactory = categoryModelFactory;
             _categoryRepository = categoryRepository;
@@ -23,7 +23,7 @@ namespace GoodsStore.Web.Presentation.Controllers
         public async Task<IActionResult> Index()
         {
             var viewModel =
-                _categoryModelFactory.GetCategoryModels(await _categoryRepository.ListAllIncludesCatalogItemsAsync());
+                _categoryModelFactory.GetCategoryModels(await _categoryRepository.ListAllIncludesCatalogItems());
             return View(viewModel);
         }
     }

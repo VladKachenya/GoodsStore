@@ -4,7 +4,7 @@ namespace GoodsStore.Core.Entities
 {
     public  class CatalogItem : BaseEntity
     {
-        public string Name { get; set; }
+        public string Model { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
         public int ItemTypeId { get; set; }

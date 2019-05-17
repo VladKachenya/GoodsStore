@@ -1,22 +1,33 @@
 ﻿@model List<CatalogItemModel>
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = $"Goods store";
     Layout = "_Layout";
 }
 
+<div class="row">
+    <div class="col-3">
+        Some sellectors!
+    </div>
+    <div class="col-9">
+        @foreach (var catalogItemModel in Model)
+        {
+            <div class="card m-1 p-1">
+                <h5 class="card-header">@catalogItemModel.UnitName @catalogItemModel.Brand @catalogItemModel.Model</h5>
+                <div class="card-body row">
+                    <img class="col-3" src="@catalogItemModel.PictureUri" alt="Card image cap">
+                    <div class="col-6">
+                        <h5 class="card-title">@catalogItemModel.Price</h5>
+                        <p class="card-text">@catalogItemModel.Description</p>
+                        <a href="#" class="btn btn-primary">Details</a>
+                    </div>
+                    <div class="col-3">Some shops</div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
 
-@if (Model.Count == 0)
-{
-    <h4>Goods not found</h4>
-}
-else
-{
-    foreach (var catalogItemModel in Model)
-    {
-        <h4>@catalogItemModel.Name</h4>
-    }
-}
 
 
 

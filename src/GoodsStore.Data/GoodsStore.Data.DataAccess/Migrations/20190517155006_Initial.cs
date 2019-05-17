@@ -40,6 +40,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     TypeName = table.Column<string>(maxLength: 30, nullable: false),
+                    UnitName = table.Column<string>(nullable: true),
                     CategoryId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -59,10 +60,11 @@ namespace GoodsStore.Data.DataAccess.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true),
+                    Model = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Price = table.Column<decimal>(nullable: false),
                     ItemTypeId = table.Column<int>(nullable: false),
+                    PictureUri = table.Column<string>(nullable: true),
                     BrandId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -133,7 +135,8 @@ namespace GoodsStore.Data.DataAccess.Migrations
                     { 2, "Simens" },
                     { 3, "Xiaomi" },
                     { 4, "LG" },
-                    { 5, "ATLANT" }
+                    { 5, "ATLANT" },
+                    { 6, "Bosch" }
                 });
 
             migrationBuilder.InsertData(
@@ -153,29 +156,43 @@ namespace GoodsStore.Data.DataAccess.Migrations
 
             migrationBuilder.InsertData(
                 table: "ItemTypes",
-                columns: new[] { "Id", "CategoryId", "TypeName" },
+                columns: new[] { "Id", "CategoryId", "TypeName", "UnitName" },
                 values: new object[,]
                 {
-                    { 1, 1, "Large appliances for kitchen" },
-                    { 2, 1, "Home appliances" },
-                    { 3, 2, "Mobile phone" },
-                    { 4, 2, "Accessories" }
+                    { 1, 1, "Refrigerators", "Refrigerator" },
+                    { 2, 1, "TVs", "TV" },
+                    { 5, 1, "Blenders", "Blender" },
+                    { 3, 2, "Mobile phones", "Mobile phone" },
+                    { 4, 2, "Phone cases", "Case" }
                 });
 
             migrationBuilder.InsertData(
                 table: "CatalogItems",
-                columns: new[] { "Id", "BrandId", "Description", "ItemTypeId", "Name", "Price" },
+                columns: new[] { "Id", "BrandId", "Description", "ItemTypeId", "Model", "PictureUri", "Price" },
                 values: new object[,]
                 {
-                    { 1, 1, "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium", 1, "XM 4208-000", 12.25m },
-                    { 2, 1, "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium", 1, "XM 4215-000", 89.25m },
-                    { 3, 1, "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium", 1, "XM 4307-001", 124.145m },
-                    { 4, 2, "But I must explain to you how all this mistaken idea of denouncing pleasure and praising", 1, "GA-B429SMQZ", 142.125m },
-                    { 5, 2, "But I must explain to you how all this mistaken idea of denouncing pleasure and praising", 1, "GW-B499SMFZ", 1110.25m },
-                    { 6, 2, "But I must explain to you how all this mistaken idea of denouncing pleasure and praising", 1, "GA-B499YMQZ", 1210.2m },
-                    { 7, 4, "Li Europan lingues es membres del sam familie. Lor separat existentie es un myth.", 3, "V30S+ ThinQ Gray", 12.25m },
-                    { 8, 4, "Por scientie, musica, sport etc, litot Europa usa li sam vocabular.", 3, "G360", 782.25m },
-                    { 9, 4, " Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules.", 3, "V40 ThinQ 64Gb Black", 152.25m }
+                    { 1, 5, "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium", 1, "XM 4208-000", null, 12.25m },
+                    { 7, 4, "Li Europan lingues es membres del sam familie. Lor separat existentie es un myth.", 3, "V30S+ ThinQ Gray", null, 12.25m },
+                    { 22, 6, "High at of in loud rich true. Oh conveying do immediate acuteness in he. Equally welcome her set nothing has gravity whether parties.", 1, "KGN39AI2AR", null, 98.5m },
+                    { 21, 6, "Blind would equal while oh mr do style. Lain led and fact none. One preferred sportsmen resolving the happiness continued.", 1, "KGN39XW33R", null, 542.4m },
+                    { 20, 6, "Age lived smile six defer bed their few. Had admitting concluded too behaviour him she.", 1, "KGN39AI31R", null, 123.1m },
+                    { 19, 6, "Questions we additions is extremely incommode. Next half add call them eat face.", 1, "KGN39XW2AR", null, 452.1m },
+                    { 18, 6, "Betrayed cheerful declared end and.", 1, "KGN39XL2AR", null, 231.1m },
+                    { 17, 1, "So do of sufficient projecting an thoroughly uncommonly prosperous conviction.", 1, "RB37J5240SS", null, 999.99m },
+                    { 16, 1, "Collecting preference he inquietude projection me in by.", 1, "RB37J5000SA", null, 541.1m },
+                    { 15, 1, "Or easy knew sold on well come year. Something consulted age extremely end procuring.", 1, "RS54N3003WW/WT", null, 794.2m },
+                    { 14, 1, "Ability thought enquire settled prudent you sir.", 1, "RB37J5441SA", null, 111.1m },
+                    { 13, 1, "Sudden she seeing garret far regard. By hardly it direct if pretty up regret.", 1, "RB34N5061B1/WT", null, 125.12m },
+                    { 12, 1, "Is it some sort of hack? Are you copying and pasting an actual font?", 1, "RT22HAR4DSA", null, 74.25m },
+                    { 11, 1, "So perhaps, you've generated some fancy text, and you're content that you can now copy and paste", 1, "RS55K50A02C", null, 578m },
+                    { 10, 1, "But I must explain to you how all this mistaken idea of denouncing pleasure and praising", 1, "RB33J3200SA", null, 142m },
+                    { 6, 4, "But I must explain to you how all this mistaken idea of denouncing pleasure and praising", 1, "GA-B499YMQZ", null, 1210.2m },
+                    { 5, 4, "But I must explain to you how all this mistaken idea of denouncing pleasure and praising", 1, "GW-B499SMFZ", null, 1110.25m },
+                    { 4, 4, "But I must explain to you how all this mistaken idea of denouncing pleasure and praising", 1, "GA-B429SMQZ", null, 142.125m },
+                    { 3, 5, "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium", 1, "XM 4307-001", null, 124.145m },
+                    { 2, 5, "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium", 1, "XM 4215-000", null, 89.25m },
+                    { 8, 4, "Por scientie, musica, sport etc, litot Europa usa li sam vocabular.", 3, "G360", null, 782.25m },
+                    { 9, 4, " Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules.", 3, "V40 ThinQ 64Gb Black", null, 152.25m }
                 });
 
             migrationBuilder.InsertData(

@@ -7,13 +7,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GoodsStore.Data.DataAccess.Repositories
 {
-    public class CatalogRepository : EfRepository<Category>, ICatalogRepository
+    public class CategoryRepository : EfRepository<Category>, ICategoryRepository
     {
-        public CatalogRepository(IDbContext dbContext, ISpecificationEvaluator<Category> specificationEvaluator) : base(dbContext, specificationEvaluator)
+        public CategoryRepository(IDbContext dbContext, ISpecificationEvaluator<Category> specificationEvaluator) : base(dbContext, specificationEvaluator)
         {
         }
 
-        public async Task<IReadOnlyList<Category>> ListAllIncludesCatalogItemsAsync()
+        public async Task<IReadOnlyList<Category>> ListAllIncludesCatalogItems()
         {
             return await DbContext.Set<Category>().Include(c => c.ItemTypes).ToListAsync();
         }

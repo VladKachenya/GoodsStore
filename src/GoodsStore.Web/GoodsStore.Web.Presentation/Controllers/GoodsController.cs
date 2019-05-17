@@ -10,11 +10,11 @@ namespace GoodsStore.Web.Presentation.Controllers
 {
     public class GoodsController : Controller
     {
-        private readonly IAsyncRepository<CatalogItem> _catalogItemsRepository;
+        private readonly ICatalogItemRepository _catalogItemsRepository;
         private readonly Func<ISpecification<CatalogItem>> _catalogItemSelectionSpecificationFactory;
         private readonly ICatalogItemFactory _catalogItemFactory;
 
-        public GoodsController(IAsyncRepository<CatalogItem> catalogItemsRepository, 
+        public GoodsController(ICatalogItemRepository catalogItemsRepository, 
             Func<ISpecification<CatalogItem>> catalogItemSelectionSpecificationFactory,
             ICatalogItemFactory catalogItemFactory)
         {
@@ -26,8 +26,8 @@ namespace GoodsStore.Web.Presentation.Controllers
         public async Task<IActionResult> Index(int productTypeId)
         {
             var specification = _catalogItemSelectionSpecificationFactory.Invoke();
-            specification.ConfigyreSpecificaton(ci => ci.ItemTypeId == productTypeId);
-            var catalogItems = await _catalogItemsRepository.ListAsync(specification);
+            specification.ConfigyreSpecificaton(ci => ci.ItemTypeId == productTypeId, 0, 6);
+            var catalogItems = await _catalogItemsRepository.ListIncludesItemTypeAndBrand(specification);
             var res = _catalogItemFactory.GetCategoryItemModels(catalogItems);
             return View(res);
         }

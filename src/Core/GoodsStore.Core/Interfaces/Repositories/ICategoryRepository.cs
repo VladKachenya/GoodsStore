@@ -4,8 +4,8 @@ using GoodsStore.Core.Entities;
 
 namespace GoodsStore.Core.Interfaces.Repositories
 {
-    public interface ICatalogRepository : IAsyncRepository<Category>
+    public interface ICategoryRepository : IAsyncRepository<Category>
     {
-        Task<IReadOnlyList<Category>> ListAllIncludesCatalogItemsAsync();
+        Task<IReadOnlyList<Category>> ListAllIncludesCatalogItems();
     }
 }

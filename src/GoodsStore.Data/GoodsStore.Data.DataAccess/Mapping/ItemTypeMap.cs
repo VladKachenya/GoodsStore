@@ -15,10 +15,12 @@ namespace GoodsStore.Data.DataAccess.Mapping
             builder.HasOne(i => i.Category).WithMany(c => c.ItemTypes).HasForeignKey(i => i.CategoryId).IsRequired();
             builder.HasData(new ItemType[]
             {
-                new ItemType(){Id = 1, CategoryId = 1, TypeName = "Large appliances for kitchen"},
-                new ItemType(){Id = 2, CategoryId = 1, TypeName = "Home appliances"},
-                new ItemType(){Id = 3, CategoryId = 2, TypeName = "Mobile phone"},
-                new ItemType(){Id = 4, CategoryId = 2, TypeName = "Accessories"}
+                new ItemType(){Id = 1, CategoryId = 1, TypeName = "Refrigerators", UnitName = "Refrigerator"},
+                new ItemType(){Id = 2, CategoryId = 1, TypeName = "TVs", UnitName = "TV"},
+                new ItemType(){Id = 3, CategoryId = 2, TypeName = "Mobile phones", UnitName = "Mobile phone"},
+                new ItemType(){Id = 4, CategoryId = 2, TypeName = "Phone cases", UnitName = "Case"},
+                new ItemType(){Id = 5, CategoryId = 1, TypeName = "Blenders", UnitName = "Blender"},
+
             });
         }
     }
