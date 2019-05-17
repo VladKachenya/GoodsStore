@@ -76,7 +76,9 @@ namespace GoodsStore.App.CompositionRoot.AppConfiguration
 
         protected void RegisterDomainTypes(ContainerBuilder containerBuilder)
         {
-            containerBuilder.RegisterType<CatalogItemFilterSpecification>().As<ISpecification<CatalogItem>>();
+            containerBuilder.RegisterGeneric(typeof(BaseSpecification<>)).As(typeof(ISpecification<>));
+            containerBuilder.RegisterType<CatalogItemFilterSpecification>().As<ICatalogItemFilterSpecification>();
+            containerBuilder.RegisterType<CatalogItemSelectionSpecification>().As<ICatalogItemSelectionSpecification>();
         }
 
 

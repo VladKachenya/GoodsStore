@@ -13,7 +13,7 @@ namespace GoodsStore.Web.ViewModel.App
         {
             // Factories registration
             containerBuilder.RegisterType<CategoryModelFactory, ICategoryModelFactory>();
-
+            containerBuilder.RegisterType<CatalogItemFactory, ICatalogItemFactory>();
 
             // Servicies registration
             containerBuilder.RegisterType<CategoryModelService, ICategoryModelService>();

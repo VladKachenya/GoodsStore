@@ -18,7 +18,8 @@ namespace GoodsStore.Data.DataAccess.Mapping
                 new Brand(){Id = 2, BrandName = "Simens"},
                 new Brand(){Id = 3, BrandName = "Xiaomi"},
                 new Brand(){Id = 4, BrandName = "LG"},
-                new Brand(){Id = 5, BrandName = "ATLANT"}
+                new Brand(){Id = 5, BrandName = "ATLANT"},
+                new Brand(){Id = 6, BrandName = "Bosch"}
             });
         }
     }

@@ -1,10 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using GoodsStore.Core.Entities;
-using GoodsStore.Core.Interfaces.Repositories;
+﻿using GoodsStore.Core.Interfaces.Repositories;
 using GoodsStore.Web.ViewModel.Interfaces.Factories;
-using GoodsStore.Web.ViewModel.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace GoodsStore.Web.Presentation.Controllers
 {
@@ -25,12 +22,9 @@ namespace GoodsStore.Web.Presentation.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var res = new List<CategoryModel>();
-            foreach (var category in await _categoryRepository.ListAllIncludesCatalogItemsAsync())
-            {
-                res.Add(_categoryModelFactory.GetCategoryModel(category));
-            }
-            return View(res);
+            var viewModel =
+                _categoryModelFactory.GetCategoryModels(await _categoryRepository.ListAllIncludesCatalogItemsAsync());
+            return View(viewModel);
         }
     }
 }

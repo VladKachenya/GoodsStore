@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using GoodsStore.Core.Entities;
 using GoodsStore.Web.ViewModel.Interfaces.Factories;
 using GoodsStore.Web.ViewModel.Interfaces.Servicies;
@@ -25,5 +26,16 @@ namespace GoodsStore.Web.ViewModel.Factories
                 ItemTypeModels = category.ItemTypes.Select(it => new ItemTypeModel(){Id = it.Id, ItemTypeName = it.TypeName})
             };
         }
+
+        public List<CategoryModel> GetCategoryModels(IEnumerable<Category> categories)
+        {
+            var res = new List<CategoryModel>();
+            foreach (var category in categories)
+            {
+                res.Add(GetCategoryModel(category));
+            }
+            return res;
+        }
+        
     }
 }
