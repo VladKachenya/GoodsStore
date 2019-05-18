@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using GoodsStore.Core.Entities;
+using GoodsStore.Core.Entities.Base;
 using GoodsStore.Core.Interfaces.Repositories;
 using GoodsStore.Core.Interfaces.Specifications;
 using GoodsStore.Data.Infrastructure.Data;

@@ -3,7 +3,7 @@ using GoodsStore.Core.Entities.Base;
 
 namespace GoodsStore.Core.Entities.Goods.HouseholdEquipment
 {
-    public class Refrigerator : ProductBaseEntity
+    public class Refrigerator : CatalogItem
     {
         public double Width { get; set; }
         public double Height { get; set; }

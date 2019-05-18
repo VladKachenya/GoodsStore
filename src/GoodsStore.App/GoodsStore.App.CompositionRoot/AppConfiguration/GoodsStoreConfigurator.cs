@@ -17,6 +17,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using GoodsStore.Web.Framework.App;
 
 namespace GoodsStore.App.CompositionRoot.AppConfiguration
 {
@@ -86,6 +87,7 @@ namespace GoodsStore.App.CompositionRoot.AppConfiguration
         {
             yield return new DataAccessDependenciesRegistrar();
             yield return new WebViewModelDependenciesRegistrar();
+            yield return new WebFrameworkDependenciesRegistrar();
         }
 
         protected IEnumerable<IGoodsStoreStartup> GetStartups()

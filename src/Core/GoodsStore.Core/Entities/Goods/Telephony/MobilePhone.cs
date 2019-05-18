@@ -2,8 +2,8 @@
 
 namespace GoodsStore.Core.Entities.Goods.Telephony
 {
-    public class MobilePhone : ProductBaseEntity
+    public class MobilePhone : CatalogItem
     {
-        
+        public double ScreenDiagonal { get; set; }
     }
 }

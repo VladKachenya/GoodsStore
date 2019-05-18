@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 using GoodsStore.Core.Entities;
+using GoodsStore.Core.Entities.Base;
 using GoodsStore.Core.Interfaces.Specifications;
 
 namespace GoodsStore.Core.Specifications

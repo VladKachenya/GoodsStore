@@ -14,6 +14,7 @@ namespace GoodsStore.Web.ViewModel.App
             // Factories registration
             containerBuilder.RegisterType<CategoryModelFactory, ICategoryModelFactory>();
             containerBuilder.RegisterType<CatalogItemFactory, ICatalogItemFactory>();
+            containerBuilder.RegisterType<GoodsIndexModelBuilder, IGoodsIndexModelBuilder>();
 
             // Servicies registration
             containerBuilder.RegisterType<CategoryModelService, ICategoryModelService>();

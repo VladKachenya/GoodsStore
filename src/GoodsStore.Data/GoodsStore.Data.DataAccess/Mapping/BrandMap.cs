@@ -11,15 +11,15 @@ namespace GoodsStore.Data.DataAccess.Mapping
         public override void Configure(EntityTypeBuilder<Brand> builder)
         {
             builder.ToTable("Brands");
-            builder.Property(p => p.BrandName).IsRequired().HasMaxLength(30);
+            builder.Property(p => p.Name).IsRequired().HasMaxLength(30);
             builder.HasData(new Brand[]
             {
-                new Brand(){Id = 1, BrandName = "Samsung"},
-                new Brand(){Id = 2, BrandName = "Simens"},
-                new Brand(){Id = 3, BrandName = "Xiaomi"},
-                new Brand(){Id = 4, BrandName = "LG"},
-                new Brand(){Id = 5, BrandName = "ATLANT"},
-                new Brand(){Id = 6, BrandName = "Bosch"}
+                new Brand(){Id = 1, Name = "Samsung"},
+                new Brand(){Id = 2, Name = "Simens"},
+                new Brand(){Id = 3, Name = "Xiaomi"},
+                new Brand(){Id = 4, Name = "LG"},
+                new Brand(){Id = 5, Name = "ATLANT"},
+                new Brand(){Id = 6, Name = "Bosch"}
             });
         }
     }

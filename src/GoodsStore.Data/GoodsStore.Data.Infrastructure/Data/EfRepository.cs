@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GoodsStore.Data.Infrastructure.Data
 {
-    public class EfRepository<TEntity> : IAsyncRepository<TEntity> where TEntity : BaseEntity
+    public class EfRepository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
     {
         protected readonly IDbContext DbContext;
         private readonly ISpecificationEvaluator<TEntity> _specificationEvaluator;
@@ -20,22 +20,22 @@ namespace GoodsStore.Data.Infrastructure.Data
             _specificationEvaluator = specificationEvaluator;
         }
 
-        public async Task<TEntity> GetByIdAsync(int id)
+        public async Task<TEntity> GetById(int id)
         {
             return await DbContext.Set<TEntity>().FindAsync(id);
         }
 
-        public async Task<IReadOnlyList<TEntity>> ListAllAsync()
+        public async Task<IReadOnlyList<TEntity>> ListAll()
         {
             return await DbContext.Set<TEntity>().ToListAsync();
         }
 
-        public async Task<IReadOnlyList<TEntity>> ListAsync(ISpecification<TEntity> spec)
+        public async Task<IReadOnlyList<TEntity>> List(ISpecification<TEntity> spec)
         {
             return await ApplySpecification(spec).ToListAsync();
         }
 
-        public async Task<int> CountAsync(ISpecification<TEntity> spec)
+        public async Task<int> Count(ISpecification<TEntity> spec)
         {
             return await ApplySpecification(spec).CountAsync();
         }

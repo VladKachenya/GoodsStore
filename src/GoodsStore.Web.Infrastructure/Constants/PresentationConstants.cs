@@ -1,4 +1,4 @@
-﻿namespace GoodsStore.Web.Framework.Constants
+﻿namespace GoodsStore.Web.Infrastructure.Constants
 {
     public class PresentationConstants
     {

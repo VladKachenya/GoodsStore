@@ -22,7 +22,7 @@ namespace GoodsStore.Data.DataAccess
             var typeConfigurations = Assembly.GetExecutingAssembly().GetTypes().Where(type =>
                 !type.IsAbstract && (type.BaseType?.IsGenericType ?? false)
                 && (type.BaseType.GetGenericTypeDefinition() == typeof(EntityConfig<>) ||
-                    type.BaseType.GetGenericTypeDefinition() == typeof(ProductEntityConfig<>)));
+                    type.BaseType.GetGenericTypeDefinition() == typeof(CatalogItemConfig<>)));
 
 
             foreach (var typeConfiguration in typeConfigurations)

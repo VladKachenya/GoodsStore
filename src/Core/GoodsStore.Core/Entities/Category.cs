@@ -9,7 +9,6 @@ namespace GoodsStore.Core.Entities
         {
             ItemTypes = new List<ItemType>();
         }
-        public string CategoryName { get; set; }
         public List<ItemType> ItemTypes { get; set; }
     }
 }

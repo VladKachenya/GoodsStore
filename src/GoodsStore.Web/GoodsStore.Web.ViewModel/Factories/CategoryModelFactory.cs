@@ -21,9 +21,9 @@ namespace GoodsStore.Web.ViewModel.Factories
             return new CategoryModel()
             {
                 Id = category.Id,
-                CategoryName = category.CategoryName,
+                CategoryName = category.Name,
                 IconName = _categoryModelService.GetCategoryIconName(category),
-                ItemTypeModels = category.ItemTypes.Select(it => new ItemTypeModel(){Id = it.Id, ItemTypeName = it.TypeName})
+                ItemTypeModels = category.ItemTypes.Select(it => new ItemTypeModel(){Id = it.Id, ItemTypeName = it.Name})
             };
         }
 
