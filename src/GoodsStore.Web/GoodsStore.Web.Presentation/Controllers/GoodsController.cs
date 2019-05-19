@@ -11,35 +11,31 @@ namespace GoodsStore.Web.Presentation.Controllers
 {
     public class GoodsController : Controller
     {
-        private readonly ICatalogItemRepository _catalogItemsRepository;
+        private readonly IRepository<CatalogItem> _catalogItemsRepository;
         private readonly IRepository<ItemType> _itemTypeRepository;
         private readonly Func<ISpecification<CatalogItem>> _catalogItemSelectionSpecificationFactory;
-        private readonly ICatalogItemFactory _catalogItemFactory;
-        private readonly IGoodsIndexModelBuilder _goodsIndexModelBuilder;
+        private readonly IGoodsIndexModelFactory _goodsIndexModelFactory;
 
         public GoodsController(
             ICatalogItemRepository catalogItemsRepository, 
             IRepository<ItemType> itemTypeRepository,
             Func<ISpecification<CatalogItem>> catalogItemSelectionSpecificationFactory,
-            ICatalogItemFactory catalogItemFactory,
-            IGoodsIndexModelBuilder goodsIndexModelBuilder)
+            IGoodsIndexModelFactory goodsIndexModelFactory)
         {
             _catalogItemsRepository = catalogItemsRepository;
             _itemTypeRepository = itemTypeRepository;
             _catalogItemSelectionSpecificationFactory = catalogItemSelectionSpecificationFactory;
-            _catalogItemFactory = catalogItemFactory;
-            _goodsIndexModelBuilder = goodsIndexModelBuilder;
+            _goodsIndexModelFactory = goodsIndexModelFactory;
         }
         // GET
         public async Task<IActionResult> Index(int productTypeId)
         {
             var specification = _catalogItemSelectionSpecificationFactory.Invoke();
             specification.ConfigyreSpecificaton(ci => ci.ItemTypeId == productTypeId, 0, 6);
-            var catalogItems = await _catalogItemsRepository.ListIncludesItemTypeAndBrand(specification);
+            var catalogItems = await _catalogItemsRepository.List(specification);
             var itemsType = await _itemTypeRepository.GetById(productTypeId);
-            var data = await _goodsIndexModelBuilder.BuildGoodsIndexModel(itemsType.Name, catalogItems);
-            var res = _catalogItemFactory.GetCategoryItemModels(catalogItems);
-            return View(res);
+            var data = await _goodsIndexModelFactory.BuildGoodsIndexModel(itemsType.Name, catalogItems);
+            return View(data);
         }
     }
 }

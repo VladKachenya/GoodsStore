@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsStore.Web.Framework", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsStore.Web.Infrastructure", "GoodsStore.Web.Infrastructure\GoodsStore.Web.Infrastructure.csproj", "{C18A5276-EF57-405D-A8C3-936C012BBC29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodsStore.Web.ViewModel", "GoodsStore.Web\GoodsStore.Web.ViewModel\GoodsStore.Web.ViewModel.csproj", "{DA29F832-87CD-4554-8A1F-BDF94B427526}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsStore.Web.ViewModel", "GoodsStore.Web\GoodsStore.Web.ViewModel\GoodsStore.Web.ViewModel.csproj", "{DA29F832-87CD-4554-8A1F-BDF94B427526}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

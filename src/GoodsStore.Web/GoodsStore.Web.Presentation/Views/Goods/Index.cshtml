@@ -1,4 +1,4 @@
-﻿@model List<CatalogItemModel>
+﻿@model GoodsStore.Web.ViewModel.Models.CompositModels.GoodsIndexModel
 
 @{
     ViewBag.Title = $"Goods store";
@@ -10,7 +10,7 @@
         Some sellectors!
     </div>
     <div class="col-9">
-        @foreach (var catalogItemModel in Model)
+        @foreach (var catalogItemModel in Model.CatalogItemModels)
         {
             <div class="card m-1 p-1">
                 <h5 class="card-header">@catalogItemModel.UnitName @catalogItemModel.Brand @catalogItemModel.Model</h5>

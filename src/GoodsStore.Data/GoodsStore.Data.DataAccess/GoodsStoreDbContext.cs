@@ -12,8 +12,11 @@ namespace GoodsStore.Data.DataAccess
     public class GoodsStoreDbContext : DbContext, IDbContext
     {
         public GoodsStoreDbContext(DbContextOptions<GoodsStoreDbContext> options) : base(options)
+        {}
+
+        protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
-            
+            dbContextOptionsBuilder.UseLazyLoadingProxies();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

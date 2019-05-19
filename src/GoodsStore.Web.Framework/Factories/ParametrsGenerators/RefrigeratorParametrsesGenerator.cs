@@ -9,10 +9,10 @@ namespace GoodsStore.Web.Framework.Factories.ParametrsGenerators
     public class RefrigeratorParametrsesGenerator : IParametrsGenerator
     {
         public string ProductKey => GoodsKeys.RefrigeratorKey;
-        public Task<List<IParametr>> GetParametrs()
+        public async Task<List<IParametr>> GetParametrs()
         {
             // Worck here
-            return null;
+            return new List<IParametr>();
         }
     }
 }

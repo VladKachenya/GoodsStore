@@ -9,9 +9,9 @@ namespace GoodsStore.Web.Framework.Factories.ParametrsGenerators
     public class MobilePhoneParametrsGenerator : IParametrsGenerator
     {
         public string ProductKey => GoodsKeys.MobilePhoneKey;
-        public Task<List<IParametr>> GetParametrs()
+        public async Task<List<IParametr>> GetParametrs()
         {
-            return null;
+            return new List<IParametr>();
         }
     }
 }

@@ -15,6 +15,7 @@ namespace GoodsStore.Data.DataAccess.Mapping
 
             builder.HasOne(c => c.Brand).WithMany().HasForeignKey(c => c.BrandId).IsRequired();
             builder.HasOne(c => c.ItemType).WithMany().HasForeignKey(c => c.ItemTypeId).IsRequired();
+            
         }
     }
 }

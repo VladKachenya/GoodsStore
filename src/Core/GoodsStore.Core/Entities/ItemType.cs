@@ -6,6 +6,6 @@ namespace GoodsStore.Core.Entities
     {
         public string UnitName { get; set; }
         public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
     }
 }

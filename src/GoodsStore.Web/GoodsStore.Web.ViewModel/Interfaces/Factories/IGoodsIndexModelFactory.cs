@@ -6,7 +6,7 @@ using GoodsStore.Web.ViewModel.Models.CompositModels;
 
 namespace GoodsStore.Web.ViewModel.Interfaces.Factories
 {
-    public interface IGoodsIndexModelBuilder
+    public interface IGoodsIndexModelFactory
     {
         Task<GoodsIndexModel> BuildGoodsIndexModel(string productTypeName,  IEnumerable<CatalogItem> catalogItems);
     }

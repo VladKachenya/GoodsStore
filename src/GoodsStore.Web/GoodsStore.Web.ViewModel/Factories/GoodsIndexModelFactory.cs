@@ -12,7 +12,7 @@ using GoodsStore.Web.Infrastructure.Factories;
 
 namespace GoodsStore.Web.ViewModel.Factories
 {
-    public class GoodsIndexModelBuilder : IGoodsIndexModelBuilder
+    public class GoodsIndexModelFactory : IGoodsIndexModelFactory
     {
         private readonly ICatalogItemFactory _catalogItemFactory;
         private readonly Func<IRangeParametr> _rangeParametrFactory;
@@ -22,7 +22,7 @@ namespace GoodsStore.Web.ViewModel.Factories
 
         #region Ctor
 
-        public GoodsIndexModelBuilder(
+        public GoodsIndexModelFactory(
             ICatalogItemFactory catalogItemFactory,
             Func<IRangeParametr> rangeParametrFactory,
             Func<IPhraseParametr> phraseParametrFactory,
@@ -37,16 +37,10 @@ namespace GoodsStore.Web.ViewModel.Factories
         }
         #endregion
 
-        #region Implementation of IGoodsIndexModelBuilder
+        #region Implementation of IGoodsIndexModelFactory
 
         public async Task<GoodsIndexModel> BuildGoodsIndexModel(string productTypeName, IEnumerable<CatalogItem> catalogItems)
         {
-            var parametrs = new List<IParametr>();
-            parametrs.Add(GetRangeParametr(0, 10000, "Prise"));
-
-            parametrs.Add(GetPhraseParametr("Введите строку поиска"));
-
-
             return new GoodsIndexModel()
             {
                 TypeName = productTypeName,

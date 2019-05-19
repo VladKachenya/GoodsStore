@@ -9,6 +9,6 @@ namespace GoodsStore.Core.Entities
         {
             ItemTypes = new List<ItemType>();
         }
-        public List<ItemType> ItemTypes { get; set; }
+        public virtual List<ItemType> ItemTypes { get; set; }
     }
 }
