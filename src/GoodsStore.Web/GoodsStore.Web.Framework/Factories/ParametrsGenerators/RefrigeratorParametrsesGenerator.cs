@@ -3,16 +3,27 @@ using GoodsStore.Web.Infrastructure.Factories;
 using GoodsStore.Web.Infrastructure.Model;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using GoodsStore.Core.Domain.Entities;
 
 namespace GoodsStore.Web.Framework.Factories.ParametrsGenerators
 {
-    public class RefrigeratorParametrsesGenerator : IParametrsGenerator
+    public class RefrigeratorParametrsesGenerator : CatalogItemParametrsGenerator
     {
-        public string ProductKey => GoodsKeys.RefrigeratorKey;
-        public async Task<List<IParametr>> GetParametrs()
+        public RefrigeratorParametrsesGenerator(IParametrFactory parametrFactory) : base(parametrFactory)
         {
-            // Worck here
-            return new List<IParametr>();
+        }
+        public override GoodsTypes ProductKey => GoodsTypes.Refrigerator;
+
+        public override List<IParametr> GetParametrs(ItemType itemType)
+        {
+            var res = base.GetParametrs(itemType);
+            // Тут из базы данных необходимо достовать максимальный и минимальный размер экрана
+            res.Add(_parametrFactory.GetRangeParametr(1, 15, "Width"));
+            res.Add(_parametrFactory.GetRangeParametr(1, 15, "Height"));
+            res.Add(_parametrFactory.GetRangeParametr(1, 15, "Freezer сamera volume"));
+            res.Add(_parametrFactory.GetRangeParametr(1, 15, "Refrigerator camera volume"));
+
+            return res;
         }
     }
 }

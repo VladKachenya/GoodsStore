@@ -19,6 +19,17 @@ namespace GoodsStore.Data.DataAccess.Mapping.Helpers
             builder.HasOne(bi => bi.ItemType)
                 .WithMany(it => it.BrandItemTypes)
                 .HasForeignKey(bi => bi.ItemTypeId);
+
+            builder.HasData(new[]
+            {
+                new BrandItemType(){BrandId = 5, ItemTypeId = 1},
+                new BrandItemType(){BrandId = 4, ItemTypeId = 1},
+                new BrandItemType(){BrandId = 1, ItemTypeId = 1},
+                new BrandItemType(){BrandId = 6, ItemTypeId = 1},
+                new BrandItemType(){BrandId = 4, ItemTypeId = 3},
+                new BrandItemType(){BrandId = 2, ItemTypeId = 3},
+                new BrandItemType(){BrandId = 1, ItemTypeId = 3},
+            });
         }
     }
 }

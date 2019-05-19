@@ -19,6 +19,7 @@ namespace GoodsStore.Web.Framework.App
             containerBuilder.RegisterType<CatalogItemParametersFactory, ICatalogItemParametersFactory>();
             containerBuilder.RegisterType<ParametrFactory, IParametrFactory>();
 
+            containerBuilder.RegisterType<CatalogItemParametrsGenerator, IParametrsGenerator>();
             containerBuilder.RegisterType<RefrigeratorParametrsesGenerator, IParametrsGenerator>();
             containerBuilder.RegisterType<MobilePhoneParametrsGenerator, IParametrsGenerator>();
         }

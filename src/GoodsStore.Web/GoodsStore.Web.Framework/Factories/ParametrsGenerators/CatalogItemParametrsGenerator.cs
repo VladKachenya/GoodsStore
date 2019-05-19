@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using GoodsStore.Core.Domain.Entities;
+using GoodsStore.Core.Domain.Entities.Base;
 using GoodsStore.Core.Domain.Interfaces.Repositories;
 using GoodsStore.Core.Domain.Keys;
 using GoodsStore.Web.Infrastructure.Factories;
@@ -8,24 +10,25 @@ using GoodsStore.Web.Infrastructure.Model;
 
 namespace GoodsStore.Web.Framework.Factories.ParametrsGenerators
 {
-    public abstract class CatalogItemParametrsGenerator : IParametrsGenerator
+    public class CatalogItemParametrsGenerator : IParametrsGenerator
     {
-        private readonly IRepository<Brand> _brandRepository;
         protected readonly IParametrFactory _parametrFactory;
 
-        protected CatalogItemParametrsGenerator(
-            IRepository<Brand> brandRepository,
-            IParametrFactory parametrFactory
-            )
+        public CatalogItemParametrsGenerator(
+            IParametrFactory parametrFactory)
         {
-            _brandRepository = brandRepository;
             _parametrFactory = parametrFactory;
         }
-        public virtual string ProductKey => GoodsKeys.CatalogItemKey;
-        public async Task<List<IParametr>> GetParametrs()
+        public virtual GoodsTypes ProductKey => default(GoodsTypes);
+        public virtual List<IParametr> GetParametrs(ItemType itemType)
         {
-
-            return null;
+            var res = new List<IParametr>();
+            // Тут из базы данных необходимо достовать максиальную и минимальную цену
+            res.Add(_parametrFactory.GetRangeParametr(1, 15, "Prise"));
+            res.Add(_parametrFactory.GetPhraseParametr("Product name"));
+            var brands = itemType.BrandItemTypes.Select(bi => bi.Brand).ToList();
+            res.Add(_parametrFactory.GetSelectebleListParametr(brands, "Brands"));
+            return res;
         }
     }
 }

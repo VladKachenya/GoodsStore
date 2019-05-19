@@ -28,7 +28,7 @@ namespace GoodsStore.Web.Framework.Factories
 
 
         #region Implementation of IParametrFactory
-        public IParametr GetSelectebleListParametr(IEnumerable<BaseEntity> baseEntities, string parametName = "Some SelectebleList param")
+        public IParametr GetSelectebleListParametr(IEnumerable<BaseEntity> baseEntities, string parametName)
         {
             var res = _selectebleListParametrFactory.Invoke();
 
@@ -45,15 +45,15 @@ namespace GoodsStore.Web.Framework.Factories
             return res;
         }
 
-        public IParametr GetPhraseParametr(string parametName = "Some phrase param")
+        public IParametr GetPhraseParametr(string parametName)
         {
             var res = _phraseParametrFactory.Invoke();
-
+            res.Phrase = string.Empty;
             res.ParametrName = parametName;
             return res;
         }
 
-        public IParametr GetRangeParametr(double from, double to, string parametName = "Some range param")
+        public IParametr GetRangeParametr(double from, double to, string parametName)
         {
             var res = _rangeParametrFactory.Invoke();
             res.FromValue = from;

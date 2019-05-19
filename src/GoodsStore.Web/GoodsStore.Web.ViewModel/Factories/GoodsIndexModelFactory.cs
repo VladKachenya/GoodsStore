@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GoodsStore.Core.Domain.Entities;
 
 namespace GoodsStore.Web.ViewModel.Factories
 {
@@ -31,13 +32,13 @@ namespace GoodsStore.Web.ViewModel.Factories
 
         #region Implementation of IGoodsIndexModelFactory
 
-        public async Task<GoodsIndexModel> BuildGoodsIndexModel(string productTypeName, IEnumerable<CatalogItem> catalogItems)
+        public GoodsIndexModel BuildGoodsIndexModel(ItemType productType, IEnumerable<CatalogItem> catalogItems)
         {
             return new GoodsIndexModel()
             {
-                TypeName = productTypeName,
+                TypeName = productType.UnitName,
                 CatalogItemModels = _catalogItemFactory.GetCategoryItemModels(catalogItems),
-                Parametrs = await _catalogItemParametersFactory.GetParametrsOfType(catalogItems.First())
+                Parametrs = _catalogItemParametersFactory.GetParametrsOfType(productType)
             };
         }
         #endregion

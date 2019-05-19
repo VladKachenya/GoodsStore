@@ -1,4 +1,5 @@
 ﻿using GoodsStore.Core.Domain.Entities;
+using GoodsStore.Core.Domain.Keys;
 using GoodsStore.Data.Infrastructure.Mapping;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -15,11 +16,11 @@ namespace GoodsStore.Data.DataAccess.Mapping
             builder.HasOne(i => i.Category).WithMany(c => c.ItemTypes).HasForeignKey(i => i.CategoryId).IsRequired();
             builder.HasData(new ItemType[]
             {
-                new ItemType(){Id = 1, CategoryId = 1, Name = "Refrigerators", UnitName = "Refrigerator"},
-                new ItemType(){Id = 2, CategoryId = 1, Name = "TVs", UnitName = "TV"},
-                new ItemType(){Id = 3, CategoryId = 2, Name = "Mobile phones", UnitName = "Mobile phone"},
-                new ItemType(){Id = 4, CategoryId = 2, Name = "Phone cases", UnitName = "Case"},
-                new ItemType(){Id = 5, CategoryId = 1, Name = "Blenders", UnitName = "Blender"},
+                new ItemType(){Id = (int)GoodsTypes.Refrigerator, CategoryId = 1, Name = "Refrigerators", UnitName = "Refrigerator"},
+                new ItemType(){Id = (int)GoodsTypes.Tv, CategoryId = 1, Name = "TVs", UnitName = "TV"},
+                new ItemType(){Id = (int)GoodsTypes.MobilePhone, CategoryId = 2, Name = "Mobile phones", UnitName = "Mobile phone"},
+                new ItemType(){Id = (int)GoodsTypes.PhoneCase, CategoryId = 2, Name = "Phone cases", UnitName = "Case"},
+                new ItemType(){Id = (int)GoodsTypes.Blender, CategoryId = 1, Name = "Blenders", UnitName = "Blender"},
 
             });
         }

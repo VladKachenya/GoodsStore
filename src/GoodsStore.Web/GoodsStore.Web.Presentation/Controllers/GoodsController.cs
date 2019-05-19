@@ -34,7 +34,7 @@ namespace GoodsStore.Web.Presentation.Controllers
             specification.ConfigyreSpecificaton(ci => ci.ItemTypeId == productTypeId, 0, 6);
             var catalogItems = await _catalogItemsRepository.List(specification);
             var itemsType = await _itemTypeRepository.GetById(productTypeId);
-            var data = await _goodsIndexModelFactory.BuildGoodsIndexModel(itemsType.Name, catalogItems);
+            var data = _goodsIndexModelFactory.BuildGoodsIndexModel(itemsType, catalogItems);
             return View(data);
         }
     }
