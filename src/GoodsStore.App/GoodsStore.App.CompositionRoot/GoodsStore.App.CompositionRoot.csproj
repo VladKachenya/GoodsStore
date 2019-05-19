@@ -11,8 +11,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\GoodsStore.Data\GoodsStore.Data.DataAccess\GoodsStore.Data.DataAccess.csproj" />
     <ProjectReference Include="..\..\GoodsStore.Data\GoodsStore.Data.Infrastructure\GoodsStore.Data.Infrastructure.csproj" />
-    <ProjectReference Include="..\..\GoodsStore.Web.Framework\GoodsStore.Web.Framework.csproj" />
-    <ProjectReference Include="..\..\GoodsStore.Web.Infrastructure\GoodsStore.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\..\GoodsStore.Web\GoodsStore.Web.ViewModel\GoodsStore.Web.ViewModel.csproj" />
     <ProjectReference Include="..\GoodsStore.App.Infrastructure\GoodsStore.App.Infrastructure.csproj" />
   </ItemGroup>

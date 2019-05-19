@@ -1,18 +1,17 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
-using GoodsStore.Core.Entities.Base;
-using GoodsStore.Core.Keys;
+﻿using GoodsStore.Core.Domain.Entities.Base;
 using GoodsStore.Data.Infrastructure.Data;
 using GoodsStore.Data.Infrastructure.Mapping;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
+using System.Reflection;
 
 namespace GoodsStore.Data.DataAccess
 {
     public class GoodsStoreDbContext : DbContext, IDbContext
     {
         public GoodsStoreDbContext(DbContextOptions<GoodsStoreDbContext> options) : base(options)
-        {}
+        { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {

@@ -1,4 +1,4 @@
-﻿using GoodsStore.Core.Entities;
+﻿using GoodsStore.Core.Domain.Entities;
 
 namespace GoodsStore.Web.ViewModel.Interfaces.Servicies
 {

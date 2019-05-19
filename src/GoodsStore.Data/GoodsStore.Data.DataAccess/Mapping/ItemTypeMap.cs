@@ -1,4 +1,4 @@
-﻿using GoodsStore.Core.Entities;
+﻿using GoodsStore.Core.Domain.Entities;
 using GoodsStore.Data.Infrastructure.Mapping;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

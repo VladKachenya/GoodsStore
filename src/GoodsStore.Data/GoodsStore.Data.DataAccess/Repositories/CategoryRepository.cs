@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using GoodsStore.Core.Entities;
-using GoodsStore.Core.Interfaces.Repositories;
+﻿using GoodsStore.Core.Domain.Entities;
+using GoodsStore.Core.Domain.Interfaces.Repositories;
 using GoodsStore.Data.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace GoodsStore.Data.DataAccess.Repositories
 {

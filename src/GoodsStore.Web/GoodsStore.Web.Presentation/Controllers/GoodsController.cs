@@ -1,11 +1,11 @@
-﻿using System;
-using System.Threading.Tasks;
-using GoodsStore.Core.Entities;
-using GoodsStore.Core.Entities.Base;
-using GoodsStore.Core.Interfaces.Repositories;
-using GoodsStore.Core.Interfaces.Specifications;
+﻿using GoodsStore.Core.Domain.Entities;
+using GoodsStore.Core.Domain.Entities.Base;
+using GoodsStore.Core.Domain.Interfaces.Repositories;
+using GoodsStore.Core.Domain.Interfaces.Specifications;
 using GoodsStore.Web.ViewModel.Interfaces.Factories;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 
 namespace GoodsStore.Web.Presentation.Controllers
 {
@@ -17,7 +17,7 @@ namespace GoodsStore.Web.Presentation.Controllers
         private readonly IGoodsIndexModelFactory _goodsIndexModelFactory;
 
         public GoodsController(
-            ICatalogItemRepository catalogItemsRepository, 
+            ICatalogItemRepository catalogItemsRepository,
             IRepository<ItemType> itemTypeRepository,
             Func<ISpecification<CatalogItem>> catalogItemSelectionSpecificationFactory,
             IGoodsIndexModelFactory goodsIndexModelFactory)

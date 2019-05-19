@@ -1,6 +1,5 @@
-﻿using GoodsStore.Core.Entities.Goods.Telephony;
+﻿using GoodsStore.Core.Domain.Entities.Goods.Telephony;
 using GoodsStore.Data.Infrastructure.Mapping;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace GoodsStore.Data.DataAccess.Mapping.Goods.Telephony
@@ -11,7 +10,7 @@ namespace GoodsStore.Data.DataAccess.Mapping.Goods.Telephony
         {
             base.Configure(builder);
 
-            builder.HasData(new []
+            builder.HasData(new[]
             {
                 new MobilePhone(){Id = 1001, BrandId = 4, ItemTypeId = 3, Price = (decimal)12.25, Name = "V30S+ ThinQ Gray", Description = "Li Europan lingues es membres del sam familie. Lor separat existentie es un myth."},
                 new MobilePhone(){Id = 1002, BrandId = 4, ItemTypeId = 3, Price = (decimal)782.25, Name = "G360", Description = "Por scientie, musica, sport etc, litot Europa usa li sam vocabular."},

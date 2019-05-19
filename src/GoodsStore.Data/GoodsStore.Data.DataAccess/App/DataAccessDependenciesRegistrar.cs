@@ -1,6 +1,6 @@
 ﻿using GoodsStore.App.Infrastructure.App;
 using GoodsStore.App.Infrastructure.IoC;
-using GoodsStore.Core.Interfaces.Repositories;
+using GoodsStore.Core.Domain.Interfaces.Repositories;
 using GoodsStore.Data.DataAccess.Repositories;
 using GoodsStore.Data.Infrastructure.Data;
 

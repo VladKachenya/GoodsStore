@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using GoodsStore.Core.Entities;
+﻿using GoodsStore.Core.Domain.Entities;
 using GoodsStore.Web.ViewModel.Models;
+using System.Collections.Generic;
 
 namespace GoodsStore.Web.ViewModel.Interfaces.Factories
 {

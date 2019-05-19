@@ -1,6 +1,6 @@
-﻿using System.Linq;
-using GoodsStore.Core.Entities.Base;
-using GoodsStore.Core.Interfaces.Specifications;
+﻿using GoodsStore.Core.Domain.Entities.Base;
+using GoodsStore.Core.Domain.Interfaces.Specifications;
+using System.Linq;
 
 namespace GoodsStore.Data.Infrastructure.Data
 {

@@ -1,9 +1,9 @@
-﻿using GoodsStore.Core.Entities;
+﻿using GoodsStore.Core.Domain.Entities;
 using GoodsStore.Data.Infrastructure.Mapping;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace GoodsStore.Data.DataAccess.Mapping 
+namespace GoodsStore.Data.DataAccess.Mapping
 {
     public class BrandMap : EntityConfig<Brand>
     {

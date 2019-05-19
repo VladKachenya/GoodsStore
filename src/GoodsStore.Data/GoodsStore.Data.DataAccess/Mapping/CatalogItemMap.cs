@@ -1,5 +1,4 @@
-﻿using GoodsStore.Core.Entities;
-using GoodsStore.Core.Entities.Base;
+﻿using GoodsStore.Core.Domain.Entities.Base;
 using GoodsStore.Data.Infrastructure.Mapping;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -15,7 +14,7 @@ namespace GoodsStore.Data.DataAccess.Mapping
 
             builder.HasOne(c => c.Brand).WithMany().HasForeignKey(c => c.BrandId).IsRequired();
             builder.HasOne(c => c.ItemType).WithMany().HasForeignKey(c => c.ItemTypeId).IsRequired();
-            
+
         }
     }
 }

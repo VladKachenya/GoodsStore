@@ -3,10 +3,10 @@ using Autofac.Extensions.DependencyInjection;
 using GoodsStore.App.CompositionRoot.IoC;
 using GoodsStore.App.CompositionRoot.WebApp;
 using GoodsStore.App.Infrastructure.App;
-using GoodsStore.Core.Entities;
-using GoodsStore.Core.Interfaces.Specifications;
-using GoodsStore.Core.Specifications;
+using GoodsStore.Core.Domain.Interfaces.Specifications;
+using GoodsStore.Core.Domain.Specifications;
 using GoodsStore.Data.DataAccess.App;
+using GoodsStore.Web.Framework.App;
 using GoodsStore.Web.Framework.WebApp;
 using GoodsStore.Web.Infrastructure.WebApp;
 using GoodsStore.Web.ViewModel.App;
@@ -17,7 +17,6 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using GoodsStore.Web.Framework.App;
 
 namespace GoodsStore.App.CompositionRoot.AppConfiguration
 {

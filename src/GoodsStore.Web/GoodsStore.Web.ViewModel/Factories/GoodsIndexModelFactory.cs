@@ -1,5 +1,5 @@
-﻿using GoodsStore.Core.Entities;
-using GoodsStore.Core.Entities.Base;
+﻿using GoodsStore.Core.Domain.Entities.Base;
+using GoodsStore.Web.Infrastructure.Factories;
 using GoodsStore.Web.Infrastructure.Model;
 using GoodsStore.Web.ViewModel.Interfaces.Factories;
 using GoodsStore.Web.ViewModel.Models.CompositModels;
@@ -8,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using GoodsStore.Web.Infrastructure.Factories;
 
 namespace GoodsStore.Web.ViewModel.Factories
 {

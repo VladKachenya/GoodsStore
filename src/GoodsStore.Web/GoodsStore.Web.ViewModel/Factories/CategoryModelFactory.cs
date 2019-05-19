@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using GoodsStore.Core.Entities;
+﻿using GoodsStore.Core.Domain.Entities;
 using GoodsStore.Web.ViewModel.Interfaces.Factories;
 using GoodsStore.Web.ViewModel.Interfaces.Servicies;
 using GoodsStore.Web.ViewModel.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace GoodsStore.Web.ViewModel.Factories
 {
@@ -23,7 +23,7 @@ namespace GoodsStore.Web.ViewModel.Factories
                 Id = category.Id,
                 CategoryName = category.Name,
                 IconName = _categoryModelService.GetCategoryIconName(category),
-                ItemTypeModels = category.ItemTypes.Select(it => new ItemTypeModel(){Id = it.Id, ItemTypeName = it.Name})
+                ItemTypeModels = category.ItemTypes.Select(it => new ItemTypeModel() { Id = it.Id, ItemTypeName = it.Name })
             };
         }
 
@@ -36,6 +36,6 @@ namespace GoodsStore.Web.ViewModel.Factories
             }
             return res;
         }
-        
+
     }
 }

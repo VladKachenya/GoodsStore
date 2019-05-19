@@ -1,4 +1,4 @@
-﻿using GoodsStore.Core.Interfaces.Repositories;
+﻿using GoodsStore.Core.Domain.Interfaces.Repositories;
 using GoodsStore.Web.ViewModel.Interfaces.Factories;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;

@@ -1,4 +1,4 @@
-﻿using GoodsStore.Core.Entities.Goods.HouseholdEquipment;
+﻿using GoodsStore.Core.Domain.Entities.Goods.HouseholdEquipment;
 using GoodsStore.Data.Infrastructure.Mapping;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -14,7 +14,7 @@ namespace GoodsStore.Data.DataAccess.Mapping.Goods.HouseholdEquipment
             builder.HasData(new[]
             {
                 new Refrigerator(){Id = 1, BrandId = 5, ItemTypeId = 1, Price = (decimal)12.25, Name = "XM 4208-000", Description = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium", Height = 10, Width = 5, FreezerCameraVolume = 25, RefrigeratorCameraVolume = 20},
-                new Refrigerator(){Id = 2, BrandId = 5, ItemTypeId = 1, Price = (decimal)89.25, Name = "XM 4215-000", Description = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium", Height = 10, Width = 6, FreezerCameraVolume = 12, RefrigeratorCameraVolume = 25 }, 
+                new Refrigerator(){Id = 2, BrandId = 5, ItemTypeId = 1, Price = (decimal)89.25, Name = "XM 4215-000", Description = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium", Height = 10, Width = 6, FreezerCameraVolume = 12, RefrigeratorCameraVolume = 25 },
                 new Refrigerator(){Id = 3, BrandId = 5, ItemTypeId = 1, Price = (decimal)124.145, Name = "XM 4307-001", Description = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium", Height = 12, Width = 7, FreezerCameraVolume = 20, RefrigeratorCameraVolume = 22},
                 new Refrigerator(){Id = 4, BrandId = 4, ItemTypeId = 1, Price = (decimal)142.125, Name = "GA-B429SMQZ", Description = "But I must explain to you how all this mistaken idea of denouncing pleasure and praising", Height = 15, Width = 4, FreezerCameraVolume = 30, RefrigeratorCameraVolume = 29},
                 new Refrigerator(){Id = 5, BrandId = 4, ItemTypeId = 1, Price = (decimal)1110.25, Name = "GW-B499SMFZ", Description = "But I must explain to you how all this mistaken idea of denouncing pleasure and praising", Height = 8, Width = 8, FreezerCameraVolume = 25, RefrigeratorCameraVolume = 20},
