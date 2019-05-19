@@ -14,25 +14,18 @@ namespace GoodsStore.Web.ViewModel.Factories
     public class GoodsIndexModelFactory : IGoodsIndexModelFactory
     {
         private readonly ICatalogItemFactory _catalogItemFactory;
-        private readonly Func<IRangeParametr> _rangeParametrFactory;
-        private readonly Func<IPhraseParametr> _phraseParametrFactory;
-        private readonly Func<ISelectableListParametr> _selectebleListParametrFactory;
-        private readonly IParametrFactory _parametrFactory;
+        
+        private readonly ICatalogItemParametersFactory _catalogItemParametersFactory;
 
         #region Ctor
 
         public GoodsIndexModelFactory(
             ICatalogItemFactory catalogItemFactory,
-            Func<IRangeParametr> rangeParametrFactory,
-            Func<IPhraseParametr> phraseParametrFactory,
-            Func<ISelectableListParametr> selectebleListParametrFactory,
-            IParametrFactory parametrFactory)
+            ICatalogItemParametersFactory catalogItemParametersFactory)
         {
             _catalogItemFactory = catalogItemFactory;
-            _rangeParametrFactory = rangeParametrFactory;
-            _phraseParametrFactory = phraseParametrFactory;
-            _selectebleListParametrFactory = selectebleListParametrFactory;
-            _parametrFactory = parametrFactory;
+           
+            _catalogItemParametersFactory = catalogItemParametersFactory;
         }
         #endregion
 
@@ -44,43 +37,11 @@ namespace GoodsStore.Web.ViewModel.Factories
             {
                 TypeName = productTypeName,
                 CatalogItemModels = _catalogItemFactory.GetCategoryItemModels(catalogItems),
-                Parametrs = await _parametrFactory.GetParametrsOfType(catalogItems.First())
+                Parametrs = await _catalogItemParametersFactory.GetParametrsOfType(catalogItems.First())
             };
         }
         #endregion
 
-        private IParametr GetSelectebleListParametr(IEnumerable<BaseEntity> baseEntities, string parametName = "Some SelectebleList param")
-        {
-            var res = _selectebleListParametrFactory.Invoke();
-
-            foreach (var baseEntity in baseEntities)
-            {
-                res.SelectListItems.Add(new SelectListItem()
-                {
-                    Text = baseEntity.Name,
-                    Value = baseEntity.Id.ToString()
-                });
-            }
-
-            res.ParametrName = parametName;
-            return res;
-        }
-
-        private IParametr GetPhraseParametr(string parametName = "Some phrase param")
-        {
-            var res = _phraseParametrFactory.Invoke();
-
-            res.ParametrName = parametName;
-            return res;
-        }
-
-        private IParametr GetRangeParametr(double from, double to, string parametName = "Some range param")
-        {
-            var res = _rangeParametrFactory.Invoke();
-            res.FromValue = from;
-            res.ToValue = to;
-            res.ParametrName = parametName;
-            return res;
-        }
+        
     }
 }

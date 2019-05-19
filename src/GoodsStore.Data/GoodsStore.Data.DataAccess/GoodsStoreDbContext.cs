@@ -1,4 +1,5 @@
 ﻿using GoodsStore.Core.Domain.Entities.Base;
+using GoodsStore.Core.Domain.Entities.Helpers;
 using GoodsStore.Data.Infrastructure.Data;
 using GoodsStore.Data.Infrastructure.Mapping;
 using Microsoft.EntityFrameworkCore;
@@ -24,8 +25,8 @@ namespace GoodsStore.Data.DataAccess
             var typeConfigurations = Assembly.GetExecutingAssembly().GetTypes().Where(type =>
                 !type.IsAbstract && (type.BaseType?.IsGenericType ?? false)
                 && (type.BaseType.GetGenericTypeDefinition() == typeof(EntityConfig<>) ||
-                    type.BaseType.GetGenericTypeDefinition() == typeof(CatalogItemConfig<>)));
-
+                    type.BaseType.GetGenericTypeDefinition() == typeof(CatalogItemConfig<>) ||
+                    type.BaseType.GetGenericTypeDefinition() == typeof(BaseConfig<>)));
 
             foreach (var typeConfiguration in typeConfigurations)
             {

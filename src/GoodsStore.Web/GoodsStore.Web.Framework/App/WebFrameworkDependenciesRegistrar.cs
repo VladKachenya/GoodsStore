@@ -16,6 +16,7 @@ namespace GoodsStore.Web.Framework.App
             containerBuilder.RegisterType<RangeParametr, IRangeParametr>();
             containerBuilder.RegisterType<SelectableListParametr, ISelectableListParametr>();
 
+            containerBuilder.RegisterType<CatalogItemParametersFactory, ICatalogItemParametersFactory>();
             containerBuilder.RegisterType<ParametrFactory, IParametrFactory>();
 
             containerBuilder.RegisterType<RefrigeratorParametrsesGenerator, IParametrsGenerator>();
