@@ -5,7 +5,7 @@ namespace GoodsStore.Web.Framework.Models.Parametrs
 {
     public class RangeParametr : BaseEntityParametr, IRangeParametr
     {
-        public RangeParametr() : base(ParametrKeys.Range)
+        public RangeParametr() : base(ParametrKeys.RangeParametr)
         {
         }
 

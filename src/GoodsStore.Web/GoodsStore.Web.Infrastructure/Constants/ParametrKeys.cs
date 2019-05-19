@@ -2,8 +2,8 @@
 {
     public enum ParametrKeys
     {
-        Range = 1,
-        SelectableList,
-        Phrase
+        RangeParametr = 1,
+        SelectableListParametr,
+        PhraseParametr
     }
 }

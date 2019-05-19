@@ -7,7 +7,7 @@ namespace GoodsStore.Web.Framework.Models.Parametrs
 {
     public class SelectableListParametr : BaseEntityParametr, ISelectableListParametr
     {
-        public SelectableListParametr() : base(ParametrKeys.SelectableList)
+        public SelectableListParametr() : base(ParametrKeys.SelectableListParametr)
         {
             SelectListItems = new List<SelectListItem>();
         }

@@ -5,6 +5,7 @@ using GoodsStore.Core.Domain.Interfaces.Specifications;
 using GoodsStore.Web.ViewModel.Interfaces.Factories;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace GoodsStore.Web.Presentation.Controllers

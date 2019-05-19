@@ -5,7 +5,7 @@ namespace GoodsStore.Web.Framework.Models.Parametrs
 {
     public class PhraseParametr : BaseEntityParametr, IPhraseParametr
     {
-        public PhraseParametr() : base(ParametrKeys.Phrase)
+        public PhraseParametr() : base(ParametrKeys.PhraseParametr)
         {
         }
 
