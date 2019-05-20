@@ -6,11 +6,12 @@
 }
 
 <div class="row">
-    <div class="col-3">
+    <div class="col-3 parametrs">
         @foreach (var modelParametr in Model.Parametrs)
         {
-            <div class="parametr">
-                @await Component.InvokeAsync(modelParametr.ParametrKey.ToString(), new { parametr = modelParametr })
+            <div class="@PresentationParametrKeys.Parametr card-body p-1">
+                <h5 >@modelParametr.ParametrName :</h5>
+                @await Component.InvokeAsync(modelParametr.ParametrKey.ToString(), new {parametr = modelParametr})
             </div>
         }
     </div>

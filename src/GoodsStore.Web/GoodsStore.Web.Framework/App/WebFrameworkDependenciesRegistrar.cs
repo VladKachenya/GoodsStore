@@ -1,5 +1,6 @@
 ﻿using GoodsStore.App.Infrastructure.App;
 using GoodsStore.App.Infrastructure.IoC;
+using GoodsStore.Core.Domain.Entities.Base;
 using GoodsStore.Web.Framework.Factories;
 using GoodsStore.Web.Framework.Factories.ParametrsGenerators;
 using GoodsStore.Web.Framework.Models.Parametrs;
@@ -19,7 +20,7 @@ namespace GoodsStore.Web.Framework.App
             containerBuilder.RegisterType<CatalogItemParametersFactory, ICatalogItemParametersFactory>();
             containerBuilder.RegisterType<ParametrFactory, IParametrFactory>();
 
-            containerBuilder.RegisterType<CatalogItemParametrsGenerator, IParametrsGenerator>();
+            containerBuilder.RegisterType<CatalogItemParametrsGenerator<CatalogItem>, IParametrsGenerator>();
             containerBuilder.RegisterType<RefrigeratorParametrsesGenerator, IParametrsGenerator>();
             containerBuilder.RegisterType<MobilePhoneParametrsGenerator, IParametrsGenerator>();
         }

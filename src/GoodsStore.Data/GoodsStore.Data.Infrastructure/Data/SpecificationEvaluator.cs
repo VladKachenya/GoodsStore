@@ -16,6 +16,15 @@ namespace GoodsStore.Data.Infrastructure.Data
                 query = query.Where(specification.Criteria);
             }
 
+            if (specification.OrderBy != null)
+            {
+                query = query.OrderBy(specification.OrderBy);
+            }
+            else if (specification.OrderByDescending != null)
+            {
+                query = query.OrderByDescending(specification.OrderByDescending);
+            }
+
             // Apply paging if enabled
             if (specification.IsPagingEnabled)
             {

@@ -1,15 +1,23 @@
-﻿using GoodsStore.Core.Domain.Keys;
+﻿using System;
+using GoodsStore.Core.Domain.Keys;
 using GoodsStore.Web.Infrastructure.Factories;
 using GoodsStore.Web.Infrastructure.Model;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using GoodsStore.Core.Domain.Entities;
+using GoodsStore.Core.Domain.Entities.Goods.HouseholdEquipment;
+using GoodsStore.Core.Domain.Interfaces.Repositories;
+using GoodsStore.Core.Domain.Interfaces.Specifications;
 
 namespace GoodsStore.Web.Framework.Factories.ParametrsGenerators
 {
-    public class RefrigeratorParametrsesGenerator : CatalogItemParametrsGenerator
+    public class RefrigeratorParametrsesGenerator : CatalogItemParametrsGenerator<Refrigerator>
     {
-        public RefrigeratorParametrsesGenerator(IParametrFactory parametrFactory) : base(parametrFactory)
+        public RefrigeratorParametrsesGenerator(
+            IParametrFactory parametrFactory,
+            IRepository<Refrigerator> repository,
+            Func<ISpecification<Refrigerator>> spesificatioFunc
+            ) : base(parametrFactory, repository, spesificatioFunc)
         {
         }
         public override GoodsTypes ProductKey => GoodsTypes.Refrigerator;

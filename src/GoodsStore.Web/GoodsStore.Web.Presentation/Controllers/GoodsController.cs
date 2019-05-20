@@ -32,7 +32,7 @@ namespace GoodsStore.Web.Presentation.Controllers
         public async Task<IActionResult> Index(int productTypeId)
         {
             var specification = _catalogItemSelectionSpecificationFactory.Invoke();
-            specification.ConfigyreSpecificaton(ci => ci.ItemTypeId == productTypeId, 0, 6);
+            specification.ConfigyreSpecificaton(ci => ci.ItemTypeId == productTypeId).ApplyPaging(0, 6);
             var catalogItems = await _catalogItemsRepository.List(specification);
             var itemsType = await _itemTypeRepository.GetById(productTypeId);
             var data = _goodsIndexModelFactory.BuildGoodsIndexModel(itemsType, catalogItems);

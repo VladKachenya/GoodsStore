@@ -31,7 +31,10 @@ namespace GoodsStore.Data.DataAccess.Mapping.Goods.HouseholdEquipment
                 new Refrigerator(){Id = 19, BrandId = 6, ItemTypeId = 1, Price = (decimal)452.1, Name = "KGN39XW2AR", Description = "Questions we additions is extremely incommode. Next half add call them eat face."},
                 new Refrigerator(){Id = 20, BrandId = 6, ItemTypeId = 1, Price = (decimal)123.1, Name = "KGN39AI31R", Description = "Age lived smile six defer bed their few. Had admitting concluded too behaviour him she."},
                 new Refrigerator(){Id = 21, BrandId = 6, ItemTypeId = 1, Price = (decimal)542.4, Name = "KGN39XW33R", Description = "Blind would equal while oh mr do style. Lain led and fact none. One preferred sportsmen resolving the happiness continued."},
-                new Refrigerator(){Id = 22, BrandId = 6, ItemTypeId = 1, Price = (decimal)98.5, Name = "KGN39AI2AR", Description = "High at of in loud rich true. Oh conveying do immediate acuteness in he. Equally welcome her set nothing has gravity whether parties."}
+                new Refrigerator(){Id = 22, BrandId = 3, ItemTypeId = 1, Price = (decimal)98.5, Name = "KGN39AI2AR", Description = "High at of in loud rich true. Oh conveying do immediate acuteness in he. Equally welcome her set nothing has gravity whether parties."},
+                new Refrigerator(){Id = 23, BrandId = 3, ItemTypeId = 1, Price = (decimal)9432.1, Name = "XY135468", Description = "Age lived smile six defer bed their few. Had admitting concluded too behaviour him she."},
+                new Refrigerator(){Id = 24, BrandId = 3, ItemTypeId = 1, Price = (decimal)10.11, Name = "XR498731", Description = "Blind would equal while oh mr do style. Lain led and fact none. One preferred sportsmen resolving the happiness continued."},
+                new Refrigerator(){Id = 25, BrandId = 3, ItemTypeId = 1, Price = (decimal)98.5, Name = "XF46568", Description = "High at of in loud rich true. Oh conveying do immediate acuteness in he. Equally welcome her set nothing has gravity whether parties."}
             });
         }
     }
