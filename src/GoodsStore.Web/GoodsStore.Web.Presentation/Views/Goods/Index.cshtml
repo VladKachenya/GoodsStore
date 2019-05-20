@@ -9,7 +9,9 @@
     <div class="col-3">
         @foreach (var modelParametr in Model.Parametrs)
         {
-            @await Component.InvokeAsync(modelParametr.ParametrKey.ToString(), new { parametr = modelParametr})
+            <div class="parametr">
+                @await Component.InvokeAsync(modelParametr.ParametrKey.ToString(), new { parametr = modelParametr })
+            </div>
         }
     </div>
     <div class="col-9">
