@@ -1,18 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using GoodsStore.Core.Domain.Entities;
+﻿using GoodsStore.Core.Domain.Entities;
 using GoodsStore.Core.Domain.Entities.Base;
 using GoodsStore.Core.Domain.Interfaces.Repositories;
 using GoodsStore.Core.Domain.Interfaces.Specifications;
 using GoodsStore.Core.Domain.Keys;
 using GoodsStore.Web.Infrastructure.Factories;
 using GoodsStore.Web.Infrastructure.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace GoodsStore.Web.Framework.Factories.ParametrsGenerators
 {
-    public class CatalogItemParametrsGenerator<TCatalogItem> : IParametrsGenerator where TCatalogItem : CatalogItem 
+    public class CatalogItemParametrsGenerator<TCatalogItem> : IParametrsGenerator where TCatalogItem : CatalogItem
     {
         protected readonly IParametrFactory _parametrFactory;
         protected readonly IRepository<TCatalogItem> _repository;
@@ -31,26 +32,33 @@ namespace GoodsStore.Web.Framework.Factories.ParametrsGenerators
         public virtual List<IParametr> GetParametrs(ItemType itemType)
         {
             var res = new List<IParametr>();
+            var minMaxPrice = GetEntitiesWithMinMaxValOf(ci => ci.Price);
 
-            // Запрос к БД для получения максимакльной и минимальной цуна
+            res.Add(_parametrFactory.GetRangeParametr((double)minMaxPrice.Item1.Price, (double)minMaxPrice.Item2.Price, $"Prise, {string.Empty:C0}"));
+            res.Add(_parametrFactory.GetPhraseParametr("Product name"));
+
+            var brands = itemType.BrandItemTypes.Select(bi => bi.Brand).ToList();
+            res.Add(_parametrFactory.GetSelectebleListParametr(brands, "Brands"));
+            return res;
+        }
+
+
+        protected (TCatalogItem, TCatalogItem) GetEntitiesWithMinMaxValOf(Expression<Func<TCatalogItem, object>> parametrExpression)
+        {
+            // Async query to  database for get min and max price
             var maxPriseSpecifikation = _spesificatioFunc.Invoke();
             var minPriseSpecifikation = _spesificatioFunc.Invoke();
-            maxPriseSpecifikation.SetOrder(ci => ci.Price, true).ApplyPaging(0, 1);
-            minPriseSpecifikation.SetOrder(ci => ci.Price).ApplyPaging(0, 1); ;
-            Task<IReadOnlyList<TCatalogItem>>[] taskc = 
+            maxPriseSpecifikation.SetOrder(parametrExpression, true).ApplyPaging(0, 1);
+            minPriseSpecifikation.SetOrder(parametrExpression).ApplyPaging(0, 1);
+            Task<IReadOnlyList<TCatalogItem>>[] taskc =
             {
                 _repository.List(minPriseSpecifikation),
                 _repository.List(maxPriseSpecifikation)
             };
             Task.WhenAll(taskc);
-            var minMaxPrise = taskc.Select(t => t.Result.FirstOrDefault()?.Price).ToList();
+            var minMaxPrise = taskc.Select(t => t.Result.FirstOrDefault()).ToList();
 
-
-            res.Add(_parametrFactory.GetRangeParametr((double)minMaxPrise[0], (double)minMaxPrise[1], "Prise"));
-            res.Add(_parametrFactory.GetPhraseParametr("Product name"));
-            var brands = itemType.BrandItemTypes.Select(bi => bi.Brand).ToList();
-            res.Add(_parametrFactory.GetSelectebleListParametr(brands, "Brands"));
-            return res;
+            return (minMaxPrise[0], minMaxPrise[1]);
         }
     }
 }
