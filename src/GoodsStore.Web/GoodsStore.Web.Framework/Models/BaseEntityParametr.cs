@@ -10,7 +10,8 @@ namespace GoodsStore.Web.Framework.Models
             ParametrKey = parametrKey;
         }
 
-        public string ParametrName { get; set; }
+        public string PublicName { get; set; }
+        public string ItemPropertyName { get; set; }
         public ParametrKeys ParametrKey { get; }
     }
 }

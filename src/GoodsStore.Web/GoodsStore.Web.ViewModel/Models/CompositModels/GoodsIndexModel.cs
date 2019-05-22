@@ -6,6 +6,7 @@ namespace GoodsStore.Web.ViewModel.Models.CompositModels
     public class GoodsIndexModel
     {
         public string TypeName { get; set; }
+        public string TypeDiscriminator { get; set; }
 
         public List<CatalogItemModel> CatalogItemModels { get; set; }
 

@@ -4,7 +4,9 @@ namespace GoodsStore.Web.Infrastructure.Model
 {
     public interface IParametr
     {
-        string ParametrName { get; set; }
+        string PublicName { get; set; }
+        string ItemPropertyName { get; set; }
+
         ParametrKeys ParametrKey { get; }
     }
 }

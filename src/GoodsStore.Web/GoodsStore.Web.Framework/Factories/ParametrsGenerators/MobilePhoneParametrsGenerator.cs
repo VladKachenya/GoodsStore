@@ -31,7 +31,11 @@ namespace GoodsStore.Web.Framework.Factories.ParametrsGenerators
             var res = base.GetParametrs(itemType);
 
             var diagonals = GetEntitiesWithMinMaxValOf(mp => mp.ScreenDiagonal);
-            res.Add(_parametrFactory.GetRangeParametr(diagonals.Item1.ScreenDiagonal, diagonals.Item2.ScreenDiagonal, "Screen Diagonal"));
+            res.Add(_parametrFactory.GetRangeParametr(
+                diagonals.Item1.ScreenDiagonal, 
+                diagonals.Item2.ScreenDiagonal, 
+                "Screen Diagonal",
+                nameof(MobilePhone.ScreenDiagonal)));
             return res;
         }
 

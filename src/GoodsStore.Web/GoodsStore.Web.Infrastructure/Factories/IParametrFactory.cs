@@ -7,9 +7,9 @@ namespace GoodsStore.Web.Infrastructure.Factories
     public interface IParametrFactory
     {
         IParametr GetSelectebleListParametr(IEnumerable<BaseEntity> baseEntities,
-            string parametName);
+            string parametName, string propertyName);
 
-        IParametr GetPhraseParametr(string parametName);
-        IParametr GetRangeParametr(double from, double to, string parametName);
+        IParametr GetPhraseParametr(string parametName, string propertyName);
+        IParametr GetRangeParametr(double from, double to, string parametName, string propertyName);
     }
 }

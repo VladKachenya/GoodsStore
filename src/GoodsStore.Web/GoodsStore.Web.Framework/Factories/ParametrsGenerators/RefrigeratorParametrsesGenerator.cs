@@ -26,18 +26,33 @@ namespace GoodsStore.Web.Framework.Factories.ParametrsGenerators
             var res = base.GetParametrs(itemType);
 
             var minMaxWidth = GetEntitiesWithMinMaxValOf(r => r.Width);
-            res.Add(_parametrFactory.GetRangeParametr(minMaxWidth.Item1.Width, minMaxWidth.Item2.Width, "Width"));
+            res.Add(_parametrFactory.GetRangeParametr(
+                minMaxWidth.Item1.Width, 
+                minMaxWidth.Item2.Width, 
+                "Width",
+                nameof(Refrigerator.Width)));
 
             var minMaxHeight = GetEntitiesWithMinMaxValOf(r => r.Height);
-            res.Add(_parametrFactory.GetRangeParametr(minMaxHeight.Item1.Height, minMaxHeight.Item2.Height, "Height"));
+            res.Add(_parametrFactory.GetRangeParametr(
+                minMaxHeight.Item1.Height, 
+                minMaxHeight.Item2.Height, 
+                "Height",
+                nameof(Refrigerator.Height)));
+
 
             var minMaxFreezerCameraVolume = GetEntitiesWithMinMaxValOf(r => r.FreezerCameraVolume);
-            res.Add(_parametrFactory.GetRangeParametr(minMaxFreezerCameraVolume.Item1.FreezerCameraVolume, 
-                minMaxFreezerCameraVolume.Item2.FreezerCameraVolume, "Freezer сamera volume"));
+            res.Add(_parametrFactory.GetRangeParametr(
+                minMaxFreezerCameraVolume.Item1.FreezerCameraVolume, 
+                minMaxFreezerCameraVolume.Item2.FreezerCameraVolume,
+                "Freezer сamera volume",
+                nameof(Refrigerator.FreezerCameraVolume)));
 
             var minMaxRefrigeratroCameraVolume = GetEntitiesWithMinMaxValOf(r => r.RefrigeratorCameraVolume);
-            res.Add(_parametrFactory.GetRangeParametr(minMaxRefrigeratroCameraVolume.Item1.RefrigeratorCameraVolume, 
-                minMaxRefrigeratroCameraVolume.Item2.RefrigeratorCameraVolume, "Refrigerator camera volume"));
+            res.Add(_parametrFactory.GetRangeParametr(
+                minMaxRefrigeratroCameraVolume.Item1.RefrigeratorCameraVolume, 
+                minMaxRefrigeratroCameraVolume.Item2.RefrigeratorCameraVolume, 
+                "Refrigerator camera volume",
+                nameof(Refrigerator.RefrigeratorCameraVolume)));
 
             return res;
         }

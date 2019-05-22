@@ -6,34 +6,44 @@
 }
 
 <div class="row">
-    <div class="col-3 parametrs">
+    <div class="col-3" id="parameters-column" data-type="@Model.TypeDiscriminator">
         @foreach (var modelParametr in Model.Parametrs)
         {
             <div class="@PresentationParametrKeys.Parametr card-body p-1">
-                <h5 >@modelParametr.ParametrName :</h5>
-                @await Component.InvokeAsync(modelParametr.ParametrKey.ToString(), new {parametr = modelParametr})
+                <h5>@modelParametr.PublicName :</h5>
+
+                @await Component.InvokeAsync(modelParametr.ParametrKey.ToString(), new { parametr = modelParametr })
+
             </div>
         }
+        <div class="btn btn-info w-100" id="floating-button">
+            some text
+        </div>
     </div>
-    <div class="col-9">
-        @foreach (var catalogItemModel in Model.CatalogItemModels)
-        {
-            <div class="card m-1 p-1">
-                <h5 class="card-header">@catalogItemModel.UnitName @catalogItemModel.Brand @catalogItemModel.Model</h5>
-                <div class="card-body row">
-                    <img class="col-3" src="@catalogItemModel.PictureUri" alt="Card image cap">
-                    <div class="col-6">
-                        <h5 class="card-title">@string.Format("{0:C}",catalogItemModel.Price)</h5>
-                        <p class="card-text">@catalogItemModel.Description</p>
-                        <a href="#" class="btn btn-primary">Details</a>
+    <div class="col-9 container-fluid" id="catalog-items-column">
+        <div>
+            @foreach (var catalogItemModel in Model.CatalogItemModels)
+            {
+                <div class="card m-1 p-1 catalog-item">
+                    <h5 class="card-header">@catalogItemModel.UnitName @catalogItemModel.Brand @catalogItemModel.Model</h5>
+                    <div class="card-body row">
+                        <img class="col-3" src="@catalogItemModel.PictureUri" alt="Card image cap">
+                        <div class="col-6">
+                            <h5 class="card-title">@string.Format("{0:C}", catalogItemModel.Price)</h5>
+                            <p class="card-text">@catalogItemModel.Description</p>
+                            <a href="#" class="btn btn-primary">Details</a>
+                        </div>
+                        <div class="col-3">Some shops</div>
                     </div>
-                    <div class="col-3">Some shops</div>
                 </div>
-            </div>
-        }
+            }
+        </div>
     </div>
 </div>
-
+@section Scripts
+    {
+    <script src="js/Goods/Index.js" asp-append-version="true"></script>
+}
 
 
 

@@ -34,11 +34,19 @@ namespace GoodsStore.Web.Framework.Factories.ParametrsGenerators
             var res = new List<IParametr>();
             var minMaxPrice = GetEntitiesWithMinMaxValOf(ci => ci.Price);
 
-            res.Add(_parametrFactory.GetRangeParametr((double)minMaxPrice.Item1.Price, (double)minMaxPrice.Item2.Price, $"Prise, {string.Empty:C0}"));
-            res.Add(_parametrFactory.GetPhraseParametr("Product name"));
+            res.Add(_parametrFactory.GetRangeParametr(
+                (double)minMaxPrice.Item1.Price, 
+                (double)minMaxPrice.Item2.Price, 
+                $"Prise, {string.Empty:C0}", 
+                nameof(CatalogItem.Price)));
+
+            res.Add(_parametrFactory.GetPhraseParametr("Product name", nameof(CatalogItem.Name)));
+
+            res.Add(_parametrFactory.GetPhraseParametr("Some property", "Some property"));
+
 
             var brands = itemType.BrandItemTypes.Select(bi => bi.Brand).ToList();
-            res.Add(_parametrFactory.GetSelectebleListParametr(brands, "Brands"));
+            res.Add(_parametrFactory.GetSelectebleListParametr(brands, "Brands", nameof(CatalogItem.Brand)));
             return res;
         }
 

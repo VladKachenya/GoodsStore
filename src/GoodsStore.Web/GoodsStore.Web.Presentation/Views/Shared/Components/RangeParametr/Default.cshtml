@@ -1,11 +1,11 @@
 ﻿@model IRangeParametr
-<div class="@PresentationParametrKeys.RangeParametr">
+<div class="@PresentationParametrKeys.RangeParametr" name="@Model.ItemPropertyName">
     <div class="row">
         <div class="col">
-            <input class="form-control" type="text" placeholder="Form: @Model.FromValue">
+            <input class="form-control from-value" type="text" placeholder="Form: @Model.FromValue">
         </div>
         <div class="col">
-            <input class="form-control" type="text" placeholder="To: @Model.ToValue">
+            <input class="form-control to-value" type="text" placeholder="To: @Model.ToValue">
         </div>
     </div>
 </div>

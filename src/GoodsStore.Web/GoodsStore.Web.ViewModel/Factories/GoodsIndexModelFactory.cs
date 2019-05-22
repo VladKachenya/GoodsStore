@@ -37,6 +37,7 @@ namespace GoodsStore.Web.ViewModel.Factories
             return new GoodsIndexModel()
             {
                 TypeName = productType.UnitName,
+                TypeDiscriminator = catalogItems.FirstOrDefault()?.Discriminator,
                 CatalogItemModels = _catalogItemFactory.GetCategoryItemModels(catalogItems),
                 Parametrs = _catalogItemParametersFactory.GetParametrsOfType(productType)
             };

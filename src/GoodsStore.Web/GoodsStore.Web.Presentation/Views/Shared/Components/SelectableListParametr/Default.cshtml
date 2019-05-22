@@ -1,10 +1,10 @@
 ﻿@model ISelectableListParametr
-<div class="@PresentationParametrKeys.SelectableListParametr">
+<div class="@PresentationParametrKeys.SelectableListParametr" name="@Model.ItemPropertyName">
     @for (var i = 1; i <= Model.SelectListItems.Count; i++)
     {
         <div class="form-group form-check m-0">
-            <input type="checkbox" class="form-check-input" id="@Model.ParametrName-@i" value="@Model.SelectListItems[i-1].Value">
-            <label class="form-check-label" for="@Model.ParametrName-@i">@Model.SelectListItems[i-1].Text</label>
+            <input type="checkbox" class="form-check-input" id="@Model.PublicName-@i" value="@Model.SelectListItems[i-1].Value">
+            <label class="form-check-label" for="@Model.PublicName-@i">@Model.SelectListItems[i-1].Text</label>
         </div>
     }
 </div>
