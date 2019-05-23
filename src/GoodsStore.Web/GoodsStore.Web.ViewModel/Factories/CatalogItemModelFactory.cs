@@ -2,13 +2,15 @@
 using GoodsStore.Web.ViewModel.Interfaces.Factories;
 using GoodsStore.Web.ViewModel.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using GoodsStore.Web.Infrastructure.Constants;
+using GoodsStore.Web.ViewModel.Models.CompositModels;
 
 namespace GoodsStore.Web.ViewModel.Factories
 {
-    public class CatalogItemFactory : ICatalogItemFactory
+    public class CatalogItemModelFactory : ICatalogItemModelFactory
     {
-        public CatalogItemModel GetCategoryItemModel(CatalogItem categoryModel)
+        public CatalogItemModel GetCatalogItemModel(CatalogItem categoryModel)
         {
             return new CatalogItemModel()
             {
@@ -24,14 +26,13 @@ namespace GoodsStore.Web.ViewModel.Factories
             };
         }
 
-        public List<CatalogItemModel> GetCategoryItemModels(IEnumerable<CatalogItem> categoryModels)
+        public List<CatalogItemModel> GetCatalogItemModels(IEnumerable<CatalogItem> categoryModels)
         {
             var res = new List<CatalogItemModel>();
             foreach (var categoryModel in categoryModels)
             {
-                res.Add(GetCategoryItemModel(categoryModel));
+                res.Add(GetCatalogItemModel(categoryModel));
             }
-
             return res;
         }
     }

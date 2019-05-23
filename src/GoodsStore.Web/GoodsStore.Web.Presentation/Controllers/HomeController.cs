@@ -1,7 +1,7 @@
-﻿using GoodsStore.Core.Domain.Interfaces.Repositories;
-using GoodsStore.Web.ViewModel.Interfaces.Factories;
+﻿using GoodsStore.Web.ViewModel.Interfaces.Factories;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using GoodsStore.Core.Domain.Repositories;
 
 namespace GoodsStore.Web.Presentation.Controllers
 {

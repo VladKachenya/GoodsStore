@@ -14,17 +14,17 @@ namespace GoodsStore.Web.ViewModel.Factories
 {
     public class GoodsIndexModelFactory : IGoodsIndexModelFactory
     {
-        private readonly ICatalogItemFactory _catalogItemFactory;
+        private readonly ICatalogItemModelFactory _catalogItemModelFactory;
         
         private readonly ICatalogItemParametersFactory _catalogItemParametersFactory;
 
         #region Ctor
 
         public GoodsIndexModelFactory(
-            ICatalogItemFactory catalogItemFactory,
+            ICatalogItemModelFactory catalogItemModelFactory,
             ICatalogItemParametersFactory catalogItemParametersFactory)
         {
-            _catalogItemFactory = catalogItemFactory;
+            _catalogItemModelFactory = catalogItemModelFactory;
            
             _catalogItemParametersFactory = catalogItemParametersFactory;
         }
@@ -38,7 +38,7 @@ namespace GoodsStore.Web.ViewModel.Factories
             {
                 TypeName = productType.UnitName,
                 TypeDiscriminator = catalogItems.FirstOrDefault()?.Discriminator,
-                CatalogItemModels = _catalogItemFactory.GetCategoryItemModels(catalogItems),
+                CatalogItemModels = _catalogItemModelFactory.GetCatalogItemModels(catalogItems),
                 Parametrs = _catalogItemParametersFactory.GetParametrsOfType(productType)
             };
         }

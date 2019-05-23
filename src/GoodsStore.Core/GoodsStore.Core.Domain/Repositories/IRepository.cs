@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using GoodsStore.Core.Domain.Entities.Base;
-using GoodsStore.Core.Domain.Interfaces.Specifications;
+using GoodsStore.Core.Domain.Specifications;
 
-namespace GoodsStore.Core.Domain.Interfaces.Repositories
+namespace GoodsStore.Core.Domain.Repositories
 {
     public interface IRepository<T> where T : BaseEntity
     {

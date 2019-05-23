@@ -1,12 +1,12 @@
 ﻿using GoodsStore.Core.Domain.Entities;
 using GoodsStore.Core.Domain.Entities.Base;
-using GoodsStore.Core.Domain.Interfaces.Repositories;
-using GoodsStore.Core.Domain.Interfaces.Specifications;
 using GoodsStore.Web.ViewModel.Interfaces.Factories;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using GoodsStore.Core.Domain.Repositories;
+using GoodsStore.Core.Domain.Specifications;
 
 namespace GoodsStore.Web.Presentation.Controllers
 {

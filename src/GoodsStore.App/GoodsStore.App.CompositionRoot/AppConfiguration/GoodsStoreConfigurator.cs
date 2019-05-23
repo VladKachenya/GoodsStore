@@ -3,8 +3,11 @@ using Autofac.Extensions.DependencyInjection;
 using GoodsStore.App.CompositionRoot.IoC;
 using GoodsStore.App.CompositionRoot.WebApp;
 using GoodsStore.App.Infrastructure.App;
-using GoodsStore.Core.Domain.Interfaces.Specifications;
+using GoodsStore.Core.Domain.Helpers;
 using GoodsStore.Core.Domain.Specifications;
+using GoodsStore.Core.Logic.Filter;
+using GoodsStore.Core.Logic.Interfases.Filter;
+using GoodsStore.Core.Logic.Specifications;
 using GoodsStore.Data.DataAccess.App;
 using GoodsStore.Web.Framework.App;
 using GoodsStore.Web.Framework.WebApp;
@@ -17,6 +20,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using GoodsStore.Core.Logic.Filter.ExpressionGenerators;
 
 namespace GoodsStore.App.CompositionRoot.AppConfiguration
 {
@@ -56,8 +60,15 @@ namespace GoodsStore.App.CompositionRoot.AppConfiguration
             //populate Autofac container builder with the set of registered service descriptors
             containerBuilder.Populate(services);
 
+            IContainer container = null;
+
+            // regester autofac container
+            containerBuilder.Register(c => container).AsSelf().SingleInstance();
+            containerBuilder.RegisterBuildCallback(c => container = c);
+
             //create service provider
-            _serviceProvider = new AutofacServiceProvider(containerBuilder.Build());
+            container = containerBuilder.Build();
+            _serviceProvider = new AutofacServiceProvider(container);
 
             return _serviceProvider;
         }
@@ -76,9 +87,14 @@ namespace GoodsStore.App.CompositionRoot.AppConfiguration
 
         protected void RegisterDomainTypes(ContainerBuilder containerBuilder)
         {
-            containerBuilder.RegisterGeneric(typeof(BaseSpecification<>)).As(typeof(ISpecification<>));
-            containerBuilder.RegisterType<CatalogItemFilterSpecification>().As<ICatalogItemFilterSpecification>();
-            containerBuilder.RegisterType<CatalogItemSelectionSpecification>().As<ICatalogItemSelectionSpecification>();
+            containerBuilder.RegisterGeneric(typeof(Specification<>)).As(typeof(ISpecification<>));
+            containerBuilder.RegisterGeneric(typeof(CatalogItemFiltringSpecification<>))
+                .As(typeof(ICatalogItemFiltringSpecification<>));
+            containerBuilder.RegisterInstance(new CatalogItemTypeDictionary()).SingleInstance();
+            containerBuilder.RegisterGeneric(typeof(CatalogItemFilter<>)).As(typeof(IDynamicFilter<>));
+            containerBuilder.RegisterType<FilterConfigurator>().As<IFilterConfigurator>();
+
+            containerBuilder.RegisterType<ContainsExpressionGenerator>().As<IExpressionGenerator>();
         }
 
 

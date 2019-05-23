@@ -1,7 +1,5 @@
 ﻿using GoodsStore.Core.Domain.Entities;
 using GoodsStore.Core.Domain.Entities.Base;
-using GoodsStore.Core.Domain.Interfaces.Repositories;
-using GoodsStore.Core.Domain.Interfaces.Specifications;
 using GoodsStore.Core.Domain.Keys;
 using GoodsStore.Web.Infrastructure.Factories;
 using GoodsStore.Web.Infrastructure.Model;
@@ -10,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using GoodsStore.Core.Domain.Repositories;
+using GoodsStore.Core.Domain.Specifications;
 
 namespace GoodsStore.Web.Framework.Factories.ParametrsGenerators
 {
@@ -35,22 +35,23 @@ namespace GoodsStore.Web.Framework.Factories.ParametrsGenerators
             var minMaxPrice = GetEntitiesWithMinMaxValOf(ci => ci.Price);
 
             res.Add(_parametrFactory.GetRangeParametr(
-                (double)minMaxPrice.Item1.Price, 
-                (double)minMaxPrice.Item2.Price, 
-                $"Prise, {string.Empty:C0}", 
+                (double)minMaxPrice.Item1.Price,
+                (double)minMaxPrice.Item2.Price,
+                $"Prise, {string.Empty:C0}",
                 nameof(CatalogItem.Price)));
 
             res.Add(_parametrFactory.GetPhraseParametr("Product name", nameof(CatalogItem.Name)));
 
-            res.Add(_parametrFactory.GetPhraseParametr("Some property", "Some property"));
+            res.Add(_parametrFactory.GetPhraseParametr("Some property", "SomeProperty"));
 
 
             var brands = itemType.BrandItemTypes.Select(bi => bi.Brand).ToList();
             res.Add(_parametrFactory.GetSelectebleListParametr(brands, "Brands", nameof(CatalogItem.Brand)));
+
             return res;
         }
 
-
+        #region utiletes
         protected (TCatalogItem, TCatalogItem) GetEntitiesWithMinMaxValOf(Expression<Func<TCatalogItem, object>> parametrExpression)
         {
             // Async query to  database for get min and max price
@@ -68,5 +69,7 @@ namespace GoodsStore.Web.Framework.Factories.ParametrsGenerators
 
             return (minMaxPrise[0], minMaxPrise[1]);
         }
+        #endregion
+
     }
 }

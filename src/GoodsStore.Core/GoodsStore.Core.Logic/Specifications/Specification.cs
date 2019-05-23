@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq.Expressions;
-using GoodsStore.Core.Domain.Interfaces.Specifications;
+using GoodsStore.Core.Domain.Specifications;
 
-namespace GoodsStore.Core.Domain.Specifications
+namespace GoodsStore.Core.Logic.Specifications
 {
-    public class BaseSpecification<T> : ISpecification<T>
+    public class Specification<T> : ISpecification<T>
     {
-        public BaseSpecification()
+        public Specification()
         {
             
         }
@@ -16,12 +16,11 @@ namespace GoodsStore.Core.Domain.Specifications
             return this;
         }
 
-        public virtual ISpecification<T> ApplyPaging(int skip, int take)
+        public virtual void ApplyPaging(int skip, int take)
         {
             Skip = skip;
             Take = take;
             IsPagingEnabled = true;
-            return this;
         }
 
         public virtual ISpecification<T> SetOrder(Expression<Func<T, object>> orderExpression, bool isDescending = false)

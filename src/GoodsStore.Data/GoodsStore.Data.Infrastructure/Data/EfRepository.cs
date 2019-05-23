@@ -1,10 +1,10 @@
 ﻿using GoodsStore.Core.Domain.Entities.Base;
-using GoodsStore.Core.Domain.Interfaces.Repositories;
-using GoodsStore.Core.Domain.Interfaces.Specifications;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GoodsStore.Core.Domain.Repositories;
+using GoodsStore.Core.Domain.Specifications;
 
 namespace GoodsStore.Data.Infrastructure.Data
 {

@@ -1,5 +1,8 @@
-﻿using GoodsStore.Core.Domain.Entities;
+﻿using System.Threading.Tasks;
+using GoodsStore.Core.Domain.Entities;
+using GoodsStore.Core.Domain.Entities.Base;
 using GoodsStore.Web.ViewModel.Interfaces.Servicies;
+using GoodsStore.Web.ViewModel.Models.CompositModels;
 
 namespace GoodsStore.Web.ViewModel.Servicies
 {
@@ -7,7 +10,9 @@ namespace GoodsStore.Web.ViewModel.Servicies
     {
         public string GetCategoryIconName(Category category)
         {
+            // for implementation
             return string.Empty;
         }
+
     }
 }

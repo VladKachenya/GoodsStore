@@ -9,8 +9,8 @@ using GoodsStore.Core.Domain.Entities;
 using GoodsStore.Core.Domain.Entities.Base;
 using GoodsStore.Core.Domain.Entities.Goods.HouseholdEquipment;
 using GoodsStore.Core.Domain.Entities.Goods.Telephony;
-using GoodsStore.Core.Domain.Interfaces.Repositories;
-using GoodsStore.Core.Domain.Interfaces.Specifications;
+using GoodsStore.Core.Domain.Repositories;
+using GoodsStore.Core.Domain.Specifications;
 
 namespace GoodsStore.Web.Framework.Factories.ParametrsGenerators
 {

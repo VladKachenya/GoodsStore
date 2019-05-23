@@ -7,8 +7,15 @@
   <ItemGroup>
     <ProjectReference Include="..\..\GoodsStore.App\GoodsStore.App.Infrastructure\GoodsStore.App.Infrastructure.csproj" />
     <ProjectReference Include="..\..\GoodsStore.Core\GoodsStore.Core.Domain\GoodsStore.Core.Domain.csproj" />
+    <ProjectReference Include="..\..\GoodsStore.Core\GoodsStore.Core.Logic\GoodsStore.Core.Logic.csproj" />
     <ProjectReference Include="..\GoodsStore.Web.Framework\GoodsStore.Web.Framework.csproj" />
     <ProjectReference Include="..\GoodsStore.Web.Infrastructure\GoodsStore.Web.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\..\..\..\..\.nuget\packages\castle.core\4.2.1\lib\netstandard1.3\Castle.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
