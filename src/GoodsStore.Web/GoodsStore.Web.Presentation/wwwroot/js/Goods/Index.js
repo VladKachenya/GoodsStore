@@ -81,6 +81,14 @@
         return data;
     }
 
+    function updateCatalogItem() {
+        // to do
+    }
+
+    function createCatalogItemView(catalogItemData) {
+        // to 
+    }
+
     function loadData() {
         var data = getData();
 
