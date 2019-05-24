@@ -5,7 +5,21 @@
         loadData();
     });
 
-    function loadData() {
+    $('.selecteble-list-parametr').change(function () {
+        loadDataCount();
+    });
+
+    $('.range-parametr').keyup(function (event) {
+        loadDataCount();
+    });
+
+    $('.phrase-parametr').keyup(function (event) {
+        loadDataCount();
+    });
+
+
+
+    function getData() {
         var parametrsColumn = document.getElementById('parameters-column');
         var catalogItemsColumn = document.getElementById('catalog-items-column');
 
@@ -47,7 +61,7 @@
         for (var i = 0; i < selectebleListParametr.length; i++) {
             var groupModelFilters =
             {
-                PropertyName: rangeParametrs[i].getAttribute('name')
+                PropertyName: selectebleListParametr[i].getAttribute('name')
                 //Values: []
             };
 
@@ -64,15 +78,36 @@
             }
             data.GroupModelFilters[data.GroupModelFilters.length] = groupModelFilters;
         }
+        return data;
+    }
 
+    function loadData() {
+        var data = getData();
 
         $.ajax({
-            url: "api/Catalog/GetCatalogItems",
+            url: "api/Catalog/CatalogItems",
             contentType: "application/json",
             method: "POST",
             data: JSON.stringify(data),
-            success: function () {
+            success: function (data) {
 
+            },
+            failure: function (errMsg) {
+                alert(errMsg);
+            }
+        });
+    };
+
+    function loadDataCount() {
+        var data = getData();
+
+        $.ajax({
+            url: "api/Catalog/CatalogItemsCount",
+            contentType: "application/json",
+            method: "POST",
+            data: JSON.stringify(data),
+            success: function (count) {
+                $('.total-count').text(count);
             },
             failure: function (errMsg) {
                 alert(errMsg);

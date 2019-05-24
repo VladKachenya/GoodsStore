@@ -8,7 +8,7 @@ namespace GoodsStore.Core.Logic.Filter
         public PredictionType PredictionType { get; set; }
     }
 
-    public class ContaingPrediction : Prediction
+    public class ContainsPrediction : Prediction
     {
         public string Value { get; set; }
     }
@@ -18,7 +18,7 @@ namespace GoodsStore.Core.Logic.Filter
         public double ToValue { get; set; }
     }
 
-    public class IncludeInGorup : Prediction
+    public class IncludeInGorupPrediction : Prediction
     {
         public int[] Values { get; set; }
     }

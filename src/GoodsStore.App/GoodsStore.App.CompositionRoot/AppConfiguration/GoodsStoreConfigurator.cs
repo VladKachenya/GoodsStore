@@ -20,6 +20,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using GoodsStore.App.CompositionRoot.App;
 using GoodsStore.Core.Logic.Filter.ExpressionGenerators;
 
 namespace GoodsStore.App.CompositionRoot.AppConfiguration
@@ -47,9 +48,6 @@ namespace GoodsStore.App.CompositionRoot.AppConfiguration
             {
                 startup.ConfigureServices(services, configuration);
             }
-
-            //register core types
-            RegisterDomainTypes(containerBuilder);
 
             //register all provided dependencies
             foreach (var dependencyRegistrar in GetDependenciesRegistrators())
@@ -85,24 +83,13 @@ namespace GoodsStore.App.CompositionRoot.AppConfiguration
 
         #region Utilities
 
-        protected void RegisterDomainTypes(ContainerBuilder containerBuilder)
-        {
-            containerBuilder.RegisterGeneric(typeof(Specification<>)).As(typeof(ISpecification<>));
-            containerBuilder.RegisterGeneric(typeof(CatalogItemFiltringSpecification<>))
-                .As(typeof(ICatalogItemFiltringSpecification<>));
-            containerBuilder.RegisterInstance(new CatalogItemTypeDictionary()).SingleInstance();
-            containerBuilder.RegisterGeneric(typeof(CatalogItemFilter<>)).As(typeof(IDynamicFilter<>));
-            containerBuilder.RegisterType<FilterConfigurator>().As<IFilterConfigurator>();
-
-            containerBuilder.RegisterType<ContainsExpressionGenerator>().As<IExpressionGenerator>();
-        }
-
 
         protected IEnumerable<IDependenciesRegistrar> GetDependenciesRegistrators()
         {
             yield return new DataAccessDependenciesRegistrar();
             yield return new WebViewModelDependenciesRegistrar();
             yield return new WebFrameworkDependenciesRegistrar();
+            yield return new CoreDependenciesRegistrar();
         }
 
         protected IEnumerable<IGoodsStoreStartup> GetStartups()

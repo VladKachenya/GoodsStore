@@ -12,7 +12,7 @@ namespace GoodsStore.Web.ViewModel.Converters
         {
             if (obj is PhraseModelFilter phraseFilter)
             {
-                return new ContaingPrediction()
+                return new ContainsPrediction()
                 {
                     PropertyName = phraseFilter.PropertyName,
                     PredictionType = PredictionType.Contains,
@@ -35,7 +35,7 @@ namespace GoodsStore.Web.ViewModel.Converters
 
             if (obj is GroupModelFilter groupFilter)
             {
-                return new IncludeInGorup()
+                return new IncludeInGorupPrediction()
                 {
                     PropertyName = groupFilter.PropertyName,
                     PredictionType = PredictionType.IncludeInGorup,

@@ -5,8 +5,14 @@ using GoodsStore.Core.Domain.Specifications;
 
 namespace GoodsStore.Core.Domain.Repositories
 {
-    public interface ICatalogItemRepository : IRepository<CatalogItem>
+    public interface ICatalogItemRepository<TCatalogItem> : IRepository<TCatalogItem> where TCatalogItem : CatalogItem
     {
-        Task<IReadOnlyList<CatalogItem>> ListIncludesItemTypeAndBrand(ISpecification<CatalogItem> spec);
+        
+    }
+
+    public interface ICatalogItemRepository 
+    {
+        Task<IReadOnlyList<CatalogItem>> List(object specification);
+        Task<int> Count(object specification);
     }
 }

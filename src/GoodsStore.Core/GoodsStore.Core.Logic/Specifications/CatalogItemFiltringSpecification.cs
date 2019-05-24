@@ -18,7 +18,6 @@ namespace GoodsStore.Core.Logic.Specifications
             }
             var dynamicFilter = filter as IDynamicFilter<T>;
             return ConfigyreSpecificaton(dynamicFilter) as ICatalogItemFiltringSpecification;
-
         }
 
         public ISpecification<T> ConfigyreSpecificaton(IDynamicFilter<T> dynamicFilter)

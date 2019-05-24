@@ -46,7 +46,7 @@ namespace GoodsStore.Web.Framework.Factories.ParametrsGenerators
 
 
             var brands = itemType.BrandItemTypes.Select(bi => bi.Brand).ToList();
-            res.Add(_parametrFactory.GetSelectebleListParametr(brands, "Brands", nameof(CatalogItem.Brand)));
+            res.Add(_parametrFactory.GetSelectebleListParametr(brands, "Brands", nameof(CatalogItem.BrandId)));
 
             return res;
         }

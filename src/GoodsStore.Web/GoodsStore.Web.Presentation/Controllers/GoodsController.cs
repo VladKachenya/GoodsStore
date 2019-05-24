@@ -18,7 +18,7 @@ namespace GoodsStore.Web.Presentation.Controllers
         private readonly IGoodsIndexModelFactory _goodsIndexModelFactory;
 
         public GoodsController(
-            ICatalogItemRepository catalogItemsRepository,
+            IRepository<CatalogItem> catalogItemsRepository,
             IRepository<ItemType> itemTypeRepository,
             Func<ISpecification<CatalogItem>> catalogItemSelectionSpecificationFactory,
             IGoodsIndexModelFactory goodsIndexModelFactory)
