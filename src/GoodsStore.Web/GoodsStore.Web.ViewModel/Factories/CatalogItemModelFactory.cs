@@ -1,10 +1,8 @@
 ﻿using GoodsStore.Core.Domain.Entities.Base;
+using GoodsStore.Web.Framework.Keys;
 using GoodsStore.Web.ViewModel.Interfaces.Factories;
 using GoodsStore.Web.ViewModel.Models;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using GoodsStore.Web.Infrastructure.Constants;
-using GoodsStore.Web.ViewModel.Models.CompositModels;
 
 namespace GoodsStore.Web.ViewModel.Factories
 {

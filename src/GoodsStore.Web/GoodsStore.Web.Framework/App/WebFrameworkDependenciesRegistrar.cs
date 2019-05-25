@@ -3,9 +3,9 @@ using GoodsStore.App.Infrastructure.IoC;
 using GoodsStore.Core.Domain.Entities.Base;
 using GoodsStore.Web.Framework.Factories;
 using GoodsStore.Web.Framework.Factories.ParametrsGenerators;
+using GoodsStore.Web.Framework.Interfaces.Factories;
+using GoodsStore.Web.Framework.Interfaces.Model;
 using GoodsStore.Web.Framework.Models.Parametrs;
-using GoodsStore.Web.Infrastructure.Factories;
-using GoodsStore.Web.Infrastructure.Model;
 
 namespace GoodsStore.Web.Framework.App
 {

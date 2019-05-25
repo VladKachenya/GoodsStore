@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using GoodsStore.Web.Infrastructure.Constants;
-using GoodsStore.Web.Infrastructure.Model;
+using GoodsStore.Web.Framework.Interfaces.Model;
+using GoodsStore.Web.Framework.Keys;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace GoodsStore.Web.Framework.Models.Parametrs

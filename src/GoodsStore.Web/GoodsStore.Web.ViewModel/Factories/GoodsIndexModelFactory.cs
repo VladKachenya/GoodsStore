@@ -1,21 +1,17 @@
-﻿using GoodsStore.Core.Domain.Entities.Base;
-using GoodsStore.Web.Infrastructure.Factories;
-using GoodsStore.Web.Infrastructure.Model;
+﻿using GoodsStore.Core.Domain.Entities;
+using GoodsStore.Core.Domain.Entities.Base;
 using GoodsStore.Web.ViewModel.Interfaces.Factories;
 using GoodsStore.Web.ViewModel.Models.CompositModels;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using GoodsStore.Core.Domain.Entities;
+using GoodsStore.Web.Framework.Interfaces.Factories;
 
 namespace GoodsStore.Web.ViewModel.Factories
 {
     public class GoodsIndexModelFactory : IGoodsIndexModelFactory
     {
         private readonly ICatalogItemModelFactory _catalogItemModelFactory;
-        
+
         private readonly ICatalogItemParametersFactory _catalogItemParametersFactory;
 
         #region Ctor
@@ -25,7 +21,7 @@ namespace GoodsStore.Web.ViewModel.Factories
             ICatalogItemParametersFactory catalogItemParametersFactory)
         {
             _catalogItemModelFactory = catalogItemModelFactory;
-           
+
             _catalogItemParametersFactory = catalogItemParametersFactory;
         }
         #endregion
@@ -44,6 +40,6 @@ namespace GoodsStore.Web.ViewModel.Factories
         }
         #endregion
 
-        
+
     }
 }

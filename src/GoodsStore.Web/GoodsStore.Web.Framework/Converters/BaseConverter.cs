@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using GoodsStore.Web.Infrastructure.Converters;
+using GoodsStore.Web.Framework.Interfaces.Converters;
 
 namespace GoodsStore.Web.Framework.Converters
 {

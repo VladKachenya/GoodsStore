@@ -9,7 +9,6 @@
     <ProjectReference Include="..\..\GoodsStore.Core\GoodsStore.Core.Domain\GoodsStore.Core.Domain.csproj" />
     <ProjectReference Include="..\..\GoodsStore.Core\GoodsStore.Core.Logic\GoodsStore.Core.Logic.csproj" />
     <ProjectReference Include="..\GoodsStore.Web.Framework\GoodsStore.Web.Framework.csproj" />
-    <ProjectReference Include="..\GoodsStore.Web.Infrastructure\GoodsStore.Web.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

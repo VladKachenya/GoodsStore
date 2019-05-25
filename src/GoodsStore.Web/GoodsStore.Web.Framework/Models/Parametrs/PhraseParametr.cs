@@ -1,5 +1,5 @@
-﻿using GoodsStore.Web.Infrastructure.Constants;
-using GoodsStore.Web.Infrastructure.Model;
+﻿using GoodsStore.Web.Framework.Interfaces.Model;
+using GoodsStore.Web.Framework.Keys;
 
 namespace GoodsStore.Web.Framework.Models.Parametrs
 {

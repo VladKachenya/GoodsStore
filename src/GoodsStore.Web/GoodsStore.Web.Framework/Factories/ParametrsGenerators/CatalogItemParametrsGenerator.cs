@@ -1,15 +1,15 @@
 ﻿using GoodsStore.Core.Domain.Entities;
 using GoodsStore.Core.Domain.Entities.Base;
 using GoodsStore.Core.Domain.Keys;
-using GoodsStore.Web.Infrastructure.Factories;
-using GoodsStore.Web.Infrastructure.Model;
+using GoodsStore.Core.Domain.Repositories;
+using GoodsStore.Core.Domain.Specifications;
+using GoodsStore.Web.Framework.Interfaces.Factories;
+using GoodsStore.Web.Framework.Interfaces.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using GoodsStore.Core.Domain.Repositories;
-using GoodsStore.Core.Domain.Specifications;
 
 namespace GoodsStore.Web.Framework.Factories.ParametrsGenerators
 {

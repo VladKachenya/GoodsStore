@@ -1,4 +1,4 @@
-﻿using GoodsStore.Web.Infrastructure.Model;
+﻿using GoodsStore.Web.Framework.Interfaces.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GoodsStore.Web.Presentation.Components

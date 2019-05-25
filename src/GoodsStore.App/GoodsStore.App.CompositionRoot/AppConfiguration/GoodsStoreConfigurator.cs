@@ -1,17 +1,13 @@
 ﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using GoodsStore.App.CompositionRoot.App;
 using GoodsStore.App.CompositionRoot.IoC;
 using GoodsStore.App.CompositionRoot.WebApp;
 using GoodsStore.App.Infrastructure.App;
-using GoodsStore.Core.Domain.Helpers;
-using GoodsStore.Core.Domain.Specifications;
-using GoodsStore.Core.Logic.Filter;
-using GoodsStore.Core.Logic.Interfases.Filter;
-using GoodsStore.Core.Logic.Specifications;
 using GoodsStore.Data.DataAccess.App;
 using GoodsStore.Web.Framework.App;
+using GoodsStore.Web.Framework.Interfaces.WebApp;
 using GoodsStore.Web.Framework.WebApp;
-using GoodsStore.Web.Infrastructure.WebApp;
 using GoodsStore.Web.ViewModel.App;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -20,8 +16,6 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using GoodsStore.App.CompositionRoot.App;
-using GoodsStore.Core.Logic.Filter.ExpressionGenerators;
 
 namespace GoodsStore.App.CompositionRoot.AppConfiguration
 {

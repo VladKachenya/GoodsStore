@@ -1,4 +1,4 @@
-﻿using GoodsStore.Web.Infrastructure.WebApp;
+﻿using GoodsStore.Web.Framework.Interfaces.WebApp;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

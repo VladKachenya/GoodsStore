@@ -1,4 +1,5 @@
-﻿@model ISelectableListParametr
+﻿@using GoodsStore.Web.Framework.Interfaces.Model
+@model GoodsStore.Web.Framework.Interfaces.Model.ISelectableListParametr
 <div class="selecteble-list-parametr" name="@Model.ItemPropertyName">
     @for (var i = 1; i <= Model.SelectListItems.Count; i++)
     {

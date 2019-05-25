@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using GoodsStore.Web.Infrastructure.Model;
+using GoodsStore.Web.Framework.Interfaces.Model;
 
 namespace GoodsStore.Web.ViewModel.Models.CompositModels
 {

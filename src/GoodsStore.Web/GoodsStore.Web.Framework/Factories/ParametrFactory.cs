@@ -1,6 +1,6 @@
 ﻿using GoodsStore.Core.Domain.Entities.Base;
-using GoodsStore.Web.Infrastructure.Factories;
-using GoodsStore.Web.Infrastructure.Model;
+using GoodsStore.Web.Framework.Interfaces.Factories;
+using GoodsStore.Web.Framework.Interfaces.Model;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
