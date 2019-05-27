@@ -27,7 +27,7 @@ namespace GoodsStore.Core.Domain.Helpers
             {
                 if (!_catalogItemTypes.ContainsKey(typeName))
                 {
-                    return typeof(CatalogItem);
+                    throw new ArgumentException("The type not found");
                 }
 
                 return _catalogItemTypes[typeName];

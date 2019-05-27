@@ -23,6 +23,11 @@ namespace GoodsStore.Web.Framework.WebApp
                 .AddChakraCore();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddSwaggerGen(swagger =>
+            {
+                swagger.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info { Title = "My First Swagger" });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment environment)
@@ -51,6 +56,12 @@ namespace GoodsStore.Web.Framework.WebApp
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My First Swagger");
+            });
 
             app.UseMvc(routes =>
             {

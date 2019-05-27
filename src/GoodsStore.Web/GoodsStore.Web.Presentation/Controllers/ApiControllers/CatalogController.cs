@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Autofac;
 using GoodsStore.Core.Domain.Helpers;
 using GoodsStore.Core.Domain.Repositories;
@@ -42,6 +43,34 @@ namespace GoodsStore.Web.Presentation.Controllers.ApiControllers
 
         }
 
+
+        //Refrigerator
+        [HttpGet]
+        public async Task<ActionResult> CatalogItems()
+        {
+            // getting type of catalog item
+            Type catalogItemType;
+            try
+            {
+                catalogItemType = _catalogItemTypeDictionary.GetCatalogItemType("Refrigerator");
+            }
+            catch (Exception e)
+            {
+                //return Json(null);
+                return NotFound();
+            }
+
+            // configyre specification
+            var filtringSpecification = _container.Resolve(typeof(ICatalogItemFiltringSpecification<>).MakeGenericType(catalogItemType)) as ICatalogItemFiltringSpecification;
+            
+            filtringSpecification.ApplyPaging(0,6);
+
+            var catalogItemReposity = _container.Resolve(typeof(ICatalogItemRepository<>).MakeGenericType(catalogItemType)) as ICatalogItemRepository;
+
+            var res = _catalogItemModelFactory.GetCatalogItemModels(await catalogItemReposity.List(filtringSpecification));
+            return Ok(res);
+        }
+
         [HttpPost]
         public async Task<IActionResult> CatalogItems([FromBody]CatalogItemModelFilter catalogItemModelFilter)
         {
@@ -62,7 +91,7 @@ namespace GoodsStore.Web.Presentation.Controllers.ApiControllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CatalogItemsCount([FromBody]CatalogItemModelFilter catalogItemModelFilter)
+        public async Task<IActionResult> Count([FromBody]CatalogItemModelFilter catalogItemModelFilter)
         {
             // getting type of catalog item
             var catalogItemType = _catalogItemTypeDictionary.GetCatalogItemType(catalogItemModelFilter.TypeDiscriminator);

@@ -110,7 +110,7 @@
         var data = getData();
 
         $.ajax({
-            url: "api/Catalog/CatalogItemsCount",
+            url: "api/Catalog/Count",
             contentType: "application/json",
             method: "POST",
             data: JSON.stringify(data),

@@ -1,1 +1,1 @@
-﻿ReactDOM.render(<CommentBox />, document.getElementById('content'));
+﻿ReactDOM.render(<CatalogItemsBox url="/api/Catalog/CatalogItems" />, document.getElementById('catalog-items-content'));
