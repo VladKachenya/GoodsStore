@@ -45,14 +45,14 @@ namespace GoodsStore.Web.Presentation.Controllers.ApiControllers
 
 
         //Refrigerator
-        [HttpGet]
-        public async Task<ActionResult> CatalogItems()
+        [HttpGet("{typeDiscriminator}")]
+        public async Task<ActionResult> CatalogItems(string typeDiscriminator)
         {
             // getting type of catalog item
             Type catalogItemType;
             try
             {
-                catalogItemType = _catalogItemTypeDictionary.GetCatalogItemType("Refrigerator");
+                catalogItemType = _catalogItemTypeDictionary.GetCatalogItemType(typeDiscriminator);
             }
             catch (Exception e)
             {

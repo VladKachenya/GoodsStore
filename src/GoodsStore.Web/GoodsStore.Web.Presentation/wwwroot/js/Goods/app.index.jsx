@@ -1,1 +1,4 @@
-﻿ReactDOM.render(<CatalogItemsBox url="/api/Catalog/CatalogItems" />, document.getElementById('catalog-items-content'));
+﻿const typeDiscriminator = document.getElementById('parameters-column').getAttribute('data-type');
+const url = "/api/Catalog/CatalogItems/" + typeDiscriminator;
+
+ReactDOM.render(<CatalogItemsBox url={url} />, document.getElementById('catalog-items-content'));
