@@ -3,6 +3,15 @@
         super(props);
         this.state = { data: [] };
     }
+    loadDataFromServer() {
+        const xhr = new XMLHttpRequest();
+        xhr.open('get', this.props.url, true);
+        xhr.onload = () => {
+            const data = JSON.parse(xhr.responseText);
+            this.setState({ data: data });
+        };
+        xhr.send();
+    }
     componentWillMount() {
         const xhr = new XMLHttpRequest();
         xhr.open('get', this.props.url, true);
