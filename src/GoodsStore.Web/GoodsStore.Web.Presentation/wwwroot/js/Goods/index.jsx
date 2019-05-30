@@ -1,10 +1,17 @@
 ﻿$(document).ready(function () {
     const typeDiscriminator = document.getElementById('parameters-column').getAttribute('data-type');
-    const url = "/api/Catalog/CatalogItems/" + typeDiscriminator;
+    const getDataUrl = "/api/Catalog/CatalogItems/" + typeDiscriminator;
 
-    var catalogItemsBox = ReactDOM.render(<CatalogItemsBox url={url} />, document.getElementById('catalog-items-content'));
 
-    //loadData();
+    getDataCount();
+    getData();
+
+
+    var catalogItemsBox = ReactDOM.render(<CatalogItemsBox url={getDataUrl} />, document.getElementById('catalog-items-content'));
+    var itemPagginator = ReactDOM.render(<PaginationBox />, document.getElementById('nav-paggination'));
+
+
+
     $('#floating-button').click(function () {
         loadData();
     });
@@ -23,7 +30,7 @@
 
 
 
-    function getData() {
+    function selectFilters() {
         var parametrsColumn = document.getElementById('parameters-column');
         var catalogItemsColumn = document.getElementById('catalog-items-column');
 
@@ -85,16 +92,24 @@
         return data;
     }
 
-    function updateCatalogItem() {
-        // to do
-    }
+    function getData() {
+        var data = selectFilters();
 
-    function createCatalogItemView(catalogItemData) {
-        // to 
-    }
+        $.ajax({
+            url: "api/Catalog/CatalogItems/" + typeDiscriminator,
+            contentType: "application/json",
+            method: "GET",
+            success: function (data) {
+                catalogItemsBox.setState({ data: data });
+            },
+            failure: function (errMsg) {
+                alert(errMsg);
+            }
+        });
+    };
 
     function loadData() {
-        var data = getData();
+        var data = selectFilters();
 
         $.ajax({
             url: "api/Catalog/CatalogItems",
@@ -110,8 +125,24 @@
         });
     };
 
+    function getDataCount() {
+
+        $.ajax({
+            url: "api/Catalog/Count/" + typeDiscriminator,
+            contentType: "application/json",
+            method: "GET",
+            success: function (count) {
+                $('.total-count').text(count);
+                itemPagginator.setState({ data: count });
+            },
+            failure: function (errMsg) {
+                alert(errMsg);
+            }
+        });
+    };
+
     function loadDataCount() {
-        var data = getData();
+        var data = selectFilters();
 
         $.ajax({
             url: "api/Catalog/Count",
@@ -120,13 +151,13 @@
             data: JSON.stringify(data),
             success: function (count) {
                 $('.total-count').text(count);
+                itemPagginator.setState({ data: count });
             },
             failure: function (errMsg) {
                 alert(errMsg);
             }
         });
     };
-    
 });
 
 

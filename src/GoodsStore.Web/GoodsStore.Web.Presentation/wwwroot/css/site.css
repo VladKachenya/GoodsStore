@@ -1,10 +1,10 @@
 ﻿body {
     height: 100%;
-    margin: 1em;
+    margin: 0 2em;
 }
 
-.goodsStoreNavbar {
-    margin: 0;
+#goods-store-navbar {
+    margin: 0.5em 0 1.5em 0;
     padding: 0;
 }
 
@@ -14,4 +14,3 @@
 
 .category-model {
 }
-

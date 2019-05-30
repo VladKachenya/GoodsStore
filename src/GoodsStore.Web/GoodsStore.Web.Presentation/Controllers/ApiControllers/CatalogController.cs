@@ -71,6 +71,30 @@ namespace GoodsStore.Web.Presentation.Controllers.ApiControllers
             return Ok(res);
         }
 
+        [HttpGet("{typeDiscriminator}")]
+        public async Task<IActionResult> Count(string typeDiscriminator)
+        {
+            // getting type of catalog item
+            Type catalogItemType;
+            try
+            {
+                catalogItemType = _catalogItemTypeDictionary.GetCatalogItemType(typeDiscriminator);
+            }
+            catch (Exception e)
+            {
+                //return Json(null);
+                return NotFound();
+            }
+
+            // configyre specification
+            var filtringSpecification = _container.Resolve(typeof(ICatalogItemFiltringSpecification<>).MakeGenericType(catalogItemType)) as ICatalogItemFiltringSpecification;
+
+            var catalogItemReposity = _container.Resolve(typeof(ICatalogItemRepository<>).MakeGenericType(catalogItemType)) as ICatalogItemRepository;
+
+            var res = await catalogItemReposity.Count(filtringSpecification);
+            return Ok(res);
+        }
+
         [HttpPost]
         public async Task<IActionResult> CatalogItems([FromBody]CatalogItemModelFilter catalogItemModelFilter)
         {
