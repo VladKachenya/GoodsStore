@@ -16,24 +16,42 @@
 
                 </div>
             }
-            <div class="btn btn-info w-100" id="floating-button">
-                <span>Total : </span>
-                <span class="total-count"></span>
-            </div>
+                <div class="btn btn-info w-100 m-2" id="floating-button">
+                    Aplay (
+                    <span>Total : </span>
+                    <span class="total-count"></span>
+                    )
+                </div>
         </div>
         <div class="col-9 container-fluid" id="catalog-items-column">
             <div id="catalog-items-content"></div>
-
-            <nav aria-label="Page navigation" class="m-3 d-flex justify-content-center" id="nav-paggination">
-
+            <nav class="goods-store-pagination">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <div class="page-link preview-link">
+                            &laquo;
+                        </div>
+                    </li>
+                    <li class="page-item">
+                        <div class="page-link">
+                            <span>Curent page : </span>
+                            <span class="current-page" >1</span>
+                        </div>
+                    </li>
+                    <li class="page-item">
+                        <div class="page-link next-link">
+                            &raquo;
+                        </div>
+                    </li>
+                </ul>
             </nav>
         </div>
     </div>
 
 @section Scripts
-    {
+{
     <script src="js/Goods/components.jsx"></script>
-    <script src="js/Goods/index.jsx"></script>
+    <script src="js/Goods/goods.index.jsx"></script>
 }
 
 

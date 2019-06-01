@@ -5,7 +5,7 @@ namespace GoodsStore.Web.ViewModel.Models.CompositModels
     public class CatalogItemModelFilter
     {
         public string TypeDiscriminator { get; set; }
-        public int LoadedCount { get; set; }
+        public int SkippingPages { get; set; }
         public PhraseModelFilter[] PhraseModelFilters { get; set; }
         public RangeModelFilter[] RangeModelFilters { get; set; }
         public GroupModelFilter[] GroupModelFilters { get; set; }

@@ -2,18 +2,25 @@
     const typeDiscriminator = document.getElementById('parameters-column').getAttribute('data-type');
     const getDataUrl = "/api/Catalog/CatalogItems/" + typeDiscriminator;
 
-
     getDataCount();
-    getData();
-
+    getInitialData();
 
     var catalogItemsBox = ReactDOM.render(<CatalogItemsBox url={getDataUrl} />, document.getElementById('catalog-items-content'));
-    var itemPagginator = ReactDOM.render(<PaginationBox />, document.getElementById('nav-paggination'));
-
-
+    var pageCounter = document.getElementsByClassName('current-page')[0];
+    var pagination = document.getElementsByClassName('goods-store-pagination')[0];
 
     $('#floating-button').click(function () {
         loadData();
+    });
+
+    $('.next-link').click(function () {
+        var curentPage = Number(pageCounter.innerText);
+        loadMoreData(++curentPage);
+    });
+
+    $('.preview-link').click(function () {
+        var curentPage = Number(pageCounter.innerText);
+        loadMoreData(--curentPage);
     });
 
     $('.selecteble-list-parametr').change(function () {
@@ -30,14 +37,13 @@
 
 
 
-    function selectFilters() {
+    function selectFilters(skip = 0) {
         var parametrsColumn = document.getElementById('parameters-column');
-        var catalogItemsColumn = document.getElementById('catalog-items-column');
 
         var data =
         {
             TypeDiscriminator: parametrsColumn.getAttribute('data-type'),
-            LoadedCount: catalogItemsColumn.getElementsByClassName('catalog-item').length,
+            SkippingPages: skip,
             PhraseModelFilters: [],
             RangeModelFilters: [],
             GroupModelFilters: []
@@ -92,9 +98,7 @@
         return data;
     }
 
-    function getData() {
-        var data = selectFilters();
-
+    function getInitialData() {
         $.ajax({
             url: "api/Catalog/CatalogItems/" + typeDiscriminator,
             contentType: "application/json",
@@ -125,6 +129,28 @@
         });
     };
 
+    function loadMoreData(page) {
+        skipingPages = page - 1;
+        var data = selectFilters(skipingPages);
+
+        $.ajax({
+            url: "api/Catalog/CatalogItems",
+            contentType: "application/json",
+            method: "POST",
+            data: JSON.stringify(data),
+            success: function (data) {
+                catalogItemsBox.setState({ data: data });
+                if (data.length > 0) {
+                    pageCounter.innerText = page;
+                    $('html, body').animate({ scrollTop: 0 }, 'fast');
+                }
+            },
+            failure: function (errMsg) {
+                alert(errMsg);
+            }
+        });
+    };
+
     function getDataCount() {
 
         $.ajax({
@@ -133,7 +159,6 @@
             method: "GET",
             success: function (count) {
                 $('.total-count').text(count);
-                itemPagginator.setState({ data: count });
             },
             failure: function (errMsg) {
                 alert(errMsg);
@@ -151,7 +176,6 @@
             data: JSON.stringify(data),
             success: function (count) {
                 $('.total-count').text(count);
-                itemPagginator.setState({ data: count });
             },
             failure: function (errMsg) {
                 alert(errMsg);

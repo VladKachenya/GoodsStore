@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Autofac;
+﻿using Autofac;
 using GoodsStore.Core.Domain.Helpers;
 using GoodsStore.Core.Domain.Repositories;
 using GoodsStore.Core.Domain.Specifications;
@@ -11,6 +9,7 @@ using GoodsStore.Web.ViewModel.Interfaces.Converters;
 using GoodsStore.Web.ViewModel.Interfaces.Factories;
 using GoodsStore.Web.ViewModel.Models.CompositModels;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 namespace GoodsStore.Web.Presentation.Controllers.ApiControllers
@@ -62,8 +61,8 @@ namespace GoodsStore.Web.Presentation.Controllers.ApiControllers
 
             // configyre specification
             var filtringSpecification = _container.Resolve(typeof(ICatalogItemFiltringSpecification<>).MakeGenericType(catalogItemType)) as ICatalogItemFiltringSpecification;
-            
-            filtringSpecification.ApplyPaging(0,6);
+
+            filtringSpecification.ApplyPaging(0, 6);
 
             var catalogItemReposity = _container.Resolve(typeof(ICatalogItemRepository<>).MakeGenericType(catalogItemType)) as ICatalogItemRepository;
 
@@ -102,7 +101,11 @@ namespace GoodsStore.Web.Presentation.Controllers.ApiControllers
             var catalogItemType = _catalogItemTypeDictionary.GetCatalogItemType(catalogItemModelFilter.TypeDiscriminator);
 
             var filtringSpecification = BuildSpecification(catalogItemModelFilter, catalogItemType);
-            filtringSpecification.ApplyPaging(0, 6);
+            if (catalogItemModelFilter.SkippingPages < 0)
+            {
+                return NotFound();
+            }
+            filtringSpecification.ApplyPaging(catalogItemModelFilter.SkippingPages * 6, 6);
 
             // getting catalogItem repository
             var catalogItemReposity = _container.Resolve(typeof(ICatalogItemRepository<>).MakeGenericType(catalogItemType)) as ICatalogItemRepository;
@@ -110,7 +113,10 @@ namespace GoodsStore.Web.Presentation.Controllers.ApiControllers
 
             // creation catalogItemModels
             var res = _catalogItemModelFactory.GetCatalogItemModels(catalogItems);
-
+            if (res.Count == 0)
+            {
+                return NotFound();
+            }
             return Ok(res);
         }
 

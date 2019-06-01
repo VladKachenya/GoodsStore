@@ -40,7 +40,7 @@ class PaginationBox extends React.Component {
 class CatalogItemList extends React.Component {
     render() {
         const catalogItemNodes = this.props.data.map(ci => (
-            <div key={ci.id} className="card m-1 p-1 catalog-item">
+            <div key={ci.id} className="card m-2 p-1 catalog-item">
                 <h5 className="card-header">{ci.unitName} {ci.brand} {ci.model}</h5>
                 <div className="card-body row">
                     <img className="col-3" src={ci.pictureUri} alt="Card image cap" />
