@@ -3,15 +3,15 @@ using GoodsStore.Web.Framework.Keys;
 
 namespace GoodsStore.Web.Framework.Models
 {
-    public abstract class BaseEntityParametr : IParametr
+    public abstract class BaseFilterParametr : IFilterParametr
     {
-        protected BaseEntityParametr(ParametrKeys parametrKey)
+        protected BaseFilterParametr(FilterParametr filterParametr)
         {
-            ParametrKey = parametrKey;
+            FilterParametr = filterParametr;
         }
 
         public string PublicName { get; set; }
         public string ItemPropertyName { get; set; }
-        public ParametrKeys ParametrKey { get; }
+        public FilterParametr FilterParametr { get; }
     }
 }

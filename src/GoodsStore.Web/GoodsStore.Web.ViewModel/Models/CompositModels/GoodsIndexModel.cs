@@ -10,6 +10,6 @@ namespace GoodsStore.Web.ViewModel.Models.CompositModels
 
         public List<CatalogItemModel> CatalogItemModels { get; set; }
 
-        public List<IParametr> Parametrs { get; set; } 
+        public List<IFilterParametr> Parametrs { get; set; } 
     }
 }

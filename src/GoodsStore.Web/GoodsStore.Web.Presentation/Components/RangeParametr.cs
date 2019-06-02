@@ -5,9 +5,9 @@ namespace GoodsStore.Web.Presentation.Components
 {
     public class RangeParametrViewComponent : ViewComponent
     {
-        public IViewComponentResult Invoke(IParametr parametr)
+        public IViewComponentResult Invoke(IFilterParametr filterParametr)
         {
-            return View(parametr as IRangeParametr);
+            return View(filterParametr as IRangeFilterParametr);
         }
     }
 }

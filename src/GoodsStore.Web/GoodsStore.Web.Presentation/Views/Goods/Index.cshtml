@@ -1,4 +1,4 @@
-﻿@model GoodsStore.Web.ViewModel.Models.CompositModels.GoodsIndexModel
+﻿@model GoodsIndexModel
 
 @{
     ViewBag.Title = $"Goods store";
@@ -12,7 +12,7 @@
                 <div class="card-body p-1">
                     <h5>@modelParametr.PublicName :</h5>
 
-                    @await Component.InvokeAsync(modelParametr.ParametrKey.ToString(), new { parametr = modelParametr })
+                    @await Component.InvokeAsync(modelParametr.FilterParametr.ToString(), new { filterParametr = modelParametr })
 
                 </div>
             }

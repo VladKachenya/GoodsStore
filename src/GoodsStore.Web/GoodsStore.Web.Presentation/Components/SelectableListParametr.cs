@@ -5,9 +5,9 @@ namespace GoodsStore.Web.Presentation.Components
 {
     public class SelectableListParametrViewComponent : ViewComponent
     {
-        public IViewComponentResult Invoke(IParametr parametr)
+        public IViewComponentResult Invoke(IFilterParametr filterParametr)
         {
-            return View(parametr as ISelectableListParametr);
+            return View(filterParametr as ISelectableListFilterParametr);
         }
     }
 }

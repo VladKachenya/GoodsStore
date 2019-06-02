@@ -3,11 +3,11 @@ using GoodsStore.Web.Framework.Interfaces.Model;
 using GoodsStore.Web.Framework.Keys;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace GoodsStore.Web.Framework.Models.Parametrs
+namespace GoodsStore.Web.Framework.Models.FilterParametrs
 {
-    public class SelectableListParametr : BaseEntityParametr, ISelectableListParametr
+    public class SelectableListFilterParametr : BaseFilterParametr, ISelectableListFilterParametr
     {
-        public SelectableListParametr() : base(ParametrKeys.SelectableListParametr)
+        public SelectableListFilterParametr() : base(FilterParametr.SelectableListParametr)
         {
             SelectListItems = new List<SelectListItem>();
         }

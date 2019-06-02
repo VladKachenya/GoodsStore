@@ -2,10 +2,10 @@
 using GoodsStore.App.Infrastructure.IoC;
 using GoodsStore.Core.Domain.Entities.Base;
 using GoodsStore.Web.Framework.Factories;
-using GoodsStore.Web.Framework.Factories.ParametrsGenerators;
 using GoodsStore.Web.Framework.Interfaces.Factories;
 using GoodsStore.Web.Framework.Interfaces.Model;
-using GoodsStore.Web.Framework.Models.Parametrs;
+using GoodsStore.Web.Framework.Models;
+using GoodsStore.Web.Framework.Models.FilterParametrs;
 
 namespace GoodsStore.Web.Framework.App
 {
@@ -13,16 +13,19 @@ namespace GoodsStore.Web.Framework.App
     {
         public void Register(IContainerBuilder containerBuilder)
         {
-            containerBuilder.RegisterType<PhraseParametr, IPhraseParametr>();
-            containerBuilder.RegisterType<RangeParametr, IRangeParametr>();
-            containerBuilder.RegisterType<SelectableListParametr, ISelectableListParametr>();
+            // Filter parametrs
+            containerBuilder.RegisterType<PhraseFilterParametr, IPhraseFilterParametr>();
+            containerBuilder.RegisterType<RangeFilterParametr, IRangeFilterParametr>();
+            containerBuilder.RegisterType<SelectableListFilterParametr, ISelectableListFilterParametr>();
 
-            containerBuilder.RegisterType<CatalogItemParametersFactory, ICatalogItemParametersFactory>();
+            // Factories
             containerBuilder.RegisterType<ParametrFactory, IParametrFactory>();
 
-            containerBuilder.RegisterType<CatalogItemParametrsGenerator<CatalogItem>, IParametrsGenerator>();
-            containerBuilder.RegisterType<RefrigeratorParametrsesGenerator, IParametrsGenerator>();
-            containerBuilder.RegisterType<MobilePhoneParametrsGenerator, IParametrsGenerator>();
+            containerBuilder.RegisterGeneric(typeof(GeneratorsDictionary<>), typeof(IGeneratorsDictionary<>));
+
+            containerBuilder.RegisterType<BaseCatalogItemParametrsGenerator<CatalogItem>, IParametrsGenerator>();
+
+            containerBuilder.RegisterType<TableItem, ITableItem>();
         }
     }
 }

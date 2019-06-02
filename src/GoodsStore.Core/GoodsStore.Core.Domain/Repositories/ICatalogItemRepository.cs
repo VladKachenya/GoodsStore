@@ -12,6 +12,7 @@ namespace GoodsStore.Core.Domain.Repositories
 
     public interface ICatalogItemRepository 
     {
+        Task<CatalogItem> GetById(int id);
         Task<IReadOnlyList<CatalogItem>> List(object specification);
         Task<int> Count(object specification);
     }

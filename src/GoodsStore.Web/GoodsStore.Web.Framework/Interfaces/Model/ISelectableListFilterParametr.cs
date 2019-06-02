@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace GoodsStore.Web.Framework.Interfaces.Model
 {
-    public interface ISelectableListParametr : IParametr
+    public interface ISelectableListFilterParametr : IFilterParametr
     {
         List<SelectListItem> SelectListItems { get; }
     }

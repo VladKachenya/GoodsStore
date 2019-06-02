@@ -1,8 +1,30 @@
-﻿@model object
+﻿@using GoodsStore.Web.Framework.Keys
+@model List<ITableItem>
 
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
 
-<h2>Pretty soon</h2>
+<table class="table table-hover col-9 m-3">
+        @foreach (var tableItem in Model)
+        {
+            if (tableItem.ItemType == TableItemType.ItemParametr)
+            {
+
+                <tr class="row">
+                    <td class="col-6 table-first-col"><span class="m-3">@tableItem.Title</span></td>
+                    <td class="col-6">@tableItem.Value</td>
+
+                </tr>
+            }
+            else if (tableItem.ItemType == TableItemType.GroupTitle)
+            {
+                <tr class="row">
+                    <th class="col-6" >@tableItem.Title</th>
+                    <th class="col-6" ></th>
+                </tr>
+            }
+        }
+</table>
+

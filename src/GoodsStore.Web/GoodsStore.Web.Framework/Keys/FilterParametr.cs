@@ -1,6 +1,6 @@
 ﻿namespace GoodsStore.Web.Framework.Keys
 {
-    public enum ParametrKeys
+    public enum FilterParametr
     {
         RangeParametr = 1,
         SelectableListParametr,

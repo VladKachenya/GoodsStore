@@ -1,16 +1,17 @@
-﻿using GoodsStore.Core.Domain.Entities;
+﻿using System;
+using System.Collections.Generic;
+using GoodsStore.Core.Domain.Entities;
 using GoodsStore.Core.Domain.Entities.Goods.Telephony;
 using GoodsStore.Core.Domain.Keys;
 using GoodsStore.Core.Domain.Repositories;
 using GoodsStore.Core.Domain.Specifications;
+using GoodsStore.Web.Framework.Factories;
 using GoodsStore.Web.Framework.Interfaces.Factories;
 using GoodsStore.Web.Framework.Interfaces.Model;
-using System;
-using System.Collections.Generic;
 
-namespace GoodsStore.Web.Framework.Factories.ParametrsGenerators
+namespace GoodsStore.Web.ViewModel.Factories.ParametrsGenerators
 {
-    public class MobilePhoneParametrsGenerator : CatalogItemParametrsGenerator<MobilePhone>
+    public class MobilePhoneParametrsGenerator : BaseCatalogItemParametrsGenerator<MobilePhone>
     {
         public MobilePhoneParametrsGenerator(
             IParametrFactory parametrFactory,
@@ -20,9 +21,9 @@ namespace GoodsStore.Web.Framework.Factories.ParametrsGenerators
         {
         }
 
-        public override GoodsTypes ProductKey => GoodsTypes.MobilePhone;
+        public override string GoodsKey => nameof(MobilePhone);
 
-        public override List<IParametr> GetParametrs(ItemType itemType)
+        public override List<IFilterParametr> GetParametrs(ItemType itemType)
         {
             var res = base.GetParametrs(itemType);
 
@@ -34,8 +35,5 @@ namespace GoodsStore.Web.Framework.Factories.ParametrsGenerators
                 nameof(MobilePhone.ScreenDiagonal)));
             return res;
         }
-
-
-
     }
 }

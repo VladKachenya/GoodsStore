@@ -12,17 +12,17 @@ namespace GoodsStore.Web.ViewModel.Factories
     {
         private readonly ICatalogItemModelFactory _catalogItemModelFactory;
 
-        private readonly ICatalogItemParametersFactory _catalogItemParametersFactory;
+        private readonly IGeneratorsDictionary<IParametrsGenerator> _parametersGenerators;
 
         #region Ctor
 
         public GoodsIndexModelFactory(
             ICatalogItemModelFactory catalogItemModelFactory,
-            ICatalogItemParametersFactory catalogItemParametersFactory)
+            IGeneratorsDictionary<IParametrsGenerator> parametersGenerators)
         {
             _catalogItemModelFactory = catalogItemModelFactory;
 
-            _catalogItemParametersFactory = catalogItemParametersFactory;
+            _parametersGenerators = parametersGenerators;
         }
         #endregion
 
@@ -35,7 +35,7 @@ namespace GoodsStore.Web.ViewModel.Factories
                 TypeName = productType.UnitName,
                 TypeDiscriminator = catalogItems.FirstOrDefault()?.Discriminator,
                 CatalogItemModels = _catalogItemModelFactory.GetCatalogItemModels(catalogItems),
-                Parametrs = _catalogItemParametersFactory.GetParametrsOfType(productType)
+                Parametrs = _parametersGenerators.GetGenerator(productType).GetParametrs(productType)
             };
         }
         #endregion

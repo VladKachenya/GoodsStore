@@ -1,6 +1,6 @@
 ﻿namespace GoodsStore.Web.Framework.Interfaces.Model
 {
-    public interface IPhraseParametr : IParametr
+    public interface IPhraseFilterParametr : IFilterParametr
     {
         string Phrase { get; set;}
     }

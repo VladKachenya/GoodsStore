@@ -1,25 +1,25 @@
-﻿using GoodsStore.Core.Domain.Entities;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
+using GoodsStore.Core.Domain.Entities;
 using GoodsStore.Core.Domain.Entities.Base;
 using GoodsStore.Core.Domain.Keys;
 using GoodsStore.Core.Domain.Repositories;
 using GoodsStore.Core.Domain.Specifications;
 using GoodsStore.Web.Framework.Interfaces.Factories;
 using GoodsStore.Web.Framework.Interfaces.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
 
-namespace GoodsStore.Web.Framework.Factories.ParametrsGenerators
+namespace GoodsStore.Web.Framework.Factories
 {
-    public class CatalogItemParametrsGenerator<TCatalogItem> : IParametrsGenerator where TCatalogItem : CatalogItem
+    public class BaseCatalogItemParametrsGenerator<TCatalogItem> : IParametrsGenerator where TCatalogItem : CatalogItem
     {
         protected readonly IParametrFactory _parametrFactory;
         protected readonly IRepository<TCatalogItem> _repository;
         protected readonly Func<ISpecification<TCatalogItem>> _spesificatioFunc;
 
-        public CatalogItemParametrsGenerator(
+        public BaseCatalogItemParametrsGenerator(
             IParametrFactory parametrFactory,
             IRepository<TCatalogItem> repository,
             Func<ISpecification<TCatalogItem>> spesificatioFunc)
@@ -28,10 +28,11 @@ namespace GoodsStore.Web.Framework.Factories.ParametrsGenerators
             _repository = repository;
             _spesificatioFunc = spesificatioFunc;
         }
-        public virtual GoodsTypes ProductKey => default(GoodsTypes);
-        public virtual List<IParametr> GetParametrs(ItemType itemType)
+        public virtual string GoodsKey => nameof(CatalogItem);
+
+        public virtual List<IFilterParametr> GetParametrs(ItemType itemType)
         {
-            var res = new List<IParametr>();
+            var res = new List<IFilterParametr>();
             var minMaxPrice = GetEntitiesWithMinMaxValOf(ci => ci.Price);
 
             res.Add(_parametrFactory.GetRangeParametr(

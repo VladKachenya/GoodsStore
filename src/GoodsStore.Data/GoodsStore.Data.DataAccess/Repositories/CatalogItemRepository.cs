@@ -14,6 +14,11 @@ namespace GoodsStore.Data.DataAccess.Repositories
         {
         }
 
+        public new async Task<CatalogItem> GetById(int id)
+        {
+            return await base.GetById(id);
+        }
+
         public async Task<IReadOnlyList<CatalogItem>> List(object specification)
         {
             return await base.List(GetSpecification(specification));

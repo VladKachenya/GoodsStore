@@ -5,9 +5,9 @@ namespace GoodsStore.Web.Presentation.Components
 {
     public class PhraseParametrViewComponent : ViewComponent
     {
-        public IViewComponentResult Invoke(IParametr parametr)
+        public IViewComponentResult Invoke(IFilterParametr filterParametr)
         {
-            return View(parametr as IPhraseParametr);
+            return View(filterParametr as IPhraseFilterParametr);
         }
     }
 }

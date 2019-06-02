@@ -5,8 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Autofac;
+using GoodsStore.Core.Domain.Helpers;
 using GoodsStore.Core.Domain.Repositories;
 using GoodsStore.Core.Domain.Specifications;
+using GoodsStore.Web.Framework.Interfaces.Factories;
 
 namespace GoodsStore.Web.Presentation.Controllers
 {
@@ -16,17 +19,26 @@ namespace GoodsStore.Web.Presentation.Controllers
         private readonly IRepository<ItemType> _itemTypeRepository;
         private readonly Func<ISpecification<CatalogItem>> _catalogItemSelectionSpecificationFactory;
         private readonly IGoodsIndexModelFactory _goodsIndexModelFactory;
+        private readonly IGeneratorsDictionary<ITableItemsGenerator> _generatorsDictionary;
+        private readonly CatalogItemTypeDictionary _catalogItemTypeDictionary;
+        private readonly IContainer _container;
 
         public GoodsController(
             IRepository<CatalogItem> catalogItemsRepository,
             IRepository<ItemType> itemTypeRepository,
             Func<ISpecification<CatalogItem>> catalogItemSelectionSpecificationFactory,
-            IGoodsIndexModelFactory goodsIndexModelFactory)
+            IGoodsIndexModelFactory goodsIndexModelFactory,
+            IGeneratorsDictionary<ITableItemsGenerator> generatorsDictionary,
+            CatalogItemTypeDictionary catalogItemTypeDictionary,
+            IContainer container)
         {
             _catalogItemsRepository = catalogItemsRepository;
             _itemTypeRepository = itemTypeRepository;
             _catalogItemSelectionSpecificationFactory = catalogItemSelectionSpecificationFactory;
             _goodsIndexModelFactory = goodsIndexModelFactory;
+            _generatorsDictionary = generatorsDictionary;
+            _catalogItemTypeDictionary = catalogItemTypeDictionary;
+            _container = container;
         }
 
         // GET
@@ -42,7 +54,14 @@ namespace GoodsStore.Web.Presentation.Controllers
 
         public async Task<IActionResult> Item(string typeDiscriminator, int id)
         {
-            return View();
+            var catalogItemType = _catalogItemTypeDictionary.GetCatalogItemType(typeDiscriminator);
+
+            var catalogItemReposity = _container.Resolve(typeof(ICatalogItemRepository<>).MakeGenericType(catalogItemType)) as ICatalogItemRepository;
+            var catalogItem = await catalogItemReposity.GetById(id);
+
+            var table = _generatorsDictionary.GetGenerator(typeDiscriminator).GetItems(catalogItem);
+
+            return View(table);
         }
     }
 }

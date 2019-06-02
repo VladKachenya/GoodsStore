@@ -2,11 +2,11 @@
 
 namespace GoodsStore.Web.Framework.Interfaces.Model
 {
-    public interface IParametr
+    public interface IFilterParametr
     {
         string PublicName { get; set; }
         string ItemPropertyName { get; set; }
 
-        ParametrKeys ParametrKey { get; }
+        FilterParametr FilterParametr { get; }
     }
 }

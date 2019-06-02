@@ -9,16 +9,16 @@ namespace GoodsStore.Web.Framework.Factories
 {
     public class ParametrFactory : IParametrFactory
     {
-        private readonly Func<IRangeParametr> _rangeParametrFactory;
-        private readonly Func<IPhraseParametr> _phraseParametrFactory;
-        private readonly Func<ISelectableListParametr> _selectebleListParametrFactory;
+        private readonly Func<IRangeFilterParametr> _rangeParametrFactory;
+        private readonly Func<IPhraseFilterParametr> _phraseParametrFactory;
+        private readonly Func<ISelectableListFilterParametr> _selectebleListParametrFactory;
 
         #region ctor
 
         public ParametrFactory(
-            Func<IRangeParametr> rangeParametrFactory,
-            Func<IPhraseParametr> phraseParametrFactory,
-            Func<ISelectableListParametr> selectebleListParametrFactory)
+            Func<IRangeFilterParametr> rangeParametrFactory,
+            Func<IPhraseFilterParametr> phraseParametrFactory,
+            Func<ISelectableListFilterParametr> selectebleListParametrFactory)
         {
             _rangeParametrFactory = rangeParametrFactory;
             _phraseParametrFactory = phraseParametrFactory;
@@ -28,7 +28,7 @@ namespace GoodsStore.Web.Framework.Factories
 
 
         #region Implementation of IParametrFactory
-        public IParametr GetSelectebleListParametr(IEnumerable<BaseEntity> baseEntities, string parametName, string propertyName)
+        public IFilterParametr GetSelectebleListParametr(IEnumerable<BaseEntity> baseEntities, string parametName, string propertyName)
         {
             var res = _selectebleListParametrFactory.Invoke();
 
@@ -46,7 +46,7 @@ namespace GoodsStore.Web.Framework.Factories
             return res;
         }
 
-        public IParametr GetPhraseParametr(string parametName, string propertyName)
+        public IFilterParametr GetPhraseParametr(string parametName, string propertyName)
         {
             var res = _phraseParametrFactory.Invoke();
             res.Phrase = string.Empty;
@@ -55,7 +55,7 @@ namespace GoodsStore.Web.Framework.Factories
             return res;
         }
 
-        public IParametr GetRangeParametr(double from, double to, string parametName, string propertyName)
+        public IFilterParametr GetRangeParametr(double from, double to, string parametName, string propertyName)
         {
             var res = _rangeParametrFactory.Invoke();
             res.FromValue = from;

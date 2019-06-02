@@ -1,11 +1,11 @@
 ﻿using GoodsStore.Web.Framework.Interfaces.Model;
 using GoodsStore.Web.Framework.Keys;
 
-namespace GoodsStore.Web.Framework.Models.Parametrs
+namespace GoodsStore.Web.Framework.Models.FilterParametrs
 {
-    public class RangeParametr : BaseEntityParametr, IRangeParametr
+    public class RangeFilterParametr : BaseFilterParametr, IRangeFilterParametr
     {
-        public RangeParametr() : base(ParametrKeys.RangeParametr)
+        public RangeFilterParametr() : base(FilterParametr.RangeParametr)
         {
         }
 

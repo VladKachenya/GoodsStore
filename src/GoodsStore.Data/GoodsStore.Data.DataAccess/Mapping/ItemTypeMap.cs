@@ -12,6 +12,8 @@ namespace GoodsStore.Data.DataAccess.Mapping
         {
             builder.ToTable("ItemTypes");
             builder.Property(p => p.Name).IsRequired().HasMaxLength(30);
+            builder.Property(p => p.UnitName).IsRequired();
+
 
             builder.HasOne(i => i.Category).WithMany(c => c.ItemTypes).HasForeignKey(i => i.CategoryId).IsRequired();
             builder.HasData(new ItemType[]
