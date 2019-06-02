@@ -1,13 +1,13 @@
 ﻿$(document).ready(function () {
     const typeDiscriminator = document.getElementById('parameters-column').getAttribute('data-type');
-    const getDataUrl = "/api/Catalog/CatalogItems/" + typeDiscriminator;
+    const itemsUrl = new URL("Goods/Item/" + typeDiscriminator, getSiteAddres()).toString();
 
     getDataCount();
     getInitialData();
 
-    var catalogItemsBox = ReactDOM.render(<CatalogItemsBox url={getDataUrl} />, document.getElementById('catalog-items-content'));
+    var catalogItemsBox = ReactDOM.render(<CatalogItemsBox itemsUrl={itemsUrl} />, document.getElementById('catalog-items-content'));
     var pageCounter = document.getElementsByClassName('current-page')[0];
-    var pagination = document.getElementsByClassName('goods-store-pagination')[0];
+    //var pagination = document.getElementsByClassName('goods-store-pagination')[0];
 
     $('#floating-button').click(function () {
         loadData();
@@ -100,7 +100,7 @@
 
     function getInitialData() {
         $.ajax({
-            url: "api/Catalog/CatalogItems/" + typeDiscriminator,
+            url: new URL("/api/Catalog/CatalogItems/" + typeDiscriminator, getSiteAddres()),
             contentType: "application/json",
             method: "GET",
             success: function (data) {
@@ -116,7 +116,7 @@
         var data = selectFilters();
 
         $.ajax({
-            url: "api/Catalog/CatalogItems",
+            url: new URL("/api/Catalog/CatalogItems/", getSiteAddres()),
             contentType: "application/json",
             method: "POST",
             data: JSON.stringify(data),
@@ -134,7 +134,7 @@
         var data = selectFilters(skipingPages);
 
         $.ajax({
-            url: "api/Catalog/CatalogItems",
+            url: new URL("/api/Catalog/CatalogItems/", getSiteAddres()),
             contentType: "application/json",
             method: "POST",
             data: JSON.stringify(data),
@@ -154,7 +154,7 @@
     function getDataCount() {
 
         $.ajax({
-            url: "api/Catalog/Count/" + typeDiscriminator,
+            url: new URL("api/Catalog/Count/" + typeDiscriminator, getSiteAddres()),
             contentType: "application/json",
             method: "GET",
             success: function (count) {
@@ -170,7 +170,7 @@
         var data = selectFilters();
 
         $.ajax({
-            url: "api/Catalog/Count",
+            url: new URL("api/Catalog/Count", getSiteAddres()),
             contentType: "application/json",
             method: "POST",
             data: JSON.stringify(data),

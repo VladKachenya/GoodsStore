@@ -23,19 +23,17 @@ namespace GoodsStore.Core.Logic.Specifications
             IsPagingEnabled = true;
         }
 
-        public virtual ISpecification<T> SetOrder(Expression<Func<T, object>> orderExpression, bool isDescending = false)
+        public virtual ISpecification<T> SetOrderingBy(Expression<Func<T, object>> orderExpression)
         {
-            if (isDescending)
-            {
-                OrderBy = null;
-                OrderByDescending = orderExpression;
-            }
-            else
-            {
-                OrderByDescending = null;
-                OrderBy = orderExpression;
-            }
+            OrderBy = orderExpression;
+            OrderByDescending = null;
+            return this;
+        }
 
+        public virtual ISpecification<T> SetOrderingByDescending(Expression<Func<T, object>> orderExpression)
+        {
+            OrderByDescending = orderExpression;
+            OrderBy = null;
             return this;
         }
 

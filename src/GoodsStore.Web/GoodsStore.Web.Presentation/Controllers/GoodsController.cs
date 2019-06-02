@@ -28,15 +28,21 @@ namespace GoodsStore.Web.Presentation.Controllers
             _catalogItemSelectionSpecificationFactory = catalogItemSelectionSpecificationFactory;
             _goodsIndexModelFactory = goodsIndexModelFactory;
         }
+
         // GET
-        public async Task<IActionResult> Index(int productTypeId)
+        public async Task<IActionResult> Index(int goodsTypeId)
         {
             var specification = _catalogItemSelectionSpecificationFactory.Invoke();
-            specification.ConfigyreSpecificaton(ci => ci.ItemTypeId == productTypeId).ApplyPaging(0, 6);
+            specification.ConfigyreSpecificaton(ci => ci.ItemTypeId == goodsTypeId).ApplyPaging(0, 6);
             var catalogItems = await _catalogItemsRepository.List(specification);
-            var itemsType = await _itemTypeRepository.GetById(productTypeId);
+            var itemsType = await _itemTypeRepository.GetById(goodsTypeId);
             var data = _goodsIndexModelFactory.BuildGoodsIndexModel(itemsType, catalogItems);
             return View(data);
+        }
+
+        public async Task<IActionResult> Item(string typeDiscriminator, int id)
+        {
+            return View();
         }
     }
 }

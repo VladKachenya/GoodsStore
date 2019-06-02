@@ -5,9 +5,11 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using React.AspNet;
+
 
 namespace GoodsStore.Web.Framework.WebApp
 {
@@ -16,6 +18,7 @@ namespace GoodsStore.Web.Framework.WebApp
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             services.AddReact();
 
             // Make sure a JS engine is registered, or you will get an error!
@@ -26,7 +29,7 @@ namespace GoodsStore.Web.Framework.WebApp
 
             services.AddSwaggerGen(swagger =>
             {
-                swagger.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info { Title = "My First Swagger" });
+                swagger.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info { Title = "Goods store API" });
             });
         }
 
@@ -60,11 +63,21 @@ namespace GoodsStore.Web.Framework.WebApp
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My First Swagger");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Goods store API");
             });
 
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+                    "goods-catalog",
+                    "Goods/{goodsTypeId}",
+                    new { controller = "goods", action = "index" });
+
+                routes.MapRoute(
+                    "goods-catalog-item",
+                    "Goods/Item/{typeDiscriminator}/{id}",
+                    new { controller = "Goods", action = "Item" });
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");

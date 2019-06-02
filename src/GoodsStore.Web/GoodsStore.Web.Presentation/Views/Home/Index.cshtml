@@ -22,7 +22,7 @@
                 <span href="#" class="list-group-item list-group-item-action active">@categoryModel.CategoryName</span>
                 @foreach (var itemTypeModel in categoryModel.ItemTypeModels)
                 {
-                    <a asp-controller="Goods" asp-action="Index" asp-route-productTypeId="@itemTypeModel.Id" class="list-group-item list-group-item-action">
+                    <a asp-route="goods-catalog" asp-route-goodsTypeId="@itemTypeModel.Id" class="list-group-item list-group-item-action">
                         @itemTypeModel.ItemTypeName
                     </a>
                 }

@@ -6,6 +6,5 @@ namespace GoodsStore.Web.Framework.Interfaces.WebApp
     {
         void RegisterRoutes(IRouteBuilder routeBuilder);
 
-        int Priority { get; }
     }
 }

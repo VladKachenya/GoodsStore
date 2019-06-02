@@ -57,8 +57,8 @@ namespace GoodsStore.Web.Framework.Factories.ParametrsGenerators
             // Async query to  database for get min and max price
             var maxPriseSpecifikation = _spesificatioFunc.Invoke();
             var minPriseSpecifikation = _spesificatioFunc.Invoke();
-            maxPriseSpecifikation.SetOrder(parametrExpression, true).ApplyPaging(0, 1);
-            minPriseSpecifikation.SetOrder(parametrExpression).ApplyPaging(0, 1);
+            maxPriseSpecifikation.SetOrderingByDescending(parametrExpression).ApplyPaging(0, 1);
+            minPriseSpecifikation.SetOrderingBy(parametrExpression).ApplyPaging(0, 1);
             Task<IReadOnlyList<TCatalogItem>>[] taskc =
             {
                 _repository.List(minPriseSpecifikation),
