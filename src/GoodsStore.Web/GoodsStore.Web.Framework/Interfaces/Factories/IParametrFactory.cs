@@ -10,6 +10,6 @@ namespace GoodsStore.Web.Framework.Interfaces.Factories
             string parametName, string propertyName);
 
         IFilterParametr GetPhraseParametr(string parametName, string propertyName);
-        IFilterParametr GetRangeParametr(double from, double to, string parametName, string propertyName);
+        IFilterParametr GetRangeParametr(double from, double to, string parametName, string propertyName, string dimension = null);
     }
 }

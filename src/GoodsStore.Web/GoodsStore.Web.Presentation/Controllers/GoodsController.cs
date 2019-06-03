@@ -19,8 +19,8 @@ namespace GoodsStore.Web.Presentation.Controllers
         private readonly IRepository<ItemType> _itemTypeRepository;
         private readonly Func<ISpecification<CatalogItem>> _catalogItemSelectionSpecificationFactory;
         private readonly IGoodsIndexModelFactory _goodsIndexModelFactory;
-        private readonly IGeneratorsDictionary<ITableItemsGenerator> _generatorsDictionary;
         private readonly CatalogItemTypeDictionary _catalogItemTypeDictionary;
+        private readonly ICatalogItemModelFactory _catalogItemModelFactory;
         private readonly IContainer _container;
 
         public GoodsController(
@@ -28,27 +28,24 @@ namespace GoodsStore.Web.Presentation.Controllers
             IRepository<ItemType> itemTypeRepository,
             Func<ISpecification<CatalogItem>> catalogItemSelectionSpecificationFactory,
             IGoodsIndexModelFactory goodsIndexModelFactory,
-            IGeneratorsDictionary<ITableItemsGenerator> generatorsDictionary,
             CatalogItemTypeDictionary catalogItemTypeDictionary,
+            ICatalogItemModelFactory catalogItemModelFactory,
             IContainer container)
         {
             _catalogItemsRepository = catalogItemsRepository;
             _itemTypeRepository = itemTypeRepository;
             _catalogItemSelectionSpecificationFactory = catalogItemSelectionSpecificationFactory;
             _goodsIndexModelFactory = goodsIndexModelFactory;
-            _generatorsDictionary = generatorsDictionary;
             _catalogItemTypeDictionary = catalogItemTypeDictionary;
+            _catalogItemModelFactory = catalogItemModelFactory;
             _container = container;
         }
 
         // GET
         public async Task<IActionResult> Index(int goodsTypeId)
         {
-            var specification = _catalogItemSelectionSpecificationFactory.Invoke();
-            specification.ConfigyreSpecificaton(ci => ci.ItemTypeId == goodsTypeId).ApplyPaging(0, 6);
-            var catalogItems = await _catalogItemsRepository.List(specification);
             var itemsType = await _itemTypeRepository.GetById(goodsTypeId);
-            var data = _goodsIndexModelFactory.BuildGoodsIndexModel(itemsType, catalogItems);
+            var data = _goodsIndexModelFactory.BuildGoodsIndexModel(itemsType);
             return View(data);
         }
 
@@ -59,9 +56,9 @@ namespace GoodsStore.Web.Presentation.Controllers
             var catalogItemReposity = _container.Resolve(typeof(ICatalogItemRepository<>).MakeGenericType(catalogItemType)) as ICatalogItemRepository;
             var catalogItem = await catalogItemReposity.GetById(id);
 
-            var table = _generatorsDictionary.GetGenerator(typeDiscriminator).GetItems(catalogItem);
+            var data = _catalogItemModelFactory.GetCatalogItemModel(catalogItem);
 
-            return View(table);
+            return View(data);
         }
     }
 }

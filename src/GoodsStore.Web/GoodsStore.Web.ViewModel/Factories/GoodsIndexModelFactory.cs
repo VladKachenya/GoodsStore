@@ -28,13 +28,12 @@ namespace GoodsStore.Web.ViewModel.Factories
 
         #region Implementation of IGoodsIndexModelFactory
 
-        public GoodsIndexModel BuildGoodsIndexModel(ItemType productType, IEnumerable<CatalogItem> catalogItems)
+        public GoodsIndexModel BuildGoodsIndexModel(ItemType productType)
         {
             return new GoodsIndexModel()
             {
                 TypeName = productType.UnitName,
-                TypeDiscriminator = catalogItems.FirstOrDefault()?.Discriminator,
-                CatalogItemModels = _catalogItemModelFactory.GetCatalogItemModels(catalogItems),
+                TypeDiscriminator = productType.UnitName,
                 Parametrs = _parametersGenerators.GetGenerator(productType).GetParametrs(productType)
             };
         }

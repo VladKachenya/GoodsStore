@@ -66,7 +66,7 @@ namespace GoodsStore.Web.Presentation.Controllers.ApiControllers
 
             var catalogItemReposity = _container.Resolve(typeof(ICatalogItemRepository<>).MakeGenericType(catalogItemType)) as ICatalogItemRepository;
 
-            var res = _catalogItemModelFactory.GetCatalogItemModels(await catalogItemReposity.List(filtringSpecification));
+            var res = _catalogItemModelFactory.GetCatalogItemShortModels(await catalogItemReposity.List(filtringSpecification));
             return Ok(res);
         }
 
@@ -112,7 +112,7 @@ namespace GoodsStore.Web.Presentation.Controllers.ApiControllers
             var catalogItems = await catalogItemReposity.List(filtringSpecification);
 
             // creation catalogItemModels
-            var res = _catalogItemModelFactory.GetCatalogItemModels(catalogItems);
+            var res = _catalogItemModelFactory.GetCatalogItemShortModels(catalogItems);
             if (res.Count == 0)
             {
                 return NotFound();

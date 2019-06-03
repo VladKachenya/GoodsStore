@@ -55,13 +55,14 @@ namespace GoodsStore.Web.Framework.Factories
             return res;
         }
 
-        public IFilterParametr GetRangeParametr(double from, double to, string parametName, string propertyName)
+        public IFilterParametr GetRangeParametr(double from, double to, string parametName, string propertyName, string dimension = null)
         {
             var res = _rangeParametrFactory.Invoke();
             res.FromValue = from;
             res.ToValue = to;
             res.PublicName = parametName;
             res.ItemPropertyName = propertyName;
+            res.Dimension = dimension;
             return res;
         }
         #endregion

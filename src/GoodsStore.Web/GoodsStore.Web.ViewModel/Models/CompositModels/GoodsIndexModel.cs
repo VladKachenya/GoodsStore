@@ -8,8 +8,6 @@ namespace GoodsStore.Web.ViewModel.Models.CompositModels
         public string TypeName { get; set; }
         public string TypeDiscriminator { get; set; }
 
-        public List<CatalogItemModel> CatalogItemModels { get; set; }
-
         public List<IFilterParametr> Parametrs { get; set; } 
     }
 }

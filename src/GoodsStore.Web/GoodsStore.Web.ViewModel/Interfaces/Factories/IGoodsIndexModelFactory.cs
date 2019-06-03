@@ -8,6 +8,6 @@ namespace GoodsStore.Web.ViewModel.Interfaces.Factories
 {
     public interface IGoodsIndexModelFactory
     {
-        GoodsIndexModel BuildGoodsIndexModel(ItemType productType, IEnumerable<CatalogItem> catalogItems);
+        GoodsIndexModel BuildGoodsIndexModel(ItemType productType);
     }
 }

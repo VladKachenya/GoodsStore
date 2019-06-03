@@ -11,5 +11,7 @@ namespace GoodsStore.Web.Framework.Models.FilterParametrs
 
         public double FromValue { get; set; }
         public double ToValue { get; set; }
+        public string Dimension { get; set; }
+
     }
 }

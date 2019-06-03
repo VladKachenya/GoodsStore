@@ -22,7 +22,7 @@ class CatalogItemList extends React.Component {
                 <div className="card-body row">
                     <img className="col-3" src={ci.pictureUri} alt="Card image cap" />
                     <div className="col-6">
-                        <h5 className="card-title">{ci.price}</h5>
+                        <h5 className="card-title goods-store-price">{ci.price}</h5>
                         <p className="card-text">{ci.description}</p>
                         <a href={itemUrl} className="btn btn-primary">Details</a>
                     </div>

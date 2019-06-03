@@ -4,5 +4,7 @@
     {
         double FromValue { get; set; }
         double ToValue { get; set; }
+        string Dimension { get; set; }
+
     }
 }

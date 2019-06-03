@@ -1,5 +1,14 @@
 ﻿@using GoodsStore.Web.Framework.Interfaces.Model
 @model GoodsStore.Web.Framework.Interfaces.Model.IRangeFilterParametr
+@if (Model.Dimension != null)
+{
+    <h5>@Model.PublicName, @Model.Dimension:</h5>
+}
+else
+{
+    <h5>@Model.PublicName :</h5>
+}
+
 <div class="range-parametr" name="@Model.ItemPropertyName">
     <div class="row">
         <div class="col">

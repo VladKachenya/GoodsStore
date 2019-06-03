@@ -38,8 +38,8 @@ namespace GoodsStore.Web.Framework.Factories
             res.Add(_parametrFactory.GetRangeParametr(
                 (double)minMaxPrice.Item1.Price,
                 (double)minMaxPrice.Item2.Price,
-                $"Prise, {string.Empty:C0}",
-                nameof(CatalogItem.Price)));
+                $"Prise",
+                nameof(CatalogItem.Price),"$"));
 
             res.Add(_parametrFactory.GetPhraseParametr("Product name", nameof(CatalogItem.Name)));
 

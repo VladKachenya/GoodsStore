@@ -2,7 +2,7 @@
 
 namespace GoodsStore.Web.ViewModel.Models
 {
-    public class CatalogItemModel : BaseEntityModel
+    public class CatalogItemShortModel : BaseEntityModel
     {
         public string PictureUri { get; set; }
         public string Brand { get; set; }

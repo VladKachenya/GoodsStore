@@ -8,8 +8,9 @@ namespace GoodsStore.Web.ViewModel.Interfaces.Factories
 {
     public interface ICatalogItemModelFactory
     {
-        CatalogItemModel GetCatalogItemModel(CatalogItem categoryModel);
-        List<CatalogItemModel> GetCatalogItemModels(IEnumerable<CatalogItem> categoryModels);
+        CatalogItemShortModel GetCatalogItemShortModel(CatalogItem catalogItem);
+        List<CatalogItemShortModel> GetCatalogItemShortModels(IEnumerable<CatalogItem> catalogItems);
+        CatalogItemModel GetCatalogItemModel(CatalogItem catalogItem);
 
     }
 }

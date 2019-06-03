@@ -10,8 +10,6 @@
             @foreach (var modelParametr in Model.Parametrs)
             {
                 <div class="card-body p-1">
-                    <h5>@modelParametr.PublicName :</h5>
-
                     @await Component.InvokeAsync(modelParametr.FilterParametr.ToString(), new { filterParametr = modelParametr })
 
                 </div>

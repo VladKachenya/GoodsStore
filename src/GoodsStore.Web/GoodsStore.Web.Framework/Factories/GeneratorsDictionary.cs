@@ -25,7 +25,7 @@ namespace GoodsStore.Web.Framework.Factories
 
         public TGenerator GetGenerator(CatalogItem catalogItem)
         {
-            return GetGenerator(catalogItem.Description);
+            return GetGenerator(catalogItem.Discriminator);
         }
 
         public TGenerator GetGenerator(string catalogItemTypeName)

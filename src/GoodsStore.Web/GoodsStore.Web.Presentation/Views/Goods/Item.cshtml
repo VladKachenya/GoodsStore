@@ -1,13 +1,36 @@
 ﻿@using GoodsStore.Web.Framework.Keys
-@model List<ITableItem>
+@model CatalogItemModel
 
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
+<div class="row m-2">
+    <h1 class="font-weight-bold">
+        <span class="text-danger">
+            @Model.CatalogItemShortModel.UnitName @Model.CatalogItemShortModel.Brand @Model.CatalogItemShortModel.Model
+        </span>
+    </h1>
+</div>
+
+<div class="row">
+    <div class="col p-5">
+        <img  class="w-100 h-100" src=@Model.CatalogItemShortModel.PictureUri alt="Card image cap" />
+    </div>
+    <div class="col p-5">
+        <h3 class=" ">
+            @Model.CatalogItemShortModel.Description
+        </h3>
+        <h2 class="goods-store-price m-3">
+            @Model.CatalogItemShortModel.Price
+        </h2>
+    </div>
+
+</div>
+
 
 <table class="table table-hover col-9 m-3">
-        @foreach (var tableItem in Model)
+        @foreach (var tableItem in Model.Table)
         {
             if (tableItem.ItemType == TableItemType.ItemParametr)
             {
