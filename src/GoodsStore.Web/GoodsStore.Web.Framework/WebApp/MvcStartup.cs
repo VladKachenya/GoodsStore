@@ -70,12 +70,12 @@ namespace GoodsStore.Web.Framework.WebApp
             {
                 routes.MapRoute(
                     "goods-catalog",
-                    "Goods/{goodsTypeId}",
+                    "Goods/{typeDiscriminator}",
                     new { controller = "goods", action = "index" });
 
                 routes.MapRoute(
                     "goods-catalog-item",
-                    "Goods/Item/{typeDiscriminator}/{id}",
+                    "Goods/{typeDiscriminator}/{id}",
                     new { controller = "Goods", action = "Item" });
 
                 routes.MapRoute(

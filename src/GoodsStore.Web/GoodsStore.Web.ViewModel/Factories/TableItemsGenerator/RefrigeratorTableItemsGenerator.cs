@@ -1,64 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using GoodsStore.Core.Domain.Entities.Base;
+﻿using GoodsStore.Core.Domain.Entities.Base;
 using GoodsStore.Core.Domain.Entities.Goods.HouseholdEquipment;
-using GoodsStore.Web.Framework.Interfaces.Factories;
+using GoodsStore.Web.Framework.Factories;
 using GoodsStore.Web.Framework.Interfaces.Model;
-using GoodsStore.Web.Framework.Keys;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
 
 namespace GoodsStore.Web.ViewModel.Factories.TableItemsGenerator
 {
-    public class RefrigeratorTableItemsGenerator : ITableItemsGenerator
+    public class RefrigeratorTableItemsGenerator : BaseTableItemsGenerator
     {
-        private readonly Func<ITableItem> _tableItemFactory;
 
         public RefrigeratorTableItemsGenerator(Func<ITableItem> tableItemFactory)
+        : base(tableItemFactory)
         {
-            _tableItemFactory = tableItemFactory;
         }
 
-        public string GoodsKey => nameof(Refrigerator);
-        public List<ITableItem> GetItems(CatalogItem catalogItem)
+        public override string GoodsKey => nameof(Refrigerator);
+        public override List<ITableItem> GetItems(CatalogItem catalogItem)
         {
+            base.GetItems(catalogItem);
+
             var refregerator = catalogItem as Refrigerator;
 
-            var res = new List<ITableItem>();
+            AddTitle("Volume");
+            AddParametr("Freezer camera volume", refregerator.FreezerCameraVolume.ToString(CultureInfo.InvariantCulture));
+            AddParametr("Refrigerator camera volume", refregerator.RefrigeratorCameraVolume.ToString(CultureInfo.InvariantCulture));
 
-            var item = _tableItemFactory.Invoke();
-            item.ItemType = TableItemType.GroupTitle;
-            item.Title = "Volume";
-            res.Add(item);
+            AddTitle("Size");
+            AddParametr("Height", refregerator.Height.ToString(CultureInfo.InvariantCulture));
+            AddParametr("Width", refregerator.Width.ToString(CultureInfo.InvariantCulture));
 
-            item = _tableItemFactory.Invoke();
-            item.ItemType = TableItemType.ItemParametr;
-            item.Title = "Freezer camera volume";
-            item.Value = refregerator.FreezerCameraVolume.ToString();
-            res.Add(item);
-
-            item = _tableItemFactory.Invoke();
-            item.ItemType = TableItemType.ItemParametr;
-            item.Title = "Refrigerator camera volume";
-            item.Value = refregerator.RefrigeratorCameraVolume.ToString();
-            res.Add(item);
-
-            item = _tableItemFactory.Invoke();
-            item.ItemType = TableItemType.GroupTitle;
-            item.Title = "Size";
-            res.Add(item);
-
-            item = _tableItemFactory.Invoke();
-            item.ItemType = TableItemType.ItemParametr;
-            item.Title = "Height";
-            item.Value = refregerator.Height.ToString();
-            res.Add(item);
-
-            item = _tableItemFactory.Invoke();
-            item.ItemType = TableItemType.ItemParametr;
-            item.Title = "Width";
-            item.Value = refregerator.Width.ToString();
-            res.Add(item);
-
-            return res;
+            return _table;
         }
     }
 }

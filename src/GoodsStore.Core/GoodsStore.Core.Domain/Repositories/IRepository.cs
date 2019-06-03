@@ -8,6 +8,7 @@ namespace GoodsStore.Core.Domain.Repositories
     public interface IRepository<T> where T : BaseEntity
     {
         Task<T> GetById(int id);
+        Task<T> GetFirstOrDefault(ISpecification<T> spec);
         Task<IReadOnlyList<T>> ListAll();
         Task<IReadOnlyList<T>> List(ISpecification<T> spec);
         Task<int> Count(ISpecification<T> spec);

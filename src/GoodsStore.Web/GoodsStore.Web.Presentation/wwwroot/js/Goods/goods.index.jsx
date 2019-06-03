@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     const typeDiscriminator = document.getElementById('parameters-column').getAttribute('data-type');
-    const itemsUrl = new URL("Goods/Item/" + typeDiscriminator, getSiteAddres()).toString();
+    const itemsUrl = new URL("Goods/" + typeDiscriminator, getSiteAddres()).toString();
 
     getDataCount();
     getInitialData();
@@ -105,8 +105,14 @@
             method: "GET",
             success: function (data) {
                 catalogItemsBox.setState({ data: data });
+                var spiner = $('.loading-spiner').first();
+                spiner.removeClass();
+                spiner.hide();
             },
             failure: function (errMsg) {
+                var spiner = $('.loading-spiner').first();
+                spiner.removeClass();
+                spiner.hide();
                 alert(errMsg);
             }
         });

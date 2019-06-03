@@ -25,6 +25,11 @@ namespace GoodsStore.Data.Infrastructure.Data
             return await DbContext.Set<TEntity>().FindAsync(id);
         }
 
+        public async Task<TEntity> GetFirstOrDefault(ISpecification<TEntity> spec)
+        {
+            return await ApplySpecification(spec).FirstOrDefaultAsync();
+        }
+
         public async Task<IReadOnlyList<TEntity>> ListAll()
         {
             return await DbContext.Set<TEntity>().ToListAsync();

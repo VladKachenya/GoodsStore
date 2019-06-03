@@ -24,6 +24,7 @@ namespace GoodsStore.Web.Framework.App
             containerBuilder.RegisterGeneric(typeof(GeneratorsDictionary<>), typeof(IGeneratorsDictionary<>));
 
             containerBuilder.RegisterType<BaseCatalogItemParametrsGenerator<CatalogItem>, IParametrsGenerator>();
+            containerBuilder.RegisterType<BaseTableItemsGenerator, ITableItemsGenerator>();
 
             containerBuilder.RegisterType<TableItem, ITableItem>();
         }

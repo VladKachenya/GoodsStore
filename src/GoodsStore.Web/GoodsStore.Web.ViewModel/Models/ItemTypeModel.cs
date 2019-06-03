@@ -4,6 +4,8 @@ namespace GoodsStore.Web.ViewModel.Models
 {
     public class ItemTypeModel : BaseEntityModel
     {
-        public string ItemTypeName { get; set; }
+        public string ItemTypePublicName { get; set; }
+        public string ItemTypeUrlName { get; set; }
+
     }
 }

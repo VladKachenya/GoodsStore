@@ -17,7 +17,8 @@ namespace GoodsStore.Web.Presentation.Controllers
     {
         private readonly IRepository<CatalogItem> _catalogItemsRepository;
         private readonly IRepository<ItemType> _itemTypeRepository;
-        private readonly Func<ISpecification<CatalogItem>> _catalogItemSelectionSpecificationFactory;
+        private readonly Func<ISpecification<CatalogItem>> _catalogItemSpecificationFactory;
+        private readonly Func<ISpecification<ItemType>> _itemTypeSpecificationFactory;
         private readonly IGoodsIndexModelFactory _goodsIndexModelFactory;
         private readonly CatalogItemTypeDictionary _catalogItemTypeDictionary;
         private readonly ICatalogItemModelFactory _catalogItemModelFactory;
@@ -26,7 +27,8 @@ namespace GoodsStore.Web.Presentation.Controllers
         public GoodsController(
             IRepository<CatalogItem> catalogItemsRepository,
             IRepository<ItemType> itemTypeRepository,
-            Func<ISpecification<CatalogItem>> catalogItemSelectionSpecificationFactory,
+            Func<ISpecification<CatalogItem>> catalogItemSpecificationFactory,
+            Func<ISpecification<ItemType>> itemTypeSpecificationFactory,
             IGoodsIndexModelFactory goodsIndexModelFactory,
             CatalogItemTypeDictionary catalogItemTypeDictionary,
             ICatalogItemModelFactory catalogItemModelFactory,
@@ -34,17 +36,18 @@ namespace GoodsStore.Web.Presentation.Controllers
         {
             _catalogItemsRepository = catalogItemsRepository;
             _itemTypeRepository = itemTypeRepository;
-            _catalogItemSelectionSpecificationFactory = catalogItemSelectionSpecificationFactory;
+            _catalogItemSpecificationFactory = catalogItemSpecificationFactory;
+            _itemTypeSpecificationFactory = itemTypeSpecificationFactory;
             _goodsIndexModelFactory = goodsIndexModelFactory;
             _catalogItemTypeDictionary = catalogItemTypeDictionary;
             _catalogItemModelFactory = catalogItemModelFactory;
             _container = container;
         }
 
-        // GET
-        public async Task<IActionResult> Index(int goodsTypeId)
+        public async Task<IActionResult> Index(string typeDiscriminator)
         {
-            var itemsType = await _itemTypeRepository.GetById(goodsTypeId);
+            var spec = _itemTypeSpecificationFactory().ConfigyreSpecificaton(it => it.UnitName == typeDiscriminator);
+            var itemsType = await _itemTypeRepository.GetFirstOrDefault(spec);
             var data = _goodsIndexModelFactory.BuildGoodsIndexModel(itemsType);
             return View(data);
         }
