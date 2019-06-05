@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace GoodsStore.Web.Framework.Interfaces.WebApp
+namespace GoodsStore.App.Infrastructure.App
 {
     public interface IGoodsStoreStartup
     {

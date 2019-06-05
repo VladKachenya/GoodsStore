@@ -1,4 +1,4 @@
-﻿using GoodsStore.Web.Framework.Interfaces.WebApp;
+﻿using GoodsStore.App.Infrastructure.App;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -15,7 +15,7 @@ namespace GoodsStore.Web.Framework.WebApp
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if(env.IsDevelopment())
+            if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
@@ -26,6 +26,6 @@ namespace GoodsStore.Web.Framework.WebApp
             }
         }
 
-        public int Order  => 0;
+        public int Order => 0;
     }
 }

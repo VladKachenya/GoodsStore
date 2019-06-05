@@ -1,12 +1,10 @@
 ﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using GoodsStore.App.CompositionRoot.App;
 using GoodsStore.App.CompositionRoot.IoC;
-using GoodsStore.App.CompositionRoot.WebApp;
 using GoodsStore.App.Infrastructure.App;
+using GoodsStore.Core.Logic.App;
 using GoodsStore.Data.DataAccess.App;
 using GoodsStore.Web.Framework.App;
-using GoodsStore.Web.Framework.Interfaces.WebApp;
 using GoodsStore.Web.Framework.WebApp;
 using GoodsStore.Web.ViewModel.App;
 using Microsoft.AspNetCore.Builder;
@@ -16,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using GoodsStore.Data.Identity.App;
 
 namespace GoodsStore.App.CompositionRoot.AppConfiguration
 {
@@ -83,14 +82,18 @@ namespace GoodsStore.App.CompositionRoot.AppConfiguration
             yield return new DataAccessDependenciesRegistrar();
             yield return new WebViewModelDependenciesRegistrar();
             yield return new WebFrameworkDependenciesRegistrar();
-            yield return new CoreDependenciesRegistrar();
+            yield return new CoreLogicDependenciesRegistrar();
+            yield return new IdentityDependenciesRegistrar();
         }
 
         protected IEnumerable<IGoodsStoreStartup> GetStartups()
         {
             yield return new ErrorHandlerStartup();
-            yield return new GoodsStoreDbStartup();
+            yield return new DataAccessStartup();
             yield return new MvcStartup();
+            yield return new IdentityStartup();
+            yield return new SwaggerStartup();
+            yield return new GoodsStoreStartup();
         }
 
 

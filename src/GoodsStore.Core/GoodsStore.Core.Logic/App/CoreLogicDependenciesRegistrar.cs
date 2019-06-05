@@ -9,9 +9,9 @@ using GoodsStore.Core.Logic.Interfases.Filter;
 using GoodsStore.Core.Logic.Interfases.Hepers;
 using GoodsStore.Core.Logic.Specifications;
 
-namespace GoodsStore.App.CompositionRoot.App
+namespace GoodsStore.Core.Logic.App
 {
-    public class CoreDependenciesRegistrar : IDependenciesRegistrar
+    public class CoreLogicDependenciesRegistrar : IDependenciesRegistrar
     {
         public void Register(IContainerBuilder containerBuilder)
         {
@@ -28,7 +28,6 @@ namespace GoodsStore.App.CompositionRoot.App
             containerBuilder.RegisterType<ContainsExpressionGenerator, IExpressionGenerator>();
             containerBuilder.RegisterType<FromRangeExpressionGenerator, IExpressionGenerator>();
             containerBuilder.RegisterType<IncludeInGorupExpressionGenerator, IExpressionGenerator>();
-
         }
     }
 }

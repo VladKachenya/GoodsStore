@@ -1,30 +1,24 @@
-﻿using GoodsStore.Data.DataAccess;
-using GoodsStore.Web.Framework.Interfaces.WebApp;
+﻿using GoodsStore.App.Infrastructure.App;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-
-namespace GoodsStore.App.CompositionRoot.WebApp
+namespace GoodsStore.Data.DataAccess.App
 {
-    public class GoodsStoreDbStartup : IGoodsStoreStartup
+    public class DataAccessStartup : IGoodsStoreStartup
     {
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<GoodsStoreDbContext>(c =>
                 c.UseSqlServer(configuration.GetConnectionString("CatalogConnection")));
-            //services.AddDbContext<GoodsStoreDbContext>();
-            //add EF services
-            //services.AddEntityFrameworkSqlServer();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment environment)
         {
-
         }
 
-        public int Order => 10;
+        public int Order => 100;
     }
 }

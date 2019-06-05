@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="2.2.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.4">
@@ -14,7 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\GoodsStore.App\GoodsStore.App.Infrastructure\GoodsStore.App.Infrastructure.csproj" />
     <ProjectReference Include="..\..\GoodsStore.Core\GoodsStore.Core.Domain\GoodsStore.Core.Domain.csproj" />
+    <ProjectReference Include="..\..\GoodsStore.Core\GoodsStore.Core.Identity\GoodsStore.Core.Identity.csproj" />
   </ItemGroup>
 
 </Project>

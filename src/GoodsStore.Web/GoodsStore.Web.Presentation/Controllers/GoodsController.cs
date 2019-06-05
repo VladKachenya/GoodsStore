@@ -1,15 +1,13 @@
-﻿using GoodsStore.Core.Domain.Entities;
+﻿using Autofac;
+using GoodsStore.Core.Domain.Entities;
 using GoodsStore.Core.Domain.Entities.Base;
-using GoodsStore.Web.ViewModel.Interfaces.Factories;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Autofac;
 using GoodsStore.Core.Domain.Helpers;
 using GoodsStore.Core.Domain.Repositories;
 using GoodsStore.Core.Domain.Specifications;
-using GoodsStore.Web.Framework.Interfaces.Factories;
+using GoodsStore.Web.ViewModel.Interfaces.Factories;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 
 namespace GoodsStore.Web.Presentation.Controllers
 {
