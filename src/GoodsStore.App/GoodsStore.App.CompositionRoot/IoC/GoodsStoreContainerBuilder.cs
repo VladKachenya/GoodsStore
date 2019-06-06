@@ -39,7 +39,5 @@ namespace GoodsStore.App.CompositionRoot.IoC
             var res = _containerBuilder.RegisterType<TTo>().As<TFrom>().Keyed<string>(key);
             if (isSingleton) res.SingleInstance();
         }
-
-       
     }
 }

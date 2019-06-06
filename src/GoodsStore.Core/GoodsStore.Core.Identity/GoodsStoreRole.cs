@@ -4,6 +4,9 @@ namespace GoodsStore.Core.Identity
 {
     public class GoodsStoreRole : IdentityRole
     {
-        
+        public GoodsStoreRole()
+        {
+        }
+
     }
 }
