@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace GoodsStore.Core.Logic.Interfases.Filter
+namespace GoodsStore.Core.Infrastructure.Filter
 {
     public interface IFilterExpression
     {

@@ -1,5 +1,5 @@
-﻿using GoodsStore.Core.Logic.Filter;
-using GoodsStore.Core.Logic.Interfases.Hepers;
+﻿using GoodsStore.Core.Infrastructure.Filter;
+using GoodsStore.Core.Infrastructure.Hepers;
 using GoodsStore.Core.Logic.Keys;
 using System;
 using System.Collections.Generic;

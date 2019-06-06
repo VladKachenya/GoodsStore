@@ -1,16 +1,12 @@
-﻿using System;
-using GoodsStore.App.Infrastructure.App;
-using GoodsStore.App.Infrastructure.Helpers;
+﻿using GoodsStore.App.Infrastructure.App;
 using GoodsStore.App.Infrastructure.IoC;
 using GoodsStore.Core.Domain.Helpers;
 using GoodsStore.Core.Domain.Specifications;
+using GoodsStore.Core.Infrastructure.Filter;
+using GoodsStore.Core.Infrastructure.Hepers;
 using GoodsStore.Core.Logic.Filter;
 using GoodsStore.Core.Logic.Filter.ExpressionGenerators;
 using GoodsStore.Core.Logic.Helpers;
-using GoodsStore.Core.Logic.Interfases.Filter;
-using GoodsStore.Core.Logic.Interfases.Hepers;
-using GoodsStore.Core.Logic.Specifications;
-using Microsoft.AspNetCore.Identity;
 
 namespace GoodsStore.Core.Logic.App
 {
@@ -18,15 +14,12 @@ namespace GoodsStore.Core.Logic.App
     {
         public void Register(IContainerBuilder containerBuilder)
         {
-            containerBuilder.RegisterGeneric(typeof(Specification<>), typeof(ISpecification<>));
-            containerBuilder.RegisterGeneric(typeof(CatalogItemFiltringSpecification<>), typeof(ICatalogItemFiltringSpecification<>));
             containerBuilder.RegisterGeneric(typeof(CatalogItemFilter<>), typeof(IDynamicFilter<>));
 
             containerBuilder.RegisterType<FilterConfigurator, IFilterConfigurator>();
             containerBuilder.RegisterType<PropertyNameValidator, IPropertyNameValidator>();
 
             containerBuilder.RegisterType<CatalogItemTypeDictionary>(true);
-            containerBuilder.RegisterType(typeof(CoreLogicDependenciesRegistrar));
 
             //expression generators
             containerBuilder.RegisterType<ContainsExpressionGenerator, IExpressionGenerator>();

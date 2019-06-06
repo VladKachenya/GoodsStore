@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using GoodsStore.Core.Logic.Filter;
 
-namespace GoodsStore.Core.Logic.Interfases.Filter
+namespace GoodsStore.Core.Infrastructure.Filter
 {
     public interface IFilterConfigurator
     {

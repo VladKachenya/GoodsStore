@@ -1,6 +1,6 @@
 ﻿using GoodsStore.Core.Logic.Keys;
 
-namespace GoodsStore.Core.Logic.Filter
+namespace GoodsStore.Core.Infrastructure.Filter
 {
     public class Prediction
     {

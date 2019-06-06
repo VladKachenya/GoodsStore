@@ -1,4 +1,4 @@
-﻿using GoodsStore.Core.Logic.Interfases.Filter;
+﻿using GoodsStore.Core.Infrastructure.Filter;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;

@@ -1,8 +1,7 @@
 ﻿using System.Threading.Tasks;
 using GoodsStore.App.Infrastructure.Helpers;
-using GoodsStore.Core.Identity;
 
-namespace GoodsStore.Core.Logic.Interfases.Managers
+namespace GoodsStore.Core.Domain.Managers
 {
     public interface IManager<TIdentity>
     {

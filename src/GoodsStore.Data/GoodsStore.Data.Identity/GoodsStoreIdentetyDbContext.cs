@@ -1,4 +1,4 @@
-﻿using GoodsStore.Core.Identity;
+﻿using GoodsStore.Data.Identity.IdentityEntities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 

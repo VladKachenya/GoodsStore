@@ -5,7 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\GoodsStore.Core\GoodsStore.Core.Identity\GoodsStore.Core.Identity.csproj" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\GoodsStore.Data.Infrastructure\GoodsStore.Data.Infrastructure.csproj" />
   </ItemGroup>
 

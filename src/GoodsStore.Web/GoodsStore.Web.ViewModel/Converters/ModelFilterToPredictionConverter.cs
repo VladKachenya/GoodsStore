@@ -1,4 +1,4 @@
-﻿using GoodsStore.Core.Logic.Filter;
+﻿using GoodsStore.Core.Infrastructure.Filter;
 using GoodsStore.Core.Logic.Keys;
 using GoodsStore.Web.Framework.Converters;
 using GoodsStore.Web.ViewModel.Interfaces.Converters;
@@ -47,7 +47,7 @@ namespace GoodsStore.Web.ViewModel.Converters
             {
                 PropertyName = obj.PropertyName,
                 PredictionType = 0
-            }; 
+            };
         }
     }
 }

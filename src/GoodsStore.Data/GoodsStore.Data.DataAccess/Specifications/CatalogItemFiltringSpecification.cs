@@ -1,7 +1,7 @@
 ﻿using System;
 using GoodsStore.Core.Domain.Specifications;
 
-namespace GoodsStore.Core.Logic.Specifications
+namespace GoodsStore.Data.DataAccess.Specifications
 {
     public class CatalogItemFiltringSpecification<T> : Specification<T>, ICatalogItemFiltringSpecification<T>, ICatalogItemFiltringSpecification
     {

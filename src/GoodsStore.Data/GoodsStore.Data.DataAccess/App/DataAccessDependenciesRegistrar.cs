@@ -1,7 +1,9 @@
 ﻿using GoodsStore.App.Infrastructure.App;
 using GoodsStore.App.Infrastructure.IoC;
 using GoodsStore.Core.Domain.Repositories;
+using GoodsStore.Core.Domain.Specifications;
 using GoodsStore.Data.DataAccess.Repositories;
+using GoodsStore.Data.DataAccess.Specifications;
 using GoodsStore.Data.Infrastructure.Data;
 
 namespace GoodsStore.Data.DataAccess.App
@@ -16,6 +18,9 @@ namespace GoodsStore.Data.DataAccess.App
 
             containerBuilder.RegisterGeneric(typeof(EfRepository<>), typeof(IRepository<>));
             containerBuilder.RegisterGeneric(typeof(SpecificationEvaluator<>), typeof(ISpecificationEvaluator<>));
+
+            containerBuilder.RegisterGeneric(typeof(Specification<>), typeof(ISpecification<>));
+            containerBuilder.RegisterGeneric(typeof(CatalogItemFiltringSpecification<>), typeof(ICatalogItemFiltringSpecification<>));
         }
     }
 }

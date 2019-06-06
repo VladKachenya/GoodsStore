@@ -1,8 +1,7 @@
 ﻿using System.Linq.Expressions;
-using GoodsStore.Core.Logic.Filter;
 using GoodsStore.Core.Logic.Keys;
 
-namespace GoodsStore.Core.Logic.Interfases.Filter
+namespace GoodsStore.Core.Infrastructure.Filter
 {
     public interface IExpressionGenerator
     {

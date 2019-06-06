@@ -1,8 +1,8 @@
 ﻿using GoodsStore.Core.Domain.Entities.Base;
-using GoodsStore.Core.Logic.Interfases.Filter;
+using GoodsStore.Core.Domain.Specifications;
+using GoodsStore.Core.Infrastructure.Filter;
 using System;
 using System.Linq.Expressions;
-using GoodsStore.Core.Domain.Specifications;
 
 namespace GoodsStore.Core.Logic.Filter
 {

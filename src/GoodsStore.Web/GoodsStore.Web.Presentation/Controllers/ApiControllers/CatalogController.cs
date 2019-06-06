@@ -2,8 +2,8 @@
 using GoodsStore.Core.Domain.Helpers;
 using GoodsStore.Core.Domain.Repositories;
 using GoodsStore.Core.Domain.Specifications;
-using GoodsStore.Core.Logic.Interfases.Filter;
-using GoodsStore.Core.Logic.Interfases.Hepers;
+using GoodsStore.Core.Infrastructure.Filter;
+using GoodsStore.Core.Infrastructure.Hepers;
 using GoodsStore.Web.Framework.Controllers;
 using GoodsStore.Web.ViewModel.Interfaces.Converters;
 using GoodsStore.Web.ViewModel.Interfaces.Factories;

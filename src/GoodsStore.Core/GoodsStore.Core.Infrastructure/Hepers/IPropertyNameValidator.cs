@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using GoodsStore.Core.Logic.Filter;
+using GoodsStore.Core.Infrastructure.Filter;
 
-namespace GoodsStore.Core.Logic.Interfases.Hepers
+namespace GoodsStore.Core.Infrastructure.Hepers
 {
     public interface IPropertyNameValidator
     {

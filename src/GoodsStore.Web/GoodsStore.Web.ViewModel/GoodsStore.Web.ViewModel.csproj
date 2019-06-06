@@ -7,7 +7,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\GoodsStore.App\GoodsStore.App.Infrastructure\GoodsStore.App.Infrastructure.csproj" />
     <ProjectReference Include="..\..\GoodsStore.Core\GoodsStore.Core.Domain\GoodsStore.Core.Domain.csproj" />
-    <ProjectReference Include="..\..\GoodsStore.Core\GoodsStore.Core.Logic\GoodsStore.Core.Logic.csproj" />
+    <ProjectReference Include="..\..\GoodsStore.Core\GoodsStore.Core.Infrastructure\GoodsStore.Core.Infrastructure.csproj" />
     <ProjectReference Include="..\GoodsStore.Web.Framework\GoodsStore.Web.Framework.csproj" />
   </ItemGroup>
 
