@@ -12,6 +12,7 @@ namespace GoodsStore.Data.Identity.App
         {
             containerBuilder.RegisterType(typeof(IdentityResultToOperatonResultConverters));
             containerBuilder.RegisterType<GoodsStoreUserManager, IUserManager>();
+            containerBuilder.RegisterType<GoodsStoreSingInManager, ISingInManager>();
         }
     }
 }

@@ -7,6 +7,7 @@ using GoodsStore.Core.Infrastructure.Hepers;
 using GoodsStore.Core.Logic.Filter;
 using GoodsStore.Core.Logic.Filter.ExpressionGenerators;
 using GoodsStore.Core.Logic.Helpers;
+using GoodsStore.Core.Logic.Specifications;
 
 namespace GoodsStore.Core.Logic.App
 {
@@ -26,6 +27,8 @@ namespace GoodsStore.Core.Logic.App
             containerBuilder.RegisterType<FromRangeExpressionGenerator, IExpressionGenerator>();
             containerBuilder.RegisterType<IncludeInGorupExpressionGenerator, IExpressionGenerator>();
 
+            containerBuilder.RegisterGeneric(typeof(Specification<>), typeof(ISpecification<>));
+            containerBuilder.RegisterGeneric(typeof(CatalogItemFiltringSpecification<>), typeof(ICatalogItemFiltringSpecification<>));
         }
     }
 }

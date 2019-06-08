@@ -24,9 +24,12 @@ namespace GoodsStore.Web.Framework.WebApp
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                    name: "areas",
+                    template: "{area:exists}/{controller=Home}/{action=Index}");
+                routes.MapRoute(
                     "goods-catalog",
                     "Goods/{typeDiscriminator}",
-                    new { controller = "goods", action = "index" });
+                    new { controller = "Goods", action = "Index" });
 
                 routes.MapRoute(
                     "goods-catalog-item",

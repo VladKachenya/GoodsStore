@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using GoodsStore.Core.Domain.Specifications;
 
-namespace GoodsStore.Data.DataAccess.Specifications
+namespace GoodsStore.Core.Logic.Specifications
 {
     public class Specification<T> : ISpecification<T>
     {
