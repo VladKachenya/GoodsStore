@@ -12,7 +12,7 @@
         public virtual ItemType ItemType { get; set; }
         public int BrandId { get; set; }
         public virtual Brand Brand { get; set; }
-        // ########
+        ////
 
         public string Discriminator { get; set; }
 

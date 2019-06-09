@@ -8,7 +8,7 @@ using GoodsStore.Core.Domain.Specifications;
 
 namespace GoodsStore.Data.Infrastructure.Data
 {
-    public class EfRepository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
+    public class EfRepository<TEntity> : IRepository<TEntity> where TEntity : BaseData
     {
         protected readonly IDbContext DbContext;
         private readonly ISpecificationEvaluator<TEntity> _specificationEvaluator;

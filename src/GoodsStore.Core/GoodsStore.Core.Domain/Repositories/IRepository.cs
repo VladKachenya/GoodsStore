@@ -5,7 +5,7 @@ using GoodsStore.Core.Domain.Specifications;
 
 namespace GoodsStore.Core.Domain.Repositories
 {
-    public interface IRepository<T> where T : BaseEntity
+    public interface IRepository<T> where T : BaseData
     {
         Task<T> GetById(int id);
         Task<T> GetFirstOrDefault(ISpecification<T> spec);

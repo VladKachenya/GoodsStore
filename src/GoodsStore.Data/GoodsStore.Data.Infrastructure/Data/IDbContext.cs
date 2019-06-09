@@ -5,7 +5,7 @@ namespace GoodsStore.Data.Infrastructure.Data
 {
     public interface IDbContext
     {
-        DbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity;
+        DbSet<TEntity> Set<TEntity>() where TEntity : BaseData;
 
     }
 }

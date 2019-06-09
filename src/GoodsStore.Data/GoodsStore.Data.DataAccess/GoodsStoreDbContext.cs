@@ -40,7 +40,7 @@ namespace GoodsStore.Data.DataAccess
 
         #region Implementation of IDbContext
 
-        public DbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
+        public DbSet<TEntity> Set<TEntity>() where TEntity : BaseData
         {
             return base.Set<TEntity>();
         }
