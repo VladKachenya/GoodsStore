@@ -43,7 +43,7 @@ namespace GoodsStore.App.Infrastructure.Helpers
         {
             IsSucceed = isSucceed;
             Item = resultItem;
-            _errorList.AddRange(errors);
+            if(errors != null && errors.Any()) _errorList.AddRange(errors);
         }
         public OperationResult(string error) : base(error)
         {

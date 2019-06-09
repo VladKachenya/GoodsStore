@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Goods Shop</title>
     <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
@@ -16,13 +17,23 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav col-2">
                 <li class="nav-item active">
-                    <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">Home<span class="sr-only">(current)</span></a>
+                    <a asp-area="" asp-controller="Home" asp-action="About" class="nav-link">About<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a asp-area="" asp-controller="Home" asp-action="Contacts" class="nav-link">Contacts<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
-            <form class="form-inline col-9 ">
-                <input class="form-control col-9" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success col-2 offset-1" type="submit">Search</button>
-            </form>
+            <div class="form-inline col-7">
+                <div class="col-10">
+                    <input class="form-control w-100" type="search" placeholder="Search" aria-label="Search">
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </div>
+            </div>
+            <div class="form-inline ml-auto">
+                @await Component.InvokeAsync("IdentityWidget")
+            </div>
         </div>
     </nav>
     <div>

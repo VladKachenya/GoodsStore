@@ -26,5 +26,15 @@ namespace GoodsStore.Web.Presentation.Controllers
                 _categoryModelFactory.GetCategoryModels(await _categoryRepository.ListAllIncludesCatalogItems());
             return View(viewModel);
         }
+
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult Contacts()
+        {
+            return View();
+        }
     }
 }

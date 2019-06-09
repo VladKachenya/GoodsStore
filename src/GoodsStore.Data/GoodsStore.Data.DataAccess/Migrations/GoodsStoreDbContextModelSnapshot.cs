@@ -214,6 +214,9 @@ namespace GoodsStore.Data.DataAccess.Migrations
                         .IsRequired()
                         .HasMaxLength(30);
 
+                    b.Property<string>("TypeDiscriminator")
+                        .IsRequired();
+
                     b.Property<string>("UnitName")
                         .IsRequired();
 
@@ -229,6 +232,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             Id = 1,
                             CategoryId = 1,
                             Name = "Refrigerators",
+                            TypeDiscriminator = "Refrigerator",
                             UnitName = "Refrigerator"
                         },
                         new
@@ -236,20 +240,23 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             Id = 2,
                             CategoryId = 1,
                             Name = "TVs",
-                            UnitName = "TV"
+                            TypeDiscriminator = "TV",
+                            UnitName = "TVs"
                         },
                         new
                         {
                             Id = 3,
                             CategoryId = 2,
                             Name = "Mobile phones",
-                            UnitName = "MobilePhone"
+                            TypeDiscriminator = "MobilePhone",
+                            UnitName = "Mobile phone"
                         },
                         new
                         {
                             Id = 4,
                             CategoryId = 2,
                             Name = "Phone cases",
+                            TypeDiscriminator = "Phone case",
                             UnitName = "Case"
                         },
                         new
@@ -257,6 +264,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
                             Id = 5,
                             CategoryId = 1,
                             Name = "Blenders",
+                            TypeDiscriminator = "Blender",
                             UnitName = "Blender"
                         });
                 });

@@ -44,7 +44,7 @@ namespace GoodsStore.Web.Presentation.Controllers
 
         public async Task<IActionResult> Index(string typeDiscriminator)
         {
-            var spec = _itemTypeSpecificationFactory().ConfigyreSpecificaton(it => it.UnitName == typeDiscriminator);
+            var spec = _itemTypeSpecificationFactory().ConfigyreSpecificaton(it => it.TypeDiscriminator == typeDiscriminator);
             var itemsType = await _itemTypeRepository.GetFirstOrDefault(spec);
             var data = _goodsIndexModelFactory.BuildGoodsIndexModel(itemsType);
             return View(data);

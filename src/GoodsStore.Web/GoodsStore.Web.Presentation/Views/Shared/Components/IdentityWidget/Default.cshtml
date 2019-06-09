@@ -1,0 +1,24 @@
+﻿@model (bool, string)
+
+@if (Model.Item1)
+{
+    <span class="m-1">@Model.Item2</span>
+}
+
+@if (!Model.Item1)
+{
+    <a class="btn btn-light m-1"href="@Url.Content("~/Account/Register")" data-toggle="tooltip" data-placement="bottom" title="Register">
+        <i class="fas fa-key"></i>
+    </a>
+}
+else
+{
+    <a class="btn btn-light m-1" href="@Url.Content("~/Account/Logout")" data-toggle="tooltip" data-placement="bottom" title="Log out">
+        <i class="fas fa-sign-out-alt"></i>
+    </a>
+}
+
+<a class="btn btn-light m-1" asp-area="Account" asp-controller="Home" asp-action="Index" data-toggle="tooltip" data-placement="bottom" title="Account">
+    <i class="fas fa-user-circle"></i>
+</a>
+

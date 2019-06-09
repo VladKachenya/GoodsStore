@@ -23,7 +23,7 @@ namespace GoodsStore.Web.ViewModel.Factories
                 Id = category.Id,
                 CategoryName = category.Name,
                 IconName = _categoryModelService.GetCategoryIconName(category),
-                ItemTypeModels = category.ItemTypes.Select(it => new ItemTypeModel() { Id = it.Id, ItemTypePublicName = it.Name, ItemTypeUrlName = it.UnitName})
+                ItemTypeModels = category.ItemTypes.Select(it => new ItemTypeModel() { Id = it.Id, ItemTypePublicName = it.Name, ItemTypeUrlName = it.TypeDiscriminator})
             };
         }
 

@@ -24,5 +24,19 @@ namespace GoodsStore.Core.Logic.Helpers
             }
             return new OperationResult<T>(entity, true);
         }
+
+        public OperationResult<T> Convert<T>(T entity, OperationResult result)
+        {
+            if (entity == null)
+            {
+                return new OperationResult<T>("Entity not found");
+            }
+
+            if (!result.IsSucceed)
+            {
+                return new OperationResult<T>(entity, false, result.ErrorList);
+            }
+            return new OperationResult<T>(entity, true);
+        }
     }
 }

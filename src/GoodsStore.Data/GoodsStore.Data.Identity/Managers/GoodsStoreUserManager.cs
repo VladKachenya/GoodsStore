@@ -27,10 +27,21 @@ namespace GoodsStore.Data.Identity.Managers
 
         #region implementation IUserManager
 
-        public async Task<OperationResult> Create(IUser identityEntity)
+        public async Task<OperationResult> Create(IUser identityEntity, string password)
         {
-            return Convert(await _userManager.CreateAsync(GetGoodsStoreUser(identityEntity)));
+            return Convert(await _userManager.CreateAsync(GetGoodsStoreUser(identityEntity), password));
         }
+
+        public async Task<OperationResult<IUser>> Create(string userName, string email, string password)
+        {
+            var user = new GoodsStoreUser()
+            {
+                UserName = userName,
+                Email = email
+            };
+            return _converter.Convert<IUser>(user, await Create(user, password));
+        }
+        
 
         public async Task<OperationResult> Delete(IUser identityEntity)
         {

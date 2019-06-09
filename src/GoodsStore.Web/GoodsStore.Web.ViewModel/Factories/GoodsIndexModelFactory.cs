@@ -33,7 +33,7 @@ namespace GoodsStore.Web.ViewModel.Factories
             return new GoodsIndexModel()
             {
                 TypeName = productType.UnitName,
-                TypeDiscriminator = productType.UnitName,
+                TypeDiscriminator = productType.TypeDiscriminator,
                 Parametrs = _parametersGenerators.GetGenerator(productType).GetParametrs(productType)
             };
         }
