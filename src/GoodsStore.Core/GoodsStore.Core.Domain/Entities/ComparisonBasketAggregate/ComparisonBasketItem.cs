@@ -1,8 +1,8 @@
 ﻿using GoodsStore.Core.Domain.Entities.Base;
 
-namespace GoodsStore.Core.Domain.Entities.BasketAggregate
+namespace GoodsStore.Core.Domain.Entities.ComparisonBasketAggregate
 {
-    public class BasketItem : BaseData
+    public class ComparisonBasketItem : BaseData
     {
         public string Discriminator { get; set; }
         public int CatalogItemId { get; set; }

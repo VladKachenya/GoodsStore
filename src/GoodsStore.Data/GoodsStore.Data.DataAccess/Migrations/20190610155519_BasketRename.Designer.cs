@@ -4,14 +4,16 @@ using GoodsStore.Data.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GoodsStore.Data.DataAccess.Migrations
 {
     [DbContext(typeof(GoodsStoreDbContext))]
-    partial class GoodsStoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190610155519_BasketRename")]
+    partial class BasketRename
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -163,7 +165,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ComparisonBasket");
+                    b.ToTable("Baskets");
                 });
 
             modelBuilder.Entity("GoodsStore.Core.Domain.Entities.ComparisonBasketAggregate.ComparisonBasketItem", b =>
@@ -183,7 +185,7 @@ namespace GoodsStore.Data.DataAccess.Migrations
 
                     b.HasIndex("ComparisonBasketId");
 
-                    b.ToTable("ComparisonBasketItem");
+                    b.ToTable("BasketItems");
                 });
 
             modelBuilder.Entity("GoodsStore.Core.Domain.Entities.Helpers.BrandItemType", b =>

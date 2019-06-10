@@ -2,19 +2,19 @@
 using System.Linq;
 using GoodsStore.Core.Domain.Entities.Base;
 
-namespace GoodsStore.Core.Domain.Entities.BasketAggregate
+namespace GoodsStore.Core.Domain.Entities.ComparisonBasketAggregate
 {
-    public class Basket : BaseData
+    public class ComparisonBasket : BaseData
     {
         public string UserId { get; set; }
-        private readonly List<BasketItem> _items = new List<BasketItem>();
-        public virtual IReadOnlyCollection<BasketItem> Items => _items.AsReadOnly();
+        private readonly List<ComparisonBasketItem> _items = new List<ComparisonBasketItem>();
+        public virtual IReadOnlyCollection<ComparisonBasketItem> Items => _items.AsReadOnly();
 
         public void AddItem(int catalogItemId, string discriminator)
         {
             if (Items.All(i => i.CatalogItemId != catalogItemId))
             {
-                _items.Add(new BasketItem()
+                _items.Add(new ComparisonBasketItem()
                 {
                     CatalogItemId = catalogItemId,
                     Discriminator = discriminator

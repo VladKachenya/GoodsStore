@@ -51,19 +51,24 @@ namespace GoodsStore.Data.Infrastructure.Data
             return _specificationEvaluator.GetQuery(queryable, spec);
         }
 
-        //public Task<T> AddAsync(T entity)
-        //{
-        //    throw new System.NotImplementedException();
-        //}
+        public async Task<TEntity> Add(TEntity entity)
+        {
+            DbContext.Set<TEntity>().Add(entity);
+            await DbContext.SaveChangesAsync();
 
-        //public Task UpdateAsync(T entity)
-        //{
-        //    throw new System.NotImplementedException();
-        //}
+            return entity;
+        }
 
-        //public Task DeleteAsync(T entity)
-        //{
-        //    throw new System.NotImplementedException();
-        //}
+        public async Task Update(TEntity entity)
+        {
+            DbContext.Entry(entity).State = EntityState.Modified;
+            await DbContext.SaveChangesAsync();
+        }
+
+        public async Task Delete(TEntity entity)
+        {
+            DbContext.Set<TEntity>().Remove(entity);
+            await DbContext.SaveChangesAsync();
+        }
     }
 }

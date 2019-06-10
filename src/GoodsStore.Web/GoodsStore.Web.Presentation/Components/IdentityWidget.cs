@@ -6,20 +6,18 @@ namespace GoodsStore.Web.Presentation.Components
 {
     public class IdentityWidgetViewComponent : ViewComponent
     {
-        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ISingInManager _manager;
 
         public IdentityWidgetViewComponent(
-            IHttpContextAccessor httpContextAccessor,
-            ISingInManager manager)
+            ISingInManager manager
+            )
         {
-            _httpContextAccessor = httpContextAccessor;
             _manager = manager;
         }
 
         public IViewComponentResult Invoke()
         {
-            var user = _httpContextAccessor.HttpContext.User;
+            var user = HttpContext.User;
             var isSignIn = _manager.IsSignedIn(user);
             (bool, string) res;
             if (isSignIn)

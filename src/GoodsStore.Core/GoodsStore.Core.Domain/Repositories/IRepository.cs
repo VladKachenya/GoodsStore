@@ -12,8 +12,8 @@ namespace GoodsStore.Core.Domain.Repositories
         Task<IReadOnlyList<T>> ListAll();
         Task<IReadOnlyList<T>> List(ISpecification<T> spec);
         Task<int> Count(ISpecification<T> spec);
-        //Task<T> AddAsync(T entity);
-        //Task UpdateAsync(T entity);
-        //Task DeleteAsync(T entity);
+        Task<T> Add(T entity);
+        Task Update(T entity);
+        Task Delete(T entity);
     }
 }

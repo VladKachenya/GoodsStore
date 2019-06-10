@@ -1,11 +1,12 @@
 ﻿using GoodsStore.Core.Domain.Entities.Base;
-using GoodsStore.Core.Domain.Entities.Helpers;
 using GoodsStore.Data.Infrastructure.Data;
 using GoodsStore.Data.Infrastructure.Mapping;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace GoodsStore.Data.DataAccess
 {
@@ -44,6 +45,17 @@ namespace GoodsStore.Data.DataAccess
         {
             return base.Set<TEntity>();
         }
+
+        public EntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : BaseData
+        {
+            return base.Entry(entity);
+        }
+
+        public Task<int> SaveChangesAsync()
+        {
+            return base.SaveChangesAsync();
+        }
+
         #endregion
 
     }

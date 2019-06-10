@@ -42,8 +42,6 @@ namespace GoodsStore.Web.Presentation.Controllers.ApiControllers
 
         }
 
-
-        //Refrigerator
         [HttpGet("{typeDiscriminator}")]
         public async Task<ActionResult> CatalogItems(string typeDiscriminator)
         {
