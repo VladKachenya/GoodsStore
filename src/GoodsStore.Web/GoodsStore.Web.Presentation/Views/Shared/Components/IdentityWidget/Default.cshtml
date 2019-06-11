@@ -7,7 +7,7 @@
 
 @if (!Model.Item1)
 {
-    <a class="btn btn-light m-1"href="@Url.Content("~/Account/Register")" data-toggle="tooltip" data-placement="bottom" title="Register">
+    <a class="btn btn-light m-1" href="@Url.Content("~/Account/Register")" data-toggle="tooltip" data-placement="bottom" title="Register">
         <i class="fas fa-key"></i>
     </a>
 }
@@ -17,6 +17,11 @@ else
         <i class="fas fa-sign-out-alt"></i>
     </a>
 }
+
+<a class="btn btn-light m-1" data-toggle="tooltip" href="#" data-placement="bottom" title="Comparison basket">
+    <i class="fas fa-columns"></i>
+    <span class="badge badge-light" id="comparison-basket-count">0</span>
+</a>
 
 <a class="btn btn-light m-1" asp-area="Account" asp-controller="Home" asp-action="Index" data-toggle="tooltip" data-placement="bottom" title="Account">
     <i class="fas fa-user-circle"></i>

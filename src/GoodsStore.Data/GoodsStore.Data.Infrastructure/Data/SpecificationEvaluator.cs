@@ -4,7 +4,7 @@ using GoodsStore.Core.Domain.Specifications;
 
 namespace GoodsStore.Data.Infrastructure.Data
 {
-    public class SpecificationEvaluator<TEntity> : ISpecificationEvaluator<TEntity> where TEntity : BaseEntity
+    public class SpecificationEvaluator<TEntity> : ISpecificationEvaluator<TEntity> where TEntity : BaseData
     {
         public IQueryable<TEntity> GetQuery(IQueryable<TEntity> inputQuery, ISpecification<TEntity> specification)
         {

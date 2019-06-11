@@ -43,7 +43,7 @@ namespace GoodsStore.Web.Presentation.Controllers.ApiControllers
         }
 
         [HttpGet("{typeDiscriminator}")]
-        public async Task<ActionResult> CatalogItems(string typeDiscriminator)
+        public async Task<IActionResult> CatalogItems(string typeDiscriminator)
         {
             // getting type of catalog item
             Type catalogItemType;
@@ -111,10 +111,10 @@ namespace GoodsStore.Web.Presentation.Controllers.ApiControllers
 
             // creation catalogItemModels
             var res = _catalogItemModelFactory.GetCatalogItemShortModels(catalogItems);
-            //if (res.Count == 0)
-            //{
-            //    return NotFound();
-            //}
+            if (res.Count == 0)
+            {
+                return Json(null);
+            }
             return Ok(res);
         }
 

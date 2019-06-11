@@ -17,7 +17,7 @@ class CatalogItemList extends React.Component {
         var ciUrl = this.props.itemsUrl;
         const catalogItemNodes = this.props.data.map(function (ci) {
             var itemUrl = ciUrl + "/" + ci.id;
-            return (<div key={ci.id} className="card m-2 p-1 catalog-item">
+            return (<div key={ci.id} data-id={ci.id} className="card m-2 p-1 catalog-item goods-store-catalog-item">
                 <h5 className="card-header">{ci.unitName} {ci.brand} {ci.model}</h5>
                 <div className="card-body row">
                     <img className="col-3" src={ci.pictureUri} alt="Card image cap" />

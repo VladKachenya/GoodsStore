@@ -17,11 +17,11 @@ namespace GoodsStore.Web.Presentation.Controllers.ApiControllers
         }
 
         [HttpPost("{catalogItemId}")]
-        public async Task<ActionResult> BasketItem(int catalogItemId, [FromBody]string typeDiscriminator)
+        public async Task<IActionResult> BasketItem( int catalogItemId, [FromBody] string typeDiscriminator)
         {
-            //await _comparisonBasketSevice.AddItemToBasket(User.Identities.)
-
-            return Ok();
+            var comparisonBasket = await _comparisonBasketSevice.GetOrCreateBasketForUser(User.Identity.Name);
+            await _comparisonBasketSevice.AddItemToBasket(comparisonBasket.Id, catalogItemId, typeDiscriminator);
+            return Ok(comparisonBasket.Items.Count);
         }
 
     }

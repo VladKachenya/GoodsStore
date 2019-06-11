@@ -52,21 +52,21 @@ namespace GoodsStore.Web.Framework.Factories
             return res;
         }
 
-        #region utiletes
+        #region Utiletes
         protected (TCatalogItem, TCatalogItem) GetEntitiesWithMinMaxValOf(Expression<Func<TCatalogItem, object>> parametrExpression)
         {
-            // Async query to  database for get min and max price
+            // Parallel queries to  database for get min and max price
             var maxPriseSpecifikation = _spesificatioFunc.Invoke();
             var minPriseSpecifikation = _spesificatioFunc.Invoke();
-            maxPriseSpecifikation.SetOrderingByDescending(parametrExpression).ApplyPaging(0, 1);
-            minPriseSpecifikation.SetOrderingBy(parametrExpression).ApplyPaging(0, 1);
-            Task<IReadOnlyList<TCatalogItem>>[] taskc =
+            maxPriseSpecifikation.SetOrderingByDescending(parametrExpression);
+            minPriseSpecifikation.SetOrderingBy(parametrExpression);
+            Task<TCatalogItem>[] taskc =
             {
-                _repository.List(minPriseSpecifikation),
-                _repository.List(maxPriseSpecifikation)
+                _repository.GetFirstOrDefault(minPriseSpecifikation),
+                _repository.GetFirstOrDefault(maxPriseSpecifikation)
             };
             Task.WhenAll(taskc);
-            var minMaxPrise = taskc.Select(t => t.Result.FirstOrDefault()).ToList();
+            var minMaxPrise = taskc.Select(t => t.Result).ToList();
 
             return (minMaxPrise[0], minMaxPrise[1]);
         }

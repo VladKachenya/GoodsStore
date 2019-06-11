@@ -100,8 +100,9 @@
 
     function SetItems(data) {
         catalogItemsBox.setState({ data: data });
-        $('.compare-block-button').click(function (el) {
-            AddToComparisonBasket(1, typeDiscriminator);
+        $('.compare-block-button').click(function (event) {
+            var itemId = $(event.currentTarget).parents(".goods-store-catalog-item")[0].getAttribute('data-id');
+            AddToComparisonBasket(itemId, typeDiscriminator);
         });
     }
 
@@ -119,8 +120,8 @@
                     spiner.removeClass();
                     spiner.hide();
                 },
-                failure: function(errMsg) {
-                     alert(errMsg);
+                failure: function (errMsg) {
+                    alert(errMsg);
                 }
             });
         } catch (err) {
@@ -159,10 +160,12 @@
             method: "POST",
             data: JSON.stringify(data),
             success: function (data) {
-                catalogItemsBox.setState({ data: data });
-                if (data.length > 0) {
-                    pageCounter.innerText = page;
-                    $('html, body').animate({ scrollTop: 0 }, 'fast');
+                if (data != null) {
+                    SetItems(data);
+                    if (data.length > 0) {
+                        pageCounter.innerText = page;
+                        $('html, body').animate({ scrollTop: 0 }, 'fast');
+                    }
                 }
             },
             failure: function (errMsg) {
