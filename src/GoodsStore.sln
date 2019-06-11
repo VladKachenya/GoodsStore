@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F974371D-99E2-4842-BF19-5454FBE9ED48}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsStrore.Infrastructure.Tests", "Tests\GoodsStrore.Infrastructure.Tests\GoodsStrore.Infrastructure.Tests.csproj", "{EAE54A67-4E2C-445F-B60D-23C09CB672BC}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GoodsStore.Data", "GoodsStore.Data", "{D3B850C0-B9F3-4E10-84A6-054259E76F2B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsStore.Data.Infrastructure", "GoodsStore.Data\GoodsStore.Data.Infrastructure\GoodsStore.Data.Infrastructure.csproj", "{BE47E1E1-6F1E-490D-A5B8-EC3F9589E0D2}"
@@ -35,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsStore.Core.Logic", "Go
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsStore.Data.Identity", "GoodsStore.Data\GoodsStore.Data.Identity\GoodsStore.Data.Identity.csproj", "{FFB53016-2CDD-41E9-8084-FAD7F6627DE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodsStore.Core.Infrastructure", "GoodsStore.Core\GoodsStore.Core.Infrastructure\GoodsStore.Core.Infrastructure.csproj", "{66BD7DBE-39B8-4370-987F-05F75A74FC53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsStore.Core.Infrastructure", "GoodsStore.Core\GoodsStore.Core.Infrastructure\GoodsStore.Core.Infrastructure.csproj", "{66BD7DBE-39B8-4370-987F-05F75A74FC53}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +39,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EAE54A67-4E2C-445F-B60D-23C09CB672BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EAE54A67-4E2C-445F-B60D-23C09CB672BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EAE54A67-4E2C-445F-B60D-23C09CB672BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EAE54A67-4E2C-445F-B60D-23C09CB672BC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BE47E1E1-6F1E-490D-A5B8-EC3F9589E0D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BE47E1E1-6F1E-490D-A5B8-EC3F9589E0D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE47E1E1-6F1E-490D-A5B8-EC3F9589E0D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -96,7 +88,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{EAE54A67-4E2C-445F-B60D-23C09CB672BC} = {F974371D-99E2-4842-BF19-5454FBE9ED48}
 		{BE47E1E1-6F1E-490D-A5B8-EC3F9589E0D2} = {D3B850C0-B9F3-4E10-84A6-054259E76F2B}
 		{088F78C5-06C1-454F-8D67-BD446F2AC3D4} = {D3B850C0-B9F3-4E10-84A6-054259E76F2B}
 		{A0DECB32-EEEF-4063-B98A-82DC67D3763D} = {B2C59F62-BC47-4776-B818-2F9C561293CF}

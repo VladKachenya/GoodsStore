@@ -53,8 +53,8 @@ namespace GoodsStore.Web.Presentation.Controllers.ApiControllers
             }
             catch (Exception e)
             {
-                //return Json(null);
-                return NotFound();
+                return Json(null);
+                //return NotFound();
             }
 
             // configyre specification
@@ -79,8 +79,8 @@ namespace GoodsStore.Web.Presentation.Controllers.ApiControllers
             }
             catch (Exception e)
             {
-                //return Json(null);
-                return NotFound();
+                return Json(0);
+                //return NotFound();
             }
 
             // configyre specification
@@ -101,7 +101,7 @@ namespace GoodsStore.Web.Presentation.Controllers.ApiControllers
             var filtringSpecification = BuildSpecification(catalogItemModelFilter, catalogItemType);
             if (catalogItemModelFilter.SkippingPages < 0)
             {
-                return NotFound();
+                return Json(null);
             }
             filtringSpecification.ApplyPaging(catalogItemModelFilter.SkippingPages * 6, 6);
 
@@ -111,10 +111,10 @@ namespace GoodsStore.Web.Presentation.Controllers.ApiControllers
 
             // creation catalogItemModels
             var res = _catalogItemModelFactory.GetCatalogItemShortModels(catalogItems);
-            if (res.Count == 0)
-            {
-                return NotFound();
-            }
+            //if (res.Count == 0)
+            //{
+            //    return NotFound();
+            //}
             return Ok(res);
         }
 

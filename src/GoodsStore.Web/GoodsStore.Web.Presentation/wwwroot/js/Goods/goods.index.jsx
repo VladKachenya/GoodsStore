@@ -99,23 +99,30 @@
     }
 
     function getInitialData() {
-        $.ajax({
-            url: new URL("/api/Catalog/CatalogItems/" + typeDiscriminator, getSiteAddres()),
-            contentType: "application/json",
-            method: "GET",
-            success: function (data) {
-                catalogItemsBox.setState({ data: data });
-                var spiner = $('.loading-spiner').first();
-                spiner.removeClass();
-                spiner.hide();
-            },
-            failure: function (errMsg) {
-                var spiner = $('.loading-spiner').first();
-                spiner.removeClass();
-                spiner.hide();
-                alert(errMsg);
-            }
-        });
+        try {
+            $.ajax({
+                url: new URL("/api/Catalog/CatalogItems/" + typeDiscriminator, getSiteAddres()),
+                contentType: "application/json",
+                method: "GET",
+                success: function (data) {
+                    if (data != null) {
+                        catalogItemsBox.setState({ data: data });
+                    }
+                    var spiner = $('.loading-spiner').first();
+                    spiner.removeClass();
+                    spiner.hide();
+                },
+                failure: function(errMsg) {
+                     alert(errMsg);
+                }
+            });
+        } catch (err) {
+            var spiner = $('.loading-spiner').first();
+            spiner.removeClass();
+            spiner.hide();
+            throw err;
+        }
+
     };
 
     function loadData() {
