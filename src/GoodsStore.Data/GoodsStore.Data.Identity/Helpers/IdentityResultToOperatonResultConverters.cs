@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
-using GoodsStore.App.Infrastructure.Helpers;
+using GoodsStore.Core.Domain.Helpers;
 using Microsoft.AspNetCore.Identity;
 
-namespace GoodsStore.Core.Logic.Helpers
+namespace GoodsStore.Data.Identity.Helpers
 {
     public class IdentityResultToOperatonResultConverters
     {

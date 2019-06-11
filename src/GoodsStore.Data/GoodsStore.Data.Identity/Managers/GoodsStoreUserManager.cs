@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using GoodsStore.App.Infrastructure.Helpers;
+using GoodsStore.Core.Domain.Helpers;
 using GoodsStore.Core.Domain.Identity;
 using GoodsStore.Core.Domain.Managers;
-using GoodsStore.Core.Logic.Helpers;
+using GoodsStore.Data.Identity.Helpers;
 using GoodsStore.Data.Identity.IdentityEntities;
 using Microsoft.AspNetCore.Identity;
 

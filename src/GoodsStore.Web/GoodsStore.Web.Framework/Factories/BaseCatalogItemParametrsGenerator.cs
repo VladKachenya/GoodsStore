@@ -43,7 +43,7 @@ namespace GoodsStore.Web.Framework.Factories
 
             res.Add(_parametrFactory.GetPhraseParametr("Product name", nameof(CatalogItem.Name)));
 
-            res.Add(_parametrFactory.GetPhraseParametr("Some property", "SomeProperty"));
+            //res.Add(_parametrFactory.GetPhraseParametr("Some property", "SomeProperty"));
 
 
             var brands = itemType.BrandItemTypes.Select(bi => bi.Brand).ToList();

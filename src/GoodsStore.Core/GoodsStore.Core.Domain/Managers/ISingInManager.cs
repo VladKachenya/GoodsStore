@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 using System.Threading.Tasks;
-using GoodsStore.App.Infrastructure.Helpers;
+using GoodsStore.Core.Domain.Helpers;
 using GoodsStore.Core.Domain.Identity;
 
 namespace GoodsStore.Core.Domain.Managers

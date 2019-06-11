@@ -5,3 +5,8 @@
     var host = pathArray[2];
     return protocol + '//' + host;
 }
+
+function AddToComparisonBasket(catalogItemId, typeDiscriminator)
+{
+
+}

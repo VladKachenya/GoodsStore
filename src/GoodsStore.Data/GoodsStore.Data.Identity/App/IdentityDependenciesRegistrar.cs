@@ -1,7 +1,7 @@
 ﻿using GoodsStore.App.Infrastructure.App;
 using GoodsStore.App.Infrastructure.IoC;
 using GoodsStore.Core.Domain.Managers;
-using GoodsStore.Core.Logic.Helpers;
+using GoodsStore.Data.Identity.Helpers;
 using GoodsStore.Data.Identity.Managers;
 
 namespace GoodsStore.Data.Identity.App

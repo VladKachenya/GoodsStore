@@ -24,7 +24,10 @@ class CatalogItemList extends React.Component {
                     <div className="col-6">
                         <h5 className="card-title goods-store-price">{ci.price}</h5>
                         <p className="card-text">{ci.description}</p>
-                        <a href={itemUrl} className="btn btn-primary">Details</a>
+                        <div>
+                            <a href={itemUrl} className="btn btn-primary">Details</a>
+                            <button className="compare-block-button btn btn-info m-1">Add to comparison basket</button>
+                        </div>
                     </div>
                     <div className="col-3">Some shops</div>
                 </div>

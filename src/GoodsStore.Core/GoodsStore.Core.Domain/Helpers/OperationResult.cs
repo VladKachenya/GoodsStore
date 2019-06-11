@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace GoodsStore.App.Infrastructure.Helpers
+namespace GoodsStore.Core.Domain.Helpers
 {
     public class OperationResult
     {

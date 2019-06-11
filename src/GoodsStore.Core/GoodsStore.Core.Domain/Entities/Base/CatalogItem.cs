@@ -6,9 +6,8 @@
         public decimal Price { get; set; }
         public string PictureUri { get; set; }
 
-        // Наверное можно этот блок заменить на BrandItemType
+        // This is block will be replaced by "BrandItemType" may be
         public int ItemTypeId { get; set; }
-
         public virtual ItemType ItemType { get; set; }
         public int BrandId { get; set; }
         public virtual Brand Brand { get; set; }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using GoodsStore.App.Infrastructure.Helpers;
+using GoodsStore.Core.Domain.Helpers;
 using GoodsStore.Core.Domain.Identity;
 using GoodsStore.Core.Domain.Managers;
 using GoodsStore.Data.Identity.IdentityEntities;

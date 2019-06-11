@@ -98,6 +98,13 @@
         return data;
     }
 
+    function SetItems(data) {
+        catalogItemsBox.setState({ data: data });
+        $('.compare-block-button').click(function (el) {
+            AddToComparisonBasket(1, typeDiscriminator);
+        });
+    }
+
     function getInitialData() {
         try {
             $.ajax({
@@ -106,7 +113,7 @@
                 method: "GET",
                 success: function (data) {
                     if (data != null) {
-                        catalogItemsBox.setState({ data: data });
+                        SetItems(data);
                     }
                     var spiner = $('.loading-spiner').first();
                     spiner.removeClass();
@@ -134,7 +141,7 @@
             method: "POST",
             data: JSON.stringify(data),
             success: function (data) {
-                catalogItemsBox.setState({ data: data });
+                SetItems(data);
             },
             failure: function (errMsg) {
                 alert(errMsg);

@@ -74,9 +74,7 @@ namespace GoodsStore.App.CompositionRoot.AppConfiguration
         #endregion
 
 
-        #region Utilities
-
-
+        #region Application dependencies
         protected IEnumerable<IDependenciesRegistrar> GetDependenciesRegistrators()
         {
             yield return new DataAccessDependenciesRegistrar();

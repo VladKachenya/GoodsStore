@@ -13,6 +13,6 @@ namespace GoodsStore.Core.Infrastructure.Services
         Task<int> GetBasketItemCount(string userId);
         Task DeleteBasketAsync(int basketId);
 
-        // TransferBasketAsync при логине должен вызыватся этот метод чтобы перенести корзину 
+        // TransferBasket при логине должен вызыватся этот метод чтобы перенести корзину 
     }
 }
