@@ -24,5 +24,12 @@ namespace GoodsStore.Web.Presentation.Controllers.ApiControllers
             return Ok(comparisonBasket.Items.Count);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> ItemsCount()
+        {
+            var count = await _comparisonBasketSevice.GetBasketItemCount(User.Identity.Name);
+            return Ok(count);
+        }
+
     }
 }

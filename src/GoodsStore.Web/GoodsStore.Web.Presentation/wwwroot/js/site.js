@@ -13,11 +13,27 @@ function AddToComparisonBasket(catalogItemId, typeDiscriminator) {
         contentType: "application/json",
         method: "POST",
         data: JSON.stringify(typeDiscriminator),
-        success: function (data) {
-
+        success: function (count) {
+            $('#comparison-basket-count').text(count);
         },
         failure: function (errMsg) {
             alert(errMsg);
         }
     });
 }
+
+$(document).ready(function () {
+    var addres = new URL("/api/ComparisonBasket/ItemsCount", getSiteAddres());
+    $.ajax({
+        url: addres,
+        contentType: "application/json",
+        method: "GET",
+        success: function (count) {
+            $('#comparison-basket-count').text(count);
+        },
+        failure: function (errMsg) {
+            alert(errMsg);
+        }
+    });
+
+});
