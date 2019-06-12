@@ -1,10 +1,10 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using GoodsStore.Core.Domain.Entities.ComparisonBasketAggregate;
+﻿using GoodsStore.Core.Domain.Entities.ComparisonBasketAggregate;
 using GoodsStore.Core.Domain.Repositories;
 using GoodsStore.Core.Domain.Specifications;
 using GoodsStore.Core.Infrastructure.Services;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace GoodsStore.Core.Logic.Services
 {
@@ -25,7 +25,7 @@ namespace GoodsStore.Core.Logic.Services
             _comparisonBasketRepository = comparisonBasketRepository;
             _comparisonBasketItemRepository = comparisonBasketItemRepository;
             _comparisonBasketSpecificationFunc = comparisonBasketSpecificationFunc;
-            _getBasketByUserSpecificationFunc = 
+            _getBasketByUserSpecificationFunc =
                 userId => _comparisonBasketSpecificationFunc().ConfigyreSpecificaton(cb => cb.UserId == userId);
         }
 
@@ -84,14 +84,19 @@ namespace GoodsStore.Core.Logic.Services
             return 0;
         }
 
-        public async Task DeleteBasketAsync(int basketId)
+        public async Task DeleteBasket(int basketId)
         {
             var basket = await _comparisonBasketRepository.GetById(basketId);
+            await DeleteBasket(basket);
 
-            if (basket != null)
-            {
-                await _comparisonBasketRepository.Delete(basket);
-            }
+        }
+
+        public async Task DeleteBasket(string userId)
+        {
+            var spec = _getBasketByUserSpecificationFunc(userId);
+            var basket = await _comparisonBasketRepository.GetFirstOrDefault(spec);
+            await DeleteBasket(basket);
+
         }
 
         #region Utilities
@@ -100,6 +105,20 @@ namespace GoodsStore.Core.Logic.Services
             var basket = new ComparisonBasket() { UserId = userId };
             await _comparisonBasketRepository.Add(basket);
             return basket;
+        }
+
+        private async Task DeleteBasket(ComparisonBasket basket)
+        {
+            if (basket != null)
+            {
+                //foreach (var comparisonBasketItem in basket.Items.ToList())
+                //{
+                //    await _comparisonBasketItemRepository.Delete(comparisonBasketItem);
+                //    basket.DeleteItem(comparisonBasketItem.Id);
+                //}
+
+                await _comparisonBasketRepository.Delete(basket);
+            }
         }
 
         #endregion

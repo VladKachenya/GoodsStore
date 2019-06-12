@@ -6,5 +6,8 @@ namespace GoodsStore.Core.Domain.Entities.ComparisonBasketAggregate
     {
         public string Discriminator { get; set; }
         public int CatalogItemId { get; set; }
+        public int ComparisonBasketId { get; set; }
+        public virtual ComparisonBasket ComparisonBasket { get; set; }
+
     }
 }

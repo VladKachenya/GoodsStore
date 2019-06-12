@@ -22,5 +22,15 @@ namespace GoodsStore.Core.Domain.Entities.ComparisonBasketAggregate
                 return;
             }
         }
+
+        public void DeleteItem(int itemId)
+        {
+            var item = _items.SingleOrDefault(i => i.Id == itemId);
+            if (item != null)
+            {
+                _items.Remove(item);
+                return;
+            }
+        }
     }
 }

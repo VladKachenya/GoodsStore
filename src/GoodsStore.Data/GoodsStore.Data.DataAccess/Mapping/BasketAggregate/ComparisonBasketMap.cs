@@ -11,6 +11,7 @@ namespace GoodsStore.Data.DataAccess.Mapping.BasketAggregate
         {
             //builder.ToTable("ComparisonBasket");
             builder.HasKey(bi => bi.Id);
+            builder.HasMany(i => i.Items).WithOne(b => b.ComparisonBasket).OnDelete(DeleteBehavior.Cascade);
 
             var navigation = builder.Metadata.FindNavigation(nameof(ComparisonBasket.Items));
 

@@ -11,7 +11,9 @@ namespace GoodsStore.Core.Infrastructure.Services
         Task DeleteItemFromBasket(int basketId, int catalogItemId);
         Task<ComparisonBasket> GetOrCreateBasketForUser(string userId);
         Task<int> GetBasketItemCount(string userId);
-        Task DeleteBasketAsync(int basketId);
+        Task DeleteBasket(int basketId);
+        Task DeleteBasket(string userId);
+
 
         // TransferBasket при логине должен вызыватся этот метод чтобы перенести корзину 
     }

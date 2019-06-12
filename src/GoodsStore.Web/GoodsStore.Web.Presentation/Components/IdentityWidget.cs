@@ -6,10 +6,10 @@ namespace GoodsStore.Web.Presentation.Components
 {
     public class IdentityWidgetViewComponent : ViewComponent
     {
-        private readonly ISingInManager _manager;
+        private readonly ISignInManager _manager;
 
         public IdentityWidgetViewComponent(
-            ISingInManager manager
+            ISignInManager manager
             )
         {
             _manager = manager;

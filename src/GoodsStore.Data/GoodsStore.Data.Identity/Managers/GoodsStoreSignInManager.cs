@@ -10,20 +10,20 @@ using Microsoft.AspNetCore.Identity;
 
 namespace GoodsStore.Data.Identity.Managers
 {
-    public class GoodsStoreSingInManager : ISingInManager
+    public class GoodsStoreSignInManager : ISignInManager
     {
         private readonly SignInManager<GoodsStoreUser> _signInManager;
 
         #region ctor
 
-        public GoodsStoreSingInManager(SignInManager<GoodsStoreUser> signInManager)
+        public GoodsStoreSignInManager(SignInManager<GoodsStoreUser> signInManager)
         {
             _signInManager = signInManager;
         }
 
         #endregion
 
-        #region Implementation of ISingInManager
+        #region Implementation of ISignInManager
 
         public async Task<OperationResult> PasswordSignIn(string userName, string password, bool isPersistent, bool lockoutOnFailure)
         {

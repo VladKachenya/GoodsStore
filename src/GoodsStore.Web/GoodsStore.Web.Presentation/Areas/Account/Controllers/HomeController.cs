@@ -1,24 +1,30 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using GoodsStore.Core.Domain.Managers;
+﻿using GoodsStore.Core.Domain.Managers;
+using GoodsStore.Core.Infrastructure.Services;
 using GoodsStore.Web.Framework.Controllers;
+using GoodsStore.Web.Framework.Keys;
 using GoodsStore.Web.ViewModel.Models.Account;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace GoodsStore.Web.Presentation.Areas.Account.Controllers
 {
     public class HomeController : BaseAccountController
     {
-        private readonly ISingInManager _signInManager;
+        private readonly ISignInManager _signInManager;
         private readonly IUserManager _userManager;
+        private readonly IComparisonBasketSevice _comparisonBasketSevice;
 
         public HomeController(
-            ISingInManager signInManager,
-            IUserManager userManager)
+            ISignInManager signInManager,
+            IUserManager userManager,
+            IComparisonBasketSevice comparisonBasketSevice
+            )
         {
             _signInManager = signInManager;
             _userManager = userManager;
+            _comparisonBasketSevice = comparisonBasketSevice;
         }
         // GET
         public IActionResult Index()
@@ -56,6 +62,7 @@ namespace GoodsStore.Web.Presentation.Areas.Account.Controllers
                 return View(loginModel);
             }
 
+            await ClearGuestData();
             return RedirectToLocal(null);
         }
 
@@ -103,7 +110,7 @@ namespace GoodsStore.Web.Presentation.Areas.Account.Controllers
             }
             else
             {
-                return RedirectToRoute("default", new { controller = "Home", action = "Index"});
+                return RedirectToRoute("default", new { controller = "Home", action = "Index" });
             }
         }
 
@@ -118,6 +125,15 @@ namespace GoodsStore.Web.Presentation.Areas.Account.Controllers
         private void AddError(string error)
         {
             ModelState.AddModelError("", error);
+        }
+
+        private async Task ClearGuestData()
+        {
+            if (Request.Cookies.ContainsKey(WebConstants.AnonymousGuestCookieName) && Request.Cookies[WebConstants.AnonymousGuestCookieName] != null)
+            {
+                await _comparisonBasketSevice.DeleteBasket(Request.Cookies[WebConstants.AnonymousGuestCookieName]);
+                Response.Cookies.Delete(WebConstants.AnonymousGuestCookieName);
+            }
         }
 
         #endregion

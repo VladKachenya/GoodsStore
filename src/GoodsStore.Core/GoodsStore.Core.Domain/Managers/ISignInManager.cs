@@ -5,7 +5,7 @@ using GoodsStore.Core.Domain.Identity;
 
 namespace GoodsStore.Core.Domain.Managers
 {
-    public interface ISingInManager
+    public interface ISignInManager
     {
         Task<OperationResult> PasswordSignIn(string userName, string password, bool isPersistent,
             bool lockoutOnFailure);
